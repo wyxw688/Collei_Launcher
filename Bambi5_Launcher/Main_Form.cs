@@ -500,8 +500,6 @@ namespace Collei_Launcher
         {
             Check_Form.Open_Form(servers[ci]);
         }
-        int stc = 0;
-        int etc = 0;
         public Task Load_Server_Status()
         {
             return Task.Run(() =>
@@ -511,13 +509,8 @@ namespace Collei_Launcher
                     for (int i = 0; i < servers.Count; i++)
                     {
                         int s = i;
-                        while(stc - etc >=3)
-                        {
-                            Thread.Sleep(250);
-                        }
-                        Task.Run(() =>
-                        {
-                            stc++;
+                        Thread ls = new Thread(()=>
+                        { 
                             try
                             {
                                 string str = "https://" + servers[s].host + ":" + servers[s].dispatch + "/status/server";
@@ -552,18 +545,14 @@ namespace Collei_Launcher
                             }
                             catch (NullReferenceException e)
                             {
-                                Debug.Print("加载状态出错:" + e.Message);
+                                Debug.Print("加载状态出错NullReferenceException:" + e.Message);
                             }
                             catch (Exception e)
                             {
                                 Debug.Print("加载状态出错:" + e.Message);
                             }
-                            finally
-                            {
-                                etc++;
-                            }
                         });
-                        Thread.Sleep(50);
+                        ls.Start();
                     }
                 }
                 catch (Exception ex)
@@ -572,6 +561,7 @@ namespace Collei_Launcher
                 }
             });
         }
+
 
         private void Status_timer_Tick(object sender, EventArgs e)
         {
