@@ -5,7 +5,7 @@ VisualStudioVersion = 17.1.32407.343
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collei_Launcher", "Bambi5_Launcher\Collei_Launcher.csproj", "{CA1F143B-77B8-4F15-9BD7-BDDED1654120}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MetadataConverter", "..\MetadataConverter_Dll\MetadataConverter.vcxproj", "{0B50822A-6934-423D-BA03-4EDA70AE9C13}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MetadataConverter", "MetadataConverter_Dll\MetadataConverter.vcxproj", "{0B50822A-6934-423D-BA03-4EDA70AE9C13}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -218,7 +218,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\MetadataConverter_Dll\MetadataConverter.vcxproj">
+    <ProjectReference Include="..\MetadataConverter_Dll\MetadataConverter.vcxproj">
       <Project>{0b50822a-6934-423d-ba03-4eda70ae9c13}</Project>
       <Name>MetadataConverter</Name>
     </ProjectReference>
