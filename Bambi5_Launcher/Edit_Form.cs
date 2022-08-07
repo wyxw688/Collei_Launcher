@@ -16,7 +16,9 @@ namespace Collei_Launcher
         {
             InitializeComponent();
         }
+
         public ServersItem rser = null;
+
         private ServersItem Private_Edit_Server(ServersItem ser = null)
         {
             if(ser ==null)

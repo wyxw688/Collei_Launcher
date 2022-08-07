@@ -114,9 +114,9 @@ public static class Classes
     {
         try
         {
-            ServicePointManager.Expect100Continue = true;
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
-            ServicePointManager.ServerCertificateValidationCallback = (sender, certificate, chain, errors) => true;
+            //ServicePointManager.Expect100Continue = true;
+            //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+            //ServicePointManager.ServerCertificateValidationCallback = (sender, certificate, chain, errors) => true;
             string result = "";
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
             req.Method = "POST";
@@ -176,7 +176,6 @@ public static class Classes
         return dt;
         //System.Console.WriteLine(dt.ToString("yyyy/MM/dd HH:mm:ss:ffff"));
     }
-    /*
     /// <summary>
     /// 设置证书安全性
     /// </summary>
@@ -184,7 +183,6 @@ public static class Classes
     {
         ServicePointManager.ServerCertificateValidationCallback += RemoteCertificateValidate;
     }
-    */
     ///  <summary>
     ///  远程证书验证
     ///  </summary>
@@ -212,9 +210,9 @@ public static class Classes
     {
         try
         {
-            ServicePointManager.Expect100Continue = true;
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
-            ServicePointManager.ServerCertificateValidationCallback = (sender, certificate, chain, errors) => true;
+            //ServicePointManager.Expect100Continue = true;
+            //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+            //ServicePointManager.ServerCertificateValidationCallback = (sender, certificate, chain, errors) => true;
             DateTime st = DateTime.Now;
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.Timeout = 3000;
@@ -235,9 +233,9 @@ public static class Classes
     {
         var tk = Task.Run(() =>
         {
-            ServicePointManager.Expect100Continue = true;
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
-            ServicePointManager.ServerCertificateValidationCallback = (sender, certificate, chain, errors) => true;
+            //ServicePointManager.Expect100Continue = true;
+            //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+            //ServicePointManager.ServerCertificateValidationCallback = (sender, certificate, chain, errors) => true;
             DateTime st = DateTime.Now;
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.Timeout = 3000;
@@ -260,7 +258,7 @@ public static class Classes
                 {
                     res.Result = ex.Message;
                     res.Use_time = -1;
-                    Console.WriteLine("ex.Response == null");
+                    //Console.WriteLine("ex.Response == null");
                     return res;
                 }
                 HttpWebResponse response = (HttpWebResponse)ex.Response;

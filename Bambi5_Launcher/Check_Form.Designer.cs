@@ -168,7 +168,7 @@
             this.Check_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Check_button.Location = new System.Drawing.Point(12, 391);
             this.Check_button.Name = "Check_button";
-            this.Check_button.Size = new System.Drawing.Size(150, 50);
+            this.Check_button.Size = new System.Drawing.Size(175, 50);
             this.Check_button.TabIndex = 61;
             this.Check_button.Text = "开始检查";
             this.Check_button.UseVisualStyleBackColor = true;

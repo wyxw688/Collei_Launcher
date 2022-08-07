@@ -53,6 +53,21 @@ namespace Collei_Launcher
             this.Ver_columnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Ping_columnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Content_columnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Meta_tabPage = new System.Windows.Forms.TabPage();
+            this.label6 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.UnPatch_File_Defkey_button = new System.Windows.Forms.Button();
+            this.Patch_File_Defkey_button = new System.Windows.Forms.Button();
+            this.Encrypt_File_button = new System.Windows.Forms.Button();
+            this.Decrypt_File_button = new System.Windows.Forms.Button();
+            this.Output_panel = new System.Windows.Forms.Panel();
+            this.Set_MetaOutputpath_button = new System.Windows.Forms.Button();
+            this.MetaFile_Output_textBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.INOUT_checkBox = new System.Windows.Forms.CheckBox();
+            this.Set_MetaInputpath_button = new System.Windows.Forms.Button();
+            this.MetaFile_Input_textBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.Settings_tabPage = new System.Windows.Forms.TabPage();
             this.Find_GameExe_button = new System.Windows.Forms.Button();
             this.Open_Check_button = new System.Windows.Forms.Button();
@@ -67,7 +82,6 @@ namespace Collei_Launcher
             this.Proxy_port_numericUpDown = new System.Windows.Forms.NumericUpDown();
             this.Main_statusStrip = new System.Windows.Forms.StatusStrip();
             this.Proxy_status_toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.Bambi5_linkLabel = new System.Windows.Forms.LinkLabel();
             this.Servers_contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.添加ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -77,9 +91,13 @@ namespace Collei_Launcher
             this.编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Status_timer = new System.Windows.Forms.Timer(this.components);
+            this.Author_label = new System.Windows.Forms.Label();
             this.Main_tabControl.SuspendLayout();
             this.Home_tabPage.SuspendLayout();
             this.Servers_List_tabPage.SuspendLayout();
+            this.Meta_tabPage.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.Output_panel.SuspendLayout();
             this.Settings_tabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Proxy_port_numericUpDown)).BeginInit();
             this.Main_statusStrip.SuspendLayout();
@@ -93,6 +111,7 @@ namespace Collei_Launcher
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Main_tabControl.Controls.Add(this.Home_tabPage);
             this.Main_tabControl.Controls.Add(this.Servers_List_tabPage);
+            this.Main_tabControl.Controls.Add(this.Meta_tabPage);
             this.Main_tabControl.Controls.Add(this.Settings_tabPage);
             this.Main_tabControl.Location = new System.Drawing.Point(12, 12);
             this.Main_tabControl.Name = "Main_tabControl";
@@ -203,6 +222,163 @@ namespace Collei_Launcher
             // 
             this.Content_columnHeader.Text = "介绍";
             this.Content_columnHeader.Width = 200;
+            // 
+            // Meta_tabPage
+            // 
+            this.Meta_tabPage.Controls.Add(this.label6);
+            this.Meta_tabPage.Controls.Add(this.groupBox1);
+            this.Meta_tabPage.Controls.Add(this.Output_panel);
+            this.Meta_tabPage.Controls.Add(this.INOUT_checkBox);
+            this.Meta_tabPage.Controls.Add(this.Set_MetaInputpath_button);
+            this.Meta_tabPage.Controls.Add(this.MetaFile_Input_textBox);
+            this.Meta_tabPage.Controls.Add(this.label4);
+            this.Meta_tabPage.Location = new System.Drawing.Point(4, 32);
+            this.Meta_tabPage.Name = "Meta_tabPage";
+            this.Meta_tabPage.Size = new System.Drawing.Size(650, 393);
+            this.Meta_tabPage.TabIndex = 3;
+            this.Meta_tabPage.Text = "修补Meta";
+            this.Meta_tabPage.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Red;
+            this.label6.Location = new System.Drawing.Point(309, 89);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(316, 23);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "温馨提示，修补操作不需要解包后再修补";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.UnPatch_File_Defkey_button);
+            this.groupBox1.Controls.Add(this.Patch_File_Defkey_button);
+            this.groupBox1.Controls.Add(this.Encrypt_File_button);
+            this.groupBox1.Controls.Add(this.Decrypt_File_button);
+            this.groupBox1.Location = new System.Drawing.Point(3, 257);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(644, 133);
+            this.groupBox1.TabIndex = 16;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "操作";
+            // 
+            // UnPatch_File_Defkey_button
+            // 
+            this.UnPatch_File_Defkey_button.Location = new System.Drawing.Point(221, 49);
+            this.UnPatch_File_Defkey_button.Name = "UnPatch_File_Defkey_button";
+            this.UnPatch_File_Defkey_button.Size = new System.Drawing.Size(200, 50);
+            this.UnPatch_File_Defkey_button.TabIndex = 21;
+            this.UnPatch_File_Defkey_button.Text = "使用默认key反修补";
+            this.UnPatch_File_Defkey_button.UseVisualStyleBackColor = true;
+            this.UnPatch_File_Defkey_button.Click += new System.EventHandler(this.UnPatch_File_Defkey_button_Click);
+            // 
+            // Patch_File_Defkey_button
+            // 
+            this.Patch_File_Defkey_button.Location = new System.Drawing.Point(6, 49);
+            this.Patch_File_Defkey_button.Name = "Patch_File_Defkey_button";
+            this.Patch_File_Defkey_button.Size = new System.Drawing.Size(175, 50);
+            this.Patch_File_Defkey_button.TabIndex = 20;
+            this.Patch_File_Defkey_button.Text = "使用默认key修补";
+            this.Patch_File_Defkey_button.UseVisualStyleBackColor = true;
+            this.Patch_File_Defkey_button.Click += new System.EventHandler(this.Patch_File_Defkey_button_Click);
+            // 
+            // Encrypt_File_button
+            // 
+            this.Encrypt_File_button.Location = new System.Drawing.Point(462, 77);
+            this.Encrypt_File_button.Name = "Encrypt_File_button";
+            this.Encrypt_File_button.Size = new System.Drawing.Size(146, 50);
+            this.Encrypt_File_button.TabIndex = 19;
+            this.Encrypt_File_button.Text = "打包";
+            this.Encrypt_File_button.UseVisualStyleBackColor = true;
+            this.Encrypt_File_button.Click += new System.EventHandler(this.Encrypt_File_button_Click);
+            // 
+            // Decrypt_File_button
+            // 
+            this.Decrypt_File_button.Location = new System.Drawing.Point(462, 21);
+            this.Decrypt_File_button.Name = "Decrypt_File_button";
+            this.Decrypt_File_button.Size = new System.Drawing.Size(146, 50);
+            this.Decrypt_File_button.TabIndex = 18;
+            this.Decrypt_File_button.Text = "解包";
+            this.Decrypt_File_button.UseVisualStyleBackColor = true;
+            this.Decrypt_File_button.Click += new System.EventHandler(this.Decrypt_File_button_Click);
+            // 
+            // Output_panel
+            // 
+            this.Output_panel.Controls.Add(this.Set_MetaOutputpath_button);
+            this.Output_panel.Controls.Add(this.MetaFile_Output_textBox);
+            this.Output_panel.Controls.Add(this.label5);
+            this.Output_panel.Enabled = false;
+            this.Output_panel.Location = new System.Drawing.Point(3, 131);
+            this.Output_panel.Name = "Output_panel";
+            this.Output_panel.Size = new System.Drawing.Size(632, 120);
+            this.Output_panel.TabIndex = 15;
+            // 
+            // Set_MetaOutputpath_button
+            // 
+            this.Set_MetaOutputpath_button.Location = new System.Drawing.Point(19, 66);
+            this.Set_MetaOutputpath_button.Name = "Set_MetaOutputpath_button";
+            this.Set_MetaOutputpath_button.Size = new System.Drawing.Size(146, 50);
+            this.Set_MetaOutputpath_button.TabIndex = 17;
+            this.Set_MetaOutputpath_button.Text = "选择文件";
+            this.Set_MetaOutputpath_button.UseVisualStyleBackColor = true;
+            this.Set_MetaOutputpath_button.Click += new System.EventHandler(this.Set_MetaOutputpath_button_Click);
+            // 
+            // MetaFile_Output_textBox
+            // 
+            this.MetaFile_Output_textBox.Location = new System.Drawing.Point(19, 31);
+            this.MetaFile_Output_textBox.Name = "MetaFile_Output_textBox";
+            this.MetaFile_Output_textBox.ReadOnly = true;
+            this.MetaFile_Output_textBox.Size = new System.Drawing.Size(603, 29);
+            this.MetaFile_Output_textBox.TabIndex = 16;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(11, 5);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(82, 23);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "输出文件:";
+            // 
+            // INOUT_checkBox
+            // 
+            this.INOUT_checkBox.AutoSize = true;
+            this.INOUT_checkBox.Checked = true;
+            this.INOUT_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.INOUT_checkBox.Location = new System.Drawing.Point(174, 88);
+            this.INOUT_checkBox.Name = "INOUT_checkBox";
+            this.INOUT_checkBox.Size = new System.Drawing.Size(134, 27);
+            this.INOUT_checkBox.TabIndex = 14;
+            this.INOUT_checkBox.Text = "输出到源文件";
+            this.INOUT_checkBox.UseVisualStyleBackColor = true;
+            this.INOUT_checkBox.CheckedChanged += new System.EventHandler(this.Outpath_checkBox_CheckedChanged);
+            // 
+            // Set_MetaInputpath_button
+            // 
+            this.Set_MetaInputpath_button.Location = new System.Drawing.Point(22, 75);
+            this.Set_MetaInputpath_button.Name = "Set_MetaInputpath_button";
+            this.Set_MetaInputpath_button.Size = new System.Drawing.Size(146, 50);
+            this.Set_MetaInputpath_button.TabIndex = 13;
+            this.Set_MetaInputpath_button.Text = "选择文件";
+            this.Set_MetaInputpath_button.UseVisualStyleBackColor = true;
+            this.Set_MetaInputpath_button.Click += new System.EventHandler(this.Set_MetaInputpath_button_Click);
+            // 
+            // MetaFile_Input_textBox
+            // 
+            this.MetaFile_Input_textBox.Location = new System.Drawing.Point(22, 40);
+            this.MetaFile_Input_textBox.Name = "MetaFile_Input_textBox";
+            this.MetaFile_Input_textBox.ReadOnly = true;
+            this.MetaFile_Input_textBox.Size = new System.Drawing.Size(603, 29);
+            this.MetaFile_Input_textBox.TabIndex = 12;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(18, 14);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(82, 23);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "输入文件:";
             // 
             // Settings_tabPage
             // 
@@ -370,19 +546,6 @@ namespace Collei_Launcher
             this.Proxy_status_toolStripStatusLabel.Text = "查看当前代理配置";
             this.Proxy_status_toolStripStatusLabel.Click += new System.EventHandler(this.Proxy_status_toolStripStatusLabel_Click);
             // 
-            // Bambi5_linkLabel
-            // 
-            this.Bambi5_linkLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Bambi5_linkLabel.AutoSize = true;
-            this.Bambi5_linkLabel.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.Bambi5_linkLabel.Location = new System.Drawing.Point(573, 455);
-            this.Bambi5_linkLabel.Name = "Bambi5_linkLabel";
-            this.Bambi5_linkLabel.Size = new System.Drawing.Size(97, 23);
-            this.Bambi5_linkLabel.TabIndex = 3;
-            this.Bambi5_linkLabel.TabStop = true;
-            this.Bambi5_linkLabel.Text = "By Bambi5";
-            this.Bambi5_linkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Bambi5_linkLabel_LinkClicked);
-            // 
             // Servers_contextMenuStrip
             // 
             this.Servers_contextMenuStrip.Font = new System.Drawing.Font("微软雅黑", 12.5F);
@@ -454,6 +617,18 @@ namespace Collei_Launcher
             this.Status_timer.Interval = 5000;
             this.Status_timer.Tick += new System.EventHandler(this.Status_timer_Tick);
             // 
+            // Author_label
+            // 
+            this.Author_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Author_label.AutoSize = true;
+            this.Author_label.BackColor = System.Drawing.Color.Transparent;
+            this.Author_label.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.Author_label.Location = new System.Drawing.Point(566, 9);
+            this.Author_label.Name = "Author_label";
+            this.Author_label.Size = new System.Drawing.Size(97, 23);
+            this.Author_label.TabIndex = 3;
+            this.Author_label.Text = "By Bambi5";
+            // 
             // Main_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
@@ -461,7 +636,7 @@ namespace Collei_Launcher
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(682, 478);
-            this.Controls.Add(this.Bambi5_linkLabel);
+            this.Controls.Add(this.Author_label);
             this.Controls.Add(this.Main_statusStrip);
             this.Controls.Add(this.Main_tabControl);
             this.Font = new System.Drawing.Font("微软雅黑", 10F);
@@ -479,6 +654,11 @@ namespace Collei_Launcher
             this.Main_tabControl.ResumeLayout(false);
             this.Home_tabPage.ResumeLayout(false);
             this.Servers_List_tabPage.ResumeLayout(false);
+            this.Meta_tabPage.ResumeLayout(false);
+            this.Meta_tabPage.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.Output_panel.ResumeLayout(false);
+            this.Output_panel.PerformLayout();
             this.Settings_tabPage.ResumeLayout(false);
             this.Settings_tabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Proxy_port_numericUpDown)).EndInit();
@@ -512,7 +692,6 @@ namespace Collei_Launcher
         public System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         public System.Windows.Forms.ToolStripMenuItem 删除ToolStripMenuItem;
         public System.Windows.Forms.TabPage Servers_List_tabPage;
-        public System.Windows.Forms.LinkLabel Bambi5_linkLabel;
         public System.Windows.Forms.ColumnHeader Game_columnHeader;
         public System.Windows.Forms.ColumnHeader Content_columnHeader;
         public System.Windows.Forms.CheckBox Show_Public_Server_checkBox;
@@ -528,6 +707,22 @@ namespace Collei_Launcher
         public System.Windows.Forms.Timer Status_timer;
         public System.Windows.Forms.ColumnHeader Ver_columnHeader;
         public System.Windows.Forms.ColumnHeader Ping_columnHeader;
+        public System.Windows.Forms.Button Set_MetaInputpath_button;
+        public System.Windows.Forms.TextBox MetaFile_Input_textBox;
+        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.Button Set_MetaOutputpath_button;
+        public System.Windows.Forms.TextBox MetaFile_Output_textBox;
+        public System.Windows.Forms.Label label5;
+        public System.Windows.Forms.Button UnPatch_File_Defkey_button;
+        public System.Windows.Forms.Button Patch_File_Defkey_button;
+        public System.Windows.Forms.Button Encrypt_File_button;
+        public System.Windows.Forms.Button Decrypt_File_button;
+        public System.Windows.Forms.TabPage Meta_tabPage;
+        public System.Windows.Forms.Panel Output_panel;
+        public System.Windows.Forms.CheckBox INOUT_checkBox;
+        public System.Windows.Forms.GroupBox groupBox1;
+        public System.Windows.Forms.Label label6;
+        public System.Windows.Forms.Label Author_label;
     }
 }
 

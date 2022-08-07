@@ -217,8 +217,8 @@
             // Server_status_toolStripStatusLabel
             // 
             this.Server_status_toolStripStatusLabel.Name = "Server_status_toolStripStatusLabel";
-            this.Server_status_toolStripStatusLabel.Size = new System.Drawing.Size(163, 23);
-            this.Server_status_toolStripStatusLabel.Text = "正在获取服务器状态";
+            this.Server_status_toolStripStatusLabel.Size = new System.Drawing.Size(175, 23);
+            this.Server_status_toolStripStatusLabel.Text = "正在获取服务器状态···";
             // 
             // Server_Status_timer
             // 

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text;
 using System.Threading;
+using System.IO;
 
 namespace Collei_Launcher
 {
@@ -29,19 +30,19 @@ namespace Collei_Launcher
         public static void Application_ThreadException(object sender, ThreadExceptionEventArgs e)
         {
             string str = GetExceptionMsg(e.Exception, e.ToString());
-            MessageBox.Show(str, "抛出异常", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(str, "抛出异常1", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         public static void Application_Exception(Exception e)
         {
             string str = GetExceptionMsg(e);
-            MessageBox.Show(str, "抛出异常", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(str, "抛出异常3", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         public static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
             string str = GetExceptionMsg(e.ExceptionObject as Exception, e.ToString());
-            MessageBox.Show(str, "抛出异常", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(str, "抛出异常2", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         public static string GetExceptionMsg(Exception ex, string backStr = "")
@@ -53,6 +54,7 @@ namespace Collei_Launcher
             {
                 sb.AppendLine("【异常类型】：" + ex.GetType().Name);
                 sb.AppendLine("【异常信息】：" + ex.Message);
+                
 #if DEBUG
                 sb.AppendLine("【堆栈调用】：" + ex.StackTrace);
 #endif
@@ -60,6 +62,17 @@ namespace Collei_Launcher
             else
             {
                 sb.AppendLine("【未处理异常】：" + backStr);
+            }
+            try
+            {
+                string log = sb.ToString();
+                log += "【堆栈调用】：" + ex.StackTrace + "\n";
+                File.AppendAllText(Application.StartupPath + @"\Exception.log", log);
+                sb.AppendLine("日志已保存到" + Application.StartupPath + @"\Exception.log");
+            }
+            catch
+            {
+                sb.AppendLine("日志保存失败:" + Application.StartupPath + @"\Exception.log");
             }
             sb.AppendLine("您可以截图此窗口发邮件给bambi@bambi5.top获取帮助！");
             sb.AppendLine("***************************************************************");

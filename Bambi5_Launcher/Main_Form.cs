@@ -6,6 +6,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Net.NetworkInformation;
 using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -32,7 +34,7 @@ namespace Collei_Launcher
             Control.CheckForIllegalCrossThreadCalls = false;
             form = this;
             InitializeComponent();
-            //Classes.SetCertificatePolicy();
+            Classes.SetCertificatePolicy();
         }
 
         private void Main_Form_Shown(object sender, EventArgs e)
@@ -122,10 +124,6 @@ namespace Collei_Launcher
             return proxy;
         }
 
-        private void Bambi5_linkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            System.Diagnostics.Process.Start("https://amfeng.cn/");
-        }
 
         public string Get_Proxy_Text()
         {
@@ -238,26 +236,39 @@ namespace Collei_Launcher
                 catch (Exception ex)
                 {
                     Debug.Print("解析json时出现错误:" + ex.Message);
-                    lc = new Local_Config();
-                    File.WriteAllText(config_path, JsonConvert.SerializeObject(lc));
                 }
             }
             else
             {
                 Debug.Print("未找到config文件");
-                lc = new Local_Config();
-                File.WriteAllText(config_path, JsonConvert.SerializeObject(lc));
             }
+
+            Local_Config.FixLC(ref lc);
             LoadSettingsToForm();
         }
         public void LoadSettingsToForm()
         {
             Proxy_port_numericUpDown.Value = lc.config.ProxyPort;
             Auto_close_proxy_checkBox.Checked = lc.config.Auto_Close_Proxy;
-            if (lc != null && lc.config.Game_Path != null)
+            Show_Public_Server_checkBox.Checked = lc.config.Show_Public_Server;
+            if(lc.config.Game_Path == null)
+            {
+                lc.config.Game_Path = Classes.GameRegReader.GetGameExePath();
+            }
+            if (lc.config.Game_Path != null)
             {
                 Game_Path_textBox.Text = lc.config.Game_Path;
+                if (File.Exists(Path.GetDirectoryName(lc.config.Game_Path) + @"\YuanShen_Data\Managed\Metadata\global-metadata.dat"))
+                {
+                    MetaFile_Input_textBox.Text = Path.GetDirectoryName(lc.config.Game_Path) + @"\YuanShen_Data\Managed\Metadata\global-metadata.dat";
+                }
+                else if (File.Exists(Path.GetDirectoryName(lc.config.Game_Path) + @"\GenshinImpact_Data\Managed\Metadata\global-metadata.dat"))
+                {
+                    MetaFile_Input_textBox.Text = Path.GetDirectoryName(lc.config.Game_Path) + @"\GenshinImpact_Data\Managed\Metadata\global-metadata.dat";
+                }
             }
+            Save_Local_Config();
+
         }
         private void Show_Public_Server_checkBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -328,19 +339,17 @@ namespace Collei_Launcher
         public void Save_Local_Config()
         {
             Debug.Print("正在保存config文件"); ;
-            if (lc == null)
-            {
-                lc = new Local_Config();
-            }
+            Local_Config.FixLC(ref lc);
             File.WriteAllText(config_path, JsonConvert.SerializeObject(lc));
         }
         private void Save_proxy_button_Click(object sender, EventArgs e)
         {
             lc.config.ProxyPort = (ushort)Proxy_port_numericUpDown.Value;
+            Save_Local_Config();
         }
         public void Choice_Game_Path_button_Click(object sender, EventArgs e)
         {
-            string path = Choice_Game_Path();
+            string path = Choice_Path("国服游戏文件|YuanShen.exe|国际服游戏文件|GenshinImpact.exe", "选择游戏文件", null);
             if (path == null)
             {
                 return;
@@ -350,13 +359,19 @@ namespace Collei_Launcher
             Save_Local_Config();
         }
 
-        public string Choice_Game_Path()
+        public string Choice_Path(string Filter = null, string Title = null, string InitialDirectory = null)
         {
-            System.Windows.Forms.OpenFileDialog openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            openFileDialog1.Filter = "国服游戏文件|YuanShen.exe|国际服游戏文件|GenshinImpact.exe";
+            if (InitialDirectory == null)
+            {
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+            }
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            if (Filter != null)
+                openFileDialog1.Filter = Filter;
             openFileDialog1.FileName = "";
-            openFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-            openFileDialog1.Title = "选择游戏文件";
+            openFileDialog1.InitialDirectory = InitialDirectory;
+            if (Title != null)
+                openFileDialog1.Title = Title;
             DialogResult dr = openFileDialog1.ShowDialog();
             if (dr == DialogResult.OK)
             {
@@ -382,7 +397,7 @@ namespace Collei_Launcher
                 Load_Servers();
                 Load_Server_Status();
             }
-            
+
         }
 
         private void Servers_listView_MouseDown(object sender, MouseEventArgs e)
@@ -500,66 +515,84 @@ namespace Collei_Launcher
         {
             Check_Form.Open_Form(servers[ci]);
         }
-        public Task Load_Server_Status()
+        Thread th;
+        int stc = 0;
+        int etc = 0;
+        public void Load_Server_Status()
         {
-            return Task.Run(() =>
+            if (th != null)
             {
-                try
-                {
-                    for (int i = 0; i < servers.Count; i++)
-                    {
-                        int s = i;
-                        Thread ls = new Thread(()=>
-                        { 
-                            try
-                            {
-                                string str = "https://" + servers[s].host + ":" + servers[s].dispatch + "/status/server";
-                                Debug.Print(str);
-                                Index_Get ig = Classes.Get_for_Index(str);
-                                if (ig.Use_time >= 0 && ig.StatusCode == System.Net.HttpStatusCode.OK)
-                                {
-                                    Def_status.Root df = JsonConvert.DeserializeObject<Def_status.Root>(ig.Result);
-                                    Servers_listView.Items[s].SubItems[4].Text = df.status.playerCount.ToString();
-                                    Servers_listView.Items[s].SubItems[5].Text = df.status.version;
-                                }
-                                else
-                                {
-                                    Servers_listView.Items[s].SubItems[4].Text = "N/A";
-                                    Servers_listView.Items[s].SubItems[5].Text = "N/A";
-                                }
-                                try
-                                {
-                                    Ping ping = new Ping();
-                                start:
-                                    PingReply pr = ping.Send(servers[s].host, 1000);
-                                    if (pr.RoundtripTime == 0)
-                                    {
-                                        goto start;
-                                    }
-                                    Servers_listView.Items[s].SubItems[6].Text = pr.RoundtripTime + "ms";
-                                }
-                                catch (Exception ex)
-                                {
-                                    Servers_listView.Items[s].SubItems[6].Text = "N/A";
-                                }
-                            }
-                            catch (NullReferenceException e)
-                            {
-                                Debug.Print("加载状态出错NullReferenceException:" + e.Message);
-                            }
-                            catch (Exception e)
-                            {
-                                Debug.Print("加载状态出错:" + e.Message);
-                            }
-                        });
-                        ls.Start();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Debug.Print(ex.Message);
-                }
-            });
+                th.Abort();
+            }
+            th = new Thread(() =>
+              {
+                  try
+                  {
+                      for (int i = 0; i < servers.Count; i++)
+                      {
+                          int s = i;
+                          //while(stc - etc >=3){Thread.Sleep(100);}
+                          new Thread(() =>
+                          {
+                              stc++;
+                              try
+                              {
+                                  string str = "https://" + servers[s].host + ":" + servers[s].dispatch + "/status/server";
+                                  Debug.Print(str);
+                                  Index_Get ig = Classes.Get_for_Index(str);
+                                  if (ig.Use_time >= 0 && ig.StatusCode == System.Net.HttpStatusCode.OK)
+                                  {
+                                      Def_status.Root df = JsonConvert.DeserializeObject<Def_status.Root>(ig.Result);
+                                      Servers_listView.Items[s].SubItems[4].Text = df.status.playerCount.ToString();
+                                      Servers_listView.Items[s].SubItems[5].Text = df.status.version;
+                                  }
+                                  else
+                                  {
+                                      Servers_listView.Items[s].SubItems[4].Text = "N/A";
+                                      Servers_listView.Items[s].SubItems[5].Text = "N/A";
+                                  }
+                                  try
+                                  {
+                                      PingReply reply = new Ping().Send(servers[s].host, 1000);
+
+                                      if (reply.Status == IPStatus.Success)
+                                          Servers_listView.Items[s].SubItems[6].Text = reply.RoundtripTime + "ms";
+                                      /*
+                                     var sbuilder = new StringBuilder();
+                                      sbuilder.AppendLine(string.Format("Address: {0} ", reply.Address.ToString()));
+                                      sbuilder.AppendLine(string.Format("RoundTrip time: {0} ", reply.RoundtripTime));
+                                      sbuilder.AppendLine(string.Format("Time to live: {0} ", reply.Options.Ttl));
+                                      sbuilder.AppendLine(string.Format("Don't fragment: {0} ", reply.Options.DontFragment));
+                                      sbuilder.AppendLine(string.Format("Buffer size: {0} ", reply.Buffer.Length));
+                                      Console.WriteLine(sbuilder.ToString());
+                                      */
+                                  }
+                                  catch
+                                  {
+                                      Servers_listView.Items[s].SubItems[6].Text = "N/A";
+                                  }
+                              }
+                              catch (NullReferenceException e)
+                              {
+                                  Debug.Print("加载状态出错NullReferenceException:" + e.Message);
+                              }
+                              catch (Exception e)
+                              {
+                                  Debug.Print("加载状态出错:" + e.Message);
+                              }
+                              finally
+                              {
+                                  etc++;
+                              }
+                          }).Start();
+                      }
+                  }
+                  catch (Exception ex)
+                  {
+                      Debug.Print(ex.Message);
+                  }
+              });
+            th.Start();
         }
 
 
@@ -581,8 +614,8 @@ namespace Collei_Launcher
                 MessageBox.Show("自动寻找路径失败", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if(DialogResult.Yes == MessageBox.Show("找到游戏路径:\n"+path+ "\n点击“是”：设置为游戏路径\n点击“否”：不设为游戏路径", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information))
-            lc.config.Game_Path = path;
+            if (DialogResult.Yes == MessageBox.Show("找到游戏路径:\n" + path + "\n点击“是”：设置为游戏路径\n点击“否”：不设为游戏路径", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information))
+                lc.config.Game_Path = path;
             Game_Path_textBox.Text = lc.config.Game_Path;
             Save_Local_Config();
         }
@@ -591,5 +624,148 @@ namespace Collei_Launcher
         {
             Status_timer.Enabled = false;
         }
+
+        private void Set_MetaInputpath_button_Click(object sender, EventArgs e)
+        {
+            string path = Choice_Path("global-metadata文件|global-metadata.dat|所有文件|*.*", "选择文件", Path.GetDirectoryName(lc.config.Game_Path));
+            if (path == null)
+            {
+                return;
+            }
+            MetaFile_Input_textBox.Text = path;
+        }
+
+        private void Outpath_checkBox_CheckedChanged(object sender, EventArgs e)
+        {
+            Output_panel.Enabled = !INOUT_checkBox.Checked;
+        }
+
+        private void Set_MetaOutputpath_button_Click(object sender, EventArgs e)
+        {
+            string path = Choice_Save_Path("dat文件|*.dat|所有文件|*.*", "选择保存位置", Path.GetDirectoryName(lc.config.Game_Path), "global-metadata.dat");
+            if (path == null)
+            {
+                return;
+            }
+            MetaFile_Output_textBox.Text = path;
+        }
+        public string Choice_Save_Path(string Filter = null, string Title = null, string InitialDirectory = null, string FileName = null)
+        {
+            if (InitialDirectory == null)
+            {
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+            }
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            if (Filter != null)
+                saveFileDialog1.Filter = Filter;
+            if (FileName != null)
+            {
+                saveFileDialog1.FileName = FileName;
+            }
+            saveFileDialog1.InitialDirectory = InitialDirectory;
+            if (Title != null)
+                saveFileDialog1.Title = Title;
+            DialogResult dr = saveFileDialog1.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                if (saveFileDialog1.FileName == "")
+                {
+                    MessageBox.Show("请选择保存位置！", "错误信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return null;
+                }
+                return saveFileDialog1.FileName;
+            }
+            return null;
+        }
+
+        private void Decrypt_File_button_Click(object sender, EventArgs e)
+        {
+            string input = MetaFile_Input_textBox.Text;
+            string output;
+            if (!INOUT_checkBox.Checked)
+            {
+                output = MetaFile_Output_textBox.Text;
+            }
+            else
+            {
+                output = input;
+            }
+            if (input == null || output == null || input == "" || output == "")
+            {
+                MessageBox.Show("路径未选择！", "错误信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            Patch_Mgr.Decrypt_File(input, output);
+            GC.Collect();
+            MessageBox.Show("OK", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void Encrypt_File_button_Click(object sender, EventArgs e)
+        {
+            string input = MetaFile_Input_textBox.Text;
+            string output;
+            if (!INOUT_checkBox.Checked)
+            {
+                output = MetaFile_Output_textBox.Text;
+            }
+            else
+            {
+                output = input;
+            }
+            if (input == null || output == null || input == "" || output == "")
+            {
+                MessageBox.Show("路径未选择！", "错误信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            Patch_Mgr.Encrypt_File(input, output);
+            GC.Collect();
+            MessageBox.Show("OK", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void Patch_File_Defkey_button_Click(object sender, EventArgs e)
+        {
+            string input = MetaFile_Input_textBox.Text;
+            string output;
+            if (!INOUT_checkBox.Checked)
+            {
+                output = MetaFile_Output_textBox.Text;
+            }
+            else
+            {
+                output = input;
+            }
+            if (input == null || output == null || input == "" || output == "")
+            {
+                MessageBox.Show("路径未选择！", "错误信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            int i = Patch_Mgr.Patch_File(input, output);
+            GC.Collect();
+            MessageBox.Show("替换了" + i + "次", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void UnPatch_File_Defkey_button_Click(object sender, EventArgs e)
+        {
+            string input = MetaFile_Input_textBox.Text;
+            string output;
+            if (!INOUT_checkBox.Checked)
+            {
+                output = MetaFile_Output_textBox.Text;
+            }
+            else
+            {
+                output = input;
+            }
+            if (input == null || output == null || input == "" || output == "")
+            {
+                MessageBox.Show("路径未选择！", "错误信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            int i = Patch_Mgr.UnPatch_File(input, output);
+            GC.Collect();
+            MessageBox.Show("替换了" + i + "次", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
     }
 }

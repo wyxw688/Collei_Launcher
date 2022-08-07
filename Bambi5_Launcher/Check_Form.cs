@@ -202,7 +202,7 @@ namespace Collei_Launcher
                     }
                     catch (ThreadAbortException)
                     {
-
+                        Log_Print("ThreadAbort!");
                     }
                     catch (Exception e)
                     {

@@ -220,33 +220,36 @@ namespace Collei_Launcher
                 string display = "";
                 bool error = false;
                 Index_Get ig = Classes.Get_for_Index(Get_url("/status/server"));
-                if (ig.Use_time >= 0)
+                if (ig != null)
                 {
-                    if (ig.StatusCode == System.Net.HttpStatusCode.OK)
+                    if (ig.Use_time >= 0)
                     {
-                        Def_status.Root df = JsonConvert.DeserializeObject<Def_status.Root>(ig.Result);
-                        display += "当前服务器有" + df.status.playerCount + "人在线";
+                        if (ig.StatusCode == System.Net.HttpStatusCode.OK)
+                        {
+                            Def_status.Root df = JsonConvert.DeserializeObject<Def_status.Root>(ig.Result);
+                            display += "当前服务器有" + df.status.playerCount + "人在线";
+                        }
+                        else
+                        {
+                            display += "获取服务器状态失败(" + ig.StatusCode.ToString() + ")";
+                            error = true;
+                        }
                     }
                     else
                     {
-                        display += "获取服务器状态失败(" + ig.StatusCode.ToString() + ")";
+                        display += "获取服务器状态失败(" + ig.Result + ")";
                         error = true;
                     }
                 }
                 else
                 {
-                    display += "获取服务器状态失败(" + ig.Result + ")";
+                    display += "获取服务器状态失败";
                     error = true;
                 }
                 try
                 {
                     Ping ping = new Ping();
-                start:
                     PingReply pr = ping.Send(server.host, 1000);
-                    if (pr.RoundtripTime == 0)
-                    {
-                        goto start;
-                    }
                     display += ",Ping:" + pr.RoundtripTime + "ms";
                 }
                 catch (Exception ex)
@@ -352,5 +355,6 @@ namespace Collei_Launcher
             Main_Form.form.Status_timer.Enabled = true;
             Main_Form.form.Load_Server_Status();
         }
+
     }
 }

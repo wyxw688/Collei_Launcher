@@ -39,7 +39,6 @@ namespace Collei_Launcher
                         CertMaker.createRootCert();
                         //重新获取
                         oRootCert = CertMaker.GetRootCertificate();
-                        Add_Cert(oRootCert);
                     }
                     else
                     {
@@ -48,6 +47,7 @@ namespace Collei_Launcher
                         //以前伪造过证书，并且本地证书库中保存过伪造的证书
                         oRootCert = CertMaker.GetRootCertificate();
                     }
+                    Add_Cert(oRootCert);
                     //-----------------------------
 
                     //指定伪造证书

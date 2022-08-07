@@ -181,9 +181,9 @@
             // Cancel_button
             // 
             this.Cancel_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Cancel_button.Location = new System.Drawing.Point(386, 340);
+            this.Cancel_button.Location = new System.Drawing.Point(362, 340);
             this.Cancel_button.Name = "Cancel_button";
-            this.Cancel_button.Size = new System.Drawing.Size(100, 50);
+            this.Cancel_button.Size = new System.Drawing.Size(125, 50);
             this.Cancel_button.TabIndex = 43;
             this.Cancel_button.Text = "取消";
             this.Cancel_button.UseVisualStyleBackColor = true;
