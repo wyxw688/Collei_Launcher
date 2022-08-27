@@ -219,7 +219,7 @@ namespace Collei_Launcher
                 Uping_Status = true;
                 string display = "";
                 bool error = false;
-                Index_Get ig = Classes.Get_for_Index(Get_url("/status/server"));
+                Index_Get ig = Methods.Get_for_Index(Get_url("/status/server"));
                 if (ig != null)
                 {
                     if (ig.Use_time >= 0)
@@ -275,7 +275,7 @@ namespace Collei_Launcher
         {
             try
             {
-                Index_Get ig = Classes.Get_for_Index(Get_url("/status/server"));
+                Index_Get ig = Methods.Get_for_Index(Get_url("/status/server"));
                 if (ig.Use_time >= 0)
                 {
                     if (ig.StatusCode == System.Net.HttpStatusCode.OK)

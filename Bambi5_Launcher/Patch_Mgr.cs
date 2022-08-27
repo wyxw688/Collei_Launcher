@@ -10,111 +10,180 @@ namespace Collei_Launcher
 {
     public static class Patch_Mgr
     {
-        public static int Patch_Bytes(ref byte[] filebytes)
+        public static string Patch_Bytes(ref byte[] filebytes,Patch_Config pc)
         {
+            StringBuilder rets = new StringBuilder();
             int count = 0;
+            string channel = "未知";
             byte[] data = decrypt(filebytes);
             Array.Resize<byte>(ref data, data.Length - 16384);
-            data = ReplaceBytes(data, Encoding.UTF8.GetBytes(strings.Nopatch1), Encoding.UTF8.GetBytes(strings.Patched1), ref count);
-            if (FindBytes(data, Encoding.UTF8.GetBytes(strings.Features_cn)) >= 0)
+            if (pc.PatchP1)
             {
-                data = ReplaceBytes(data, Encoding.UTF8.GetBytes(strings.Nopatch2_cn), Encoding.UTF8.GetBytes(strings.Patched2), ref count);
-            }
-            else if (FindBytes(data, Encoding.UTF8.GetBytes(strings.Features_os)) >= 0)
-            {
-                data = ReplaceBytes(data, Encoding.UTF8.GetBytes(strings.Nopatch2_os), Encoding.UTF8.GetBytes(strings.Patched2), ref count);
-            }
-            Array.Resize<byte>(ref data, data.Length + 16384);
-            filebytes = encrypt(data);
-            return count;
-        }
-        public static int UnPatch_Bytes(ref byte[] filebytes)
-        {
-            int count = 0;
-            byte[] data = decrypt(filebytes);
-            Array.Resize<byte>(ref data, data.Length - 16384);
-            data = ReplaceBytes(data, Encoding.UTF8.GetBytes(strings.Patched1), Encoding.UTF8.GetBytes(strings.Nopatch1), ref count);
-            if (FindBytes(data, Encoding.UTF8.GetBytes(strings.Features_cn)) >= 0)
-            {
-                data = ReplaceBytes(data, Encoding.UTF8.GetBytes(strings.Patched2), Encoding.UTF8.GetBytes(strings.Nopatch2_cn), ref count);
-            }
-            else if (FindBytes(data, Encoding.UTF8.GetBytes(strings.Features_os)) >= 0)
-            {
-                data = ReplaceBytes(data, Encoding.UTF8.GetBytes(strings.Patched2), Encoding.UTF8.GetBytes(strings.Nopatch2_os), ref count);
-            }
-            Array.Resize<byte>(ref data, data.Length + 16384);
-            filebytes = encrypt(data);
-            return count;
-        }
-        public static int Patch_File(string inpath, string outpath)
-        {
-            byte[] data = File.ReadAllBytes(inpath);
-            int count = Patch_Bytes(ref data);
-            FileStream stream = File.Create(outpath);
-            stream.Write(data, 0, data.Length);
-            stream.Close();
-            return count;
-        }
-        public static int UnPatch_File(string inpath, string outpath)
-        {
-
-            byte[] data = File.ReadAllBytes(inpath);
-            int count = UnPatch_Bytes(ref data);
-            FileStream stream = File.Create(outpath);
-            stream.Write(data, 0, data.Length);
-            stream.Close();
-            return count;
-        }
-        public static int FindBytes(byte[] src, byte[] find)
-        {
-            int index = -1;
-            int matchIndex = 0;
-
-            for (int i = 0; i < src.Length; i++)
-            {
-                if (src[i] == find[matchIndex])
+                data = Methods.ReplaceBytes(data, Methods.ToFixBytesP1(pc.Nopatch1), Methods.ToFixBytesP1(pc.Patched1), ref count);
+                if (count == 0)
                 {
-                    if (matchIndex == (find.Length - 1))
+                    rets.AppendLine("出现错误:未找到目标(1)");
+                }
+            }
+            int n = count;
+            if (pc.CheckChannel)
+            {
+                if (Methods.FindBytes(data, Encoding.UTF8.GetBytes(pc.Features_cn)) >= 0)
+                {
+                    channel = "国服";
+                    data = Methods.ReplaceBytes(data, Encoding.UTF8.GetBytes(pc.Nopatch2_cn), Encoding.UTF8.GetBytes(pc.Patched2_Meta), ref count);
+
+                    if (count == n)
                     {
-                        index = i - matchIndex;
-                        break;
+                        rets.AppendLine("出现错误:未找到目标(2) - CN");
                     }
-                    matchIndex++;
+                }
+                else if (Methods.FindBytes(data, Encoding.UTF8.GetBytes(pc.Features_os)) >= 0)
+                {
+                    channel = "国际服";
+                    data = Methods.ReplaceBytes(data, Encoding.UTF8.GetBytes(pc.Nopatch2_os), Encoding.UTF8.GetBytes(pc.Patched2_Meta), ref count);
+                    if (count == n)
+                    {
+                        rets.AppendLine("出现错误:未找到目标(2) - OS");
+                    }
                 }
                 else
                 {
-                    matchIndex = 0;
+                    rets.AppendLine("出现错误:判断渠道失败(未找到特征)");
                 }
-
             }
-            return index;
+            else
+            {
+                if (pc.SetChannel == Channel.CN)
+                {
+                    channel = "国服";
+                    data = Methods.ReplaceBytes(data, Encoding.UTF8.GetBytes(pc.Nopatch2_cn), Encoding.UTF8.GetBytes(pc.Patched2_Meta), ref count);
+
+                    if (count == n)
+                    {
+                        rets.AppendLine("出现错误:未找到目标(2) - CN");
+                    }
+                }
+                else if (pc.SetChannel == Channel.OS)
+                {
+                    channel = "国际服";
+                    data = Methods.ReplaceBytes(data, Encoding.UTF8.GetBytes(pc.Nopatch2_os), Encoding.UTF8.GetBytes(pc.Patched2_Meta), ref count);
+                    if (count == n)
+                    {
+                        rets.AppendLine("出现错误:未找到目标(2) - OS");
+                    }
+                }
+            }
+            Array.Resize<byte>(ref data, data.Length + 16384);
+            filebytes = encrypt(data);
+
+            rets.AppendLine("***************************************************************");
+            if (pc.CheckChannel)
+            {
+                rets.AppendLine($"替换了{count}次,当前渠道:{channel}");
+            }
+            else
+            {
+                rets.AppendLine($"替换了{count}次,您选择的渠道:{channel}");
+            }
+            return rets.ToString();
         }
-
-        public static byte[] ReplaceBytes(byte[] src, byte[] search, byte[] repl, ref int i)
+        public static string UnPatch_Bytes(ref byte[] filebytes,Patch_Config pc)
         {
-            byte[] dst = src;
-            int index = FindBytes(src, search);
-            if (index == -1)
+            StringBuilder rets = new StringBuilder();
+            int count = 0;
+            string channel = "未知";
+            byte[] data = decrypt(filebytes);
+            Array.Resize<byte>(ref data, data.Length - 16384);
+
+            if (pc.PatchP1)
             {
-                return src;
+                data = Methods.ReplaceBytes(data, Methods.ToFixBytesP1(pc.Patched1), Methods.ToFixBytesP1(pc.Nopatch1), ref count);
+                if (count == 0)
+                {
+                    rets.AppendLine("出现错误:未找到目标(1)");
+                }
             }
-            if (index >= 0)
+            int n = count;
+            if (pc.CheckChannel)
             {
-                dst = new byte[src.Length - search.Length + repl.Length];
-
-                Buffer.BlockCopy(src, 0, dst, 0, index);
-
-                Buffer.BlockCopy(repl, 0, dst, index, repl.Length);
-
-                Buffer.BlockCopy(
-                    src,
-                    index + search.Length,
-                    dst,
-                    index + repl.Length,
-                    src.Length - (index + search.Length));
+                if (Methods.FindBytes(data, Encoding.UTF8.GetBytes(pc.Features_cn)) >= 0)
+                {
+                    channel = "国服";
+                    data = Methods.ReplaceBytes(data, Encoding.UTF8.GetBytes(pc.Patched2_Meta), Encoding.UTF8.GetBytes(pc.Nopatch2_cn), ref count);
+                    if (count == n)
+                    {
+                        rets.AppendLine("出现错误:未找到目标(2) - CN");
+                    }
+                }
+                else if (Methods.FindBytes(data, Encoding.UTF8.GetBytes(pc.Features_os)) >= 0)
+                {
+                    channel = "国际服";
+                    data = Methods.ReplaceBytes(data, Encoding.UTF8.GetBytes(pc.Patched2_Meta), Encoding.UTF8.GetBytes(pc.Nopatch2_os), ref count);
+                    if (count == n)
+                    {
+                        rets.AppendLine("出现错误:未找到目标(2) - OS");
+                    }
+                }
+                else
+                {
+                    rets.AppendLine("出现错误:判断渠道失败(未找到特征)");
+                }
             }
-            i++;
-            return dst;
+            else
+            {
+                if (pc.SetChannel == Channel.CN)
+                {
+                    channel = "国服";
+                    data = Methods.ReplaceBytes(data, Encoding.UTF8.GetBytes(pc.Patched2_Meta), Encoding.UTF8.GetBytes(pc.Nopatch2_cn), ref count);
+
+                    if (count == n)
+                    {
+                        rets.AppendLine("出现错误:未找到特征(2) - CN");
+                    }
+                }
+                else if (pc.SetChannel == Channel.OS)
+                {
+                    channel = "国际服";
+                    data = Methods.ReplaceBytes(data, Encoding.UTF8.GetBytes(pc.Patched2_Meta), Encoding.UTF8.GetBytes(pc.Nopatch2_os), ref count);
+                    if (count == n)
+                    {
+                        rets.AppendLine("出现错误:未找到特征(2) - OS");
+                    }
+                }
+            }
+            Array.Resize<byte>(ref data, data.Length + 16384);
+            filebytes = encrypt(data);
+
+            rets.AppendLine("***************************************************************"); 
+            if (pc.CheckChannel)
+            {
+                rets.AppendLine($"替换了{count}次,当前渠道:{channel}");
+            }
+            else
+            {
+                rets.AppendLine($"替换了{count}次,您选择的渠道:{channel}");
+            }
+            return rets.ToString();
+        }
+        public static string Patch_File(string inpath, string outpath,Patch_Config pc)
+        {
+            byte[] data = File.ReadAllBytes(inpath);
+            string ret = Patch_Bytes(ref data,pc);
+            FileStream stream = File.Create(outpath);
+            stream.Write(data, 0, data.Length);
+            stream.Close();
+            return ret;
+        }
+        public static string UnPatch_File(string inpath, string outpath,Patch_Config pc)
+        {
+
+            byte[] data = File.ReadAllBytes(inpath);
+            string ret = UnPatch_Bytes(ref data,pc);
+            FileStream stream = File.Create(outpath);
+            stream.Write(data, 0, data.Length);
+            stream.Close();
+            return ret;
         }
         public static void Decrypt_File(string inpath, string outpath)
         {

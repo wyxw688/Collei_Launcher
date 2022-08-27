@@ -39,7 +39,8 @@ namespace Collei_Launcher
         }
         public List<ServersItem> servers { get; set; }
         public Config config { get; set; }
-    }
+        public string UpdateUrl { get; set; }
+}
     public class ServersItem
     {
         public string title { get; set; }
@@ -62,7 +63,7 @@ namespace Collei_Launcher
     {
         public class Config
         {
-            public string Game_Path = Classes.GameRegReader.GetGameExePath();
+            public string Game_Path = Methods.GameRegReader.GetGameExePath();
 
             public ushort ProxyPort = 8520;
 
@@ -70,27 +71,32 @@ namespace Collei_Launcher
 
             public bool Show_Public_Server = true;
 
-            public int lastvercode=0;
+            public int lastvercode = 0;
         }
         public List<ServersItem> servers;
         public Config config;
+        public Patch_Config patch;
         public static void FixLC(ref Local_Config elc)
         {
-            if(elc == null)
+            if (elc == null)
             {
                 elc = new Local_Config();
             }
-            if(elc.config==null)
+            if (elc.config == null)
             {
                 elc.config = new Config();
             }
-            if(elc.config.Game_Path == null)
+            if (elc.config.Game_Path == null)
             {
-                elc.config.Game_Path = Classes.GameRegReader.GetGameExePath();
+                elc.config.Game_Path = Methods.GameRegReader.GetGameExePath();
             }
             if (elc.servers == null)
             {
                 elc.servers = new List<ServersItem>();
+            }
+            if(elc.patch == null)
+            {
+                elc.patch = new Patch_Config();
             }
         }
     }
@@ -99,4 +105,23 @@ namespace Collei_Launcher
         public bool ProxyEnable = false;
         public string ProxyServer { get; set; }
     }
+    public class Patch_Config
+    {
+        public string Features_cn = strings.Features_cn;
+        public string Features_os = strings.Features_os;
+        public string Nopatch1 = strings.Nopatch1;
+        public string Nopatch2_cn = strings.Nopatch2_cn;
+        public string Nopatch2_os = strings.Nopatch2_os;
+        public string Patched1 = strings.Patched1;
+        public string Patched2_Meta = strings.Patched2_Meta;
+        public string Patched2_UA = strings.Patched2_UA;
+        public bool PatchP1 = true;
+        public bool CheckChannel = true;
+        public Channel SetChannel = Channel.CN;
+    }
+}
+
+public enum Channel
+{
+    CN,OS
 }

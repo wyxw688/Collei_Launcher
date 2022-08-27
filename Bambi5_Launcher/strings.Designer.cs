@@ -79,10 +79,7 @@ namespace Collei_Launcher {
         }
         
         /// <summary>
-        ///   查找类似 w73pHTzBzdwGIZv75LSU/mCa+3COQ3LDSqnbMeQ2V9IA7lhb
-        ///                                                iI83cAbrayGDzZkSdRvMmwyBe6A1tnhKZubDGy/c7PRMVwnb6q5+dahC2
-        ///                                                6o9F8bTEyKWghxUiOdD3z6UxVfV7f4ZslcKJKDlxZQBIAp/kAoBrOdmxa
-        ///                                                GDLcovsRE= 的本地化字符串。
+        ///   查找类似 w73pHTzBzdwGIZv75LSU/mCa+3COQ3LDSqnbMeQ2V9IA7lhbiI83cAbrayGDzZkSdRvMmwyBe6A1tnhKZubDGy/c7PRMVwnb6q5+dahC26o9F8bTEyKWghxUiOdD3z6UxVfV7f4ZslcKJKDlxZQBIAp/kAoBrOdmxaGDLcovsRE= 的本地化字符串。
         /// </summary>
         internal static string Nopatch1 {
             get {
@@ -109,10 +106,7 @@ namespace Collei_Launcher {
         }
         
         /// <summary>
-        ///   查找类似 yytg/H9lz7Lm0XcA8LMqIyXPVNApYTcSepT4VDLB4qqqFC3s
-        ///                                                /Huv8vN7zA/P4uoREIu8KMenADFk7uwrZSxoMWwJgn6A7sbAt1cqAaUXB
-        ///                                                9J4NzhL0x3AFTiHEQbw86hRvm2VGkbA5sWnr0NZw8SGBBY+EODwNIt51G
-        ///                                                dBA7eoUQU= 的本地化字符串。
+        ///   查找类似 yytg/H9lz7Lm0XcA8LMqIyXPVNApYTcSepT4VDLB4qqqFC3s/Huv8vN7zA/P4uoREIu8KMenADFk7uwrZSxoMWwJgn6A7sbAt1cqAaUXB9J4NzhL0x3AFTiHEQbw86hRvm2VGkbA5sWnr0NZw8SGBBY+EODwNIt51GdBA7eoUQU= 的本地化字符串。
         /// </summary>
         internal static string Patched1 {
             get {
@@ -123,9 +117,18 @@ namespace Collei_Launcher {
         /// <summary>
         ///   查找类似 AMW28dptX3h8q0O4z/vJrQxf6cmC6yVilgHRL98GazrYzmc3ixj87JpHIJ3IKEYV+HU/tYrUjEfY/ZtPzsLB9lKBelN9i8QjkFkA9QDICGYwJCXibxU67Z/HzENe9NQpG2i01SI0TJU8PJDV7zQPwPVGraIg5ouExRupq8UymaSHEyJ7zxKZCtgO0LKdROLJBSvI5srMu7kYTGmB7T07Ab8T9M595YSgd1vh06qZ3nsF1h4wg3y+zW28vdY28+RCj2V1i7oVyL0dQruLYq7qK8FycZl2j9R0GaJ8rRAjVP1Dsz+hjS3atHhQxOG9OFo6d/euedRvfWIhT9p6h1SeTjE= 的本地化字符串。
         /// </summary>
-        internal static string Patched2 {
+        internal static string Patched2_Meta {
             get {
-                return ResourceManager.GetString("Patched2", resourceCulture);
+                return ResourceManager.GetString("Patched2_Meta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 xbbx2m1feHyrQ7jP+8mtDF/pyYLrJWKWAdEv3wZrOtjOZzeLGPzsmkcgncgoRhX4dT+1itSMR9j9m0/OwsH2UoF6U32LxCOQWQD1AMgIZjAkJeJvFTrtn8fMQ1701CkbaLTVIjRMlTw8kNXvNA/A9UatoiDmi4TFG6mrxTKZpIcTInvPEpkK2A7Qsp1E4skFK8jmysy7uRhMaYHtPTsBvxP0zn3lhKB3W+HTqpneewXWHjCDfL7Nbby91jbz5EKPZXWLuhXIvR1Cu4tiruorwXJxmXaP1HQZonytECNU/UOzP6GNLdq0eFDE4b04Wjp396551G99YiFP2nqHVJ5OMQ== 的本地化字符串。
+        /// </summary>
+        internal static string Patched2_UA {
+            get {
+                return ResourceManager.GetString("Patched2_UA", resourceCulture);
             }
         }
     }

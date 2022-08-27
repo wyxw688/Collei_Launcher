@@ -86,7 +86,7 @@ namespace Collei_Launcher
                 Check_button.Text = "正在检查";
                 Log_Print("本机代理配置:" + Main_Form.form.Get_Proxy_Text());
                 Log_Print("正在尝试获取服务器信息···");
-                Index_Get ig = Classes.Get_for_Index(Get_url("/status/server"));
+                Index_Get ig = Methods.Get_for_Index(Get_url("/status/server"));
                 if (ig.Use_time >= 0)
                 {
                     if (ig.StatusCode == System.Net.HttpStatusCode.OK)
@@ -161,7 +161,7 @@ namespace Collei_Launcher
                     var endpoint = hostEntry.AddressList[0];
                     var ip = new IPEndPoint(endpoint, 22102);
                     var client = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
-                    byte[] data = Classes.ConvertHexStringToBytes("000000ff00000000000000000000000519419494");
+                    byte[] data = Methods.ConvertHexStringToBytes("000000ff00000000000000000000000519419494");
                     client.SendTo(data, 0, data.Length, SocketFlags.None, ip);
                     EndPoint sender = ip;
                     data = new byte[20];

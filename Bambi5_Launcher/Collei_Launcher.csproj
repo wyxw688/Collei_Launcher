@@ -123,7 +123,7 @@
     <Compile Include="Check_Form.Designer.cs">
       <DependentUpon>Check_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes.cs" />
+    <Compile Include="Methods.cs" />
     <Compile Include="Edit_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,8 +152,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>strings.resx</DependentUpon>
     </Compile>
+    <Compile Include="UA_Patch_Mgr.cs" />
     <EmbeddedResource Include="Check_Form.resx">
       <DependentUpon>Check_Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Edit_Form.resx">
       <DependentUpon>Edit_Form.cs</DependentUpon>
@@ -163,6 +165,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main_Form.resx">
       <DependentUpon>Main_Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

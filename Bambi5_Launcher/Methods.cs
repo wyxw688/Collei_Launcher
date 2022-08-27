@@ -1,20 +1,21 @@
-﻿using Newtonsoft.Json;
+﻿using Collei_Launcher;
+using Microsoft.Win32;
+using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Net;
-using System.Reflection;
-using System.Text;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Net.Security;
-using System.Security.Cryptography.X509Certificates;
-using Collei_Launcher;
-using System.Threading.Tasks;
+using System.Reflection;
 using System.Security.Cryptography;
-using Microsoft.Win32;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
-public static class Classes
+public static class Methods
 {
     /// <summary>
     /// 16进制原码字符串转字节数组
@@ -45,6 +46,79 @@ public static class Classes
             return null;
         }
     }
+    public static byte[] ToFixBytesP1(string key)
+    {
+        byte[] bp1 = Encoding.UTF8.GetBytes(key.Substring(0, 48));
+        byte[] bp2 = Encoding.UTF8.GetBytes(key.Substring(48, 57));
+        byte[] bp3 = Encoding.UTF8.GetBytes(key.Substring(105, 57));
+        byte[] bp4 = Encoding.UTF8.GetBytes(key.Substring(162));
+        byte[] ret = bp1.Concat(bytes).Concat(bp2).Concat(bytes).Concat(bp3).Concat(bytes).Concat(bp4).ToArray();
+        return ret;
+
+    }
+    public static readonly long Pas = 0x4889501048BA;
+    public static readonly long Pbs = 0x908000000048BA;
+    public static readonly byte[] Pbb = { 0x48, 0x89 };
+
+    public static byte[] GetBytesPa(int count)//0-13
+    {
+        byte[] pa = BitConverter.GetBytes(Pas + (0x80000 * count));
+        Array.Resize(ref pa, 6);
+        pa = pa.Reverse().ToArray();
+        return pa;
+    }
+    public static byte[] GetBytesPb(int count)//0-28
+    {
+        byte[] pb = BitConverter.GetBytes(Pbs + (0x80000000000 * count));
+        Array.Resize(ref pb, 7);
+        byte[] pb2 = Pbb.Concat(pb.Reverse()).ToArray();
+        if(count >=16)
+        {
+            pb2[2] = 0x90;
+            pb2[4] = 0x01;
+        }
+        return pb2;
+    }
+    public static byte[] ToUABytes(string key)
+    {
+        int count = key.Length + 2;
+        List<byte> uabytes = Encoding.UTF8.GetBytes(key).ToList();
+        for (int i = 1; i < 44; i++)
+        {
+            if (i <= 29)
+            {
+                byte[] k = GetBytesPb(29 - i);
+                for (int j = 0; j < k.Length; j++)
+                {
+                    uabytes.Insert(count - 8 * i, k[k.Length - 1 - j]);
+                }
+            }
+            else
+            {
+                byte[] k = GetBytesPa(14 - (i - 29));
+                for (int j = 0; j < k.Length; j++)
+                {
+                    uabytes.Insert(count - 8 * i, k[k.Length - 1 - j]);
+                }
+            }
+        }
+        return uabytes.ToArray();
+    }
+    /// <summary>
+    /// 字节数组转16进制字符串：空格分隔
+    /// </summary>
+    /// <param name="byteDatas"></param>
+    /// <returns></returns>
+    public static string ToHexStrFromByte(this byte[] byteDatas)
+    {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < byteDatas.Length; i++)
+        {
+            builder.Append(string.Format("{0:X2} ", byteDatas[i]));
+        }
+        return builder.ToString().Trim();
+    }
+    public static byte[] bytes = { 0x0D, 0x0A, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20 };
     public static bool DebugBuild(Assembly assembly)
     {
         foreach (object attribute in assembly.GetCustomAttributes(false))
@@ -219,11 +293,11 @@ public static class Classes
             request.ContentType = "application/json";
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             var text = new StreamReader(response.GetResponseStream()).ReadToEnd();
-            Debug.WriteLine(Classes.ConvertDateTimeToInt(response.LastModified) - Classes.ConvertDateTimeToInt(st)+"ms");
+            Debug.WriteLine(Methods.ConvertDateTimeToInt(response.LastModified) - Methods.ConvertDateTimeToInt(st) + "ms");
             response.Close();
             return text;
         }
-        catch(Exception e)
+        catch (Exception e)
         {
             Debug.Print(e.Message);
             return null;
@@ -246,7 +320,7 @@ public static class Classes
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                 var text = new StreamReader(response.GetResponseStream()).ReadToEnd();
                 res.Result = text;
-                res.Use_time = Classes.ConvertDateTimeToInt(response.LastModified) - Classes.ConvertDateTimeToInt(st);
+                res.Use_time = Methods.ConvertDateTimeToInt(response.LastModified) - Methods.ConvertDateTimeToInt(st);
                 res.StatusCode = response.StatusCode;
                 response.Close();
                 return res;
@@ -262,7 +336,7 @@ public static class Classes
                     return res;
                 }
                 HttpWebResponse response = (HttpWebResponse)ex.Response;
-                res.Use_time = Classes.ConvertDateTimeToInt(response.LastModified) - Classes.ConvertDateTimeToInt(st);
+                res.Use_time = Methods.ConvertDateTimeToInt(response.LastModified) - Methods.ConvertDateTimeToInt(st);
                 res.StatusCode = response.StatusCode;
                 res.Result = response.StatusDescription;
                 Console.WriteLine("错误码:" + (int)response.StatusCode);
@@ -280,6 +354,62 @@ public static class Classes
         tk.Wait(3000);
         return tk.Result;
 
+    }
+
+
+    public static int FindBytes(byte[] src, byte[] find)
+    {
+        int index = -1;
+        int matchIndex = 0;
+
+        for (int i = 0; i < src.Length; i++)
+        {
+            if (src[i] == find[matchIndex])
+            {
+                if (matchIndex == (find.Length - 1))
+                {
+                    index = i - matchIndex;
+                    break;
+                }
+                matchIndex++;
+            }
+            else
+            {
+                matchIndex = 0;
+            }
+
+        }
+#if DEBUG
+        Debug.Print("FindCount:" + index);
+#endif
+        return index;
+    }
+
+    public static byte[] ReplaceBytes(byte[] src, byte[] search, byte[] repl, ref int i)
+    {
+        byte[] dst = src;
+        int index = FindBytes(src, search);
+        if (index == -1)
+        {
+            return src;
+        }
+        if (index >= 0)
+        {
+            dst = new byte[src.Length - search.Length + repl.Length];
+
+            Buffer.BlockCopy(src, 0, dst, 0, index);
+
+            Buffer.BlockCopy(repl, 0, dst, index, repl.Length);
+
+            Buffer.BlockCopy(
+                src,
+                index + search.Length,
+                dst,
+                index + repl.Length,
+                src.Length - (index + search.Length));
+        }
+        i++;
+        return dst;
     }
     public static class GameRegReader
     {
@@ -337,7 +467,7 @@ public static class Classes
                 try
                 {
                     launcherpath = key.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\原神").GetValue("InstallPath").ToString();
-                    
+
 
                 }
                 catch (Exception)
@@ -359,9 +489,9 @@ public static class Classes
 
         public static string GetGameExePath()
         {
-            
+
             var gamepath = GameRegReader.GetGamePath();
-            if(gamepath == null)
+            if (gamepath == null)
             {
                 return null;
             }
@@ -372,7 +502,7 @@ public static class Classes
             {
                 return cnpath;
             }
-            else if(File.Exists(ospath))
+            else if (File.Exists(ospath))
             {
                 return ospath;
             }

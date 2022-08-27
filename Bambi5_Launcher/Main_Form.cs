@@ -23,6 +23,7 @@ namespace Collei_Launcher
         public int VerCode;
         public Cloud_Config cc;
         public Local_Config lc;
+        public bool PCSF = true;
         public bool Offine = true;
         public bool is_first_check = true;
         public string config_path = Application.StartupPath + @"\config.json";
@@ -34,12 +35,12 @@ namespace Collei_Launcher
             Control.CheckForIllegalCrossThreadCalls = false;
             form = this;
             InitializeComponent();
-            Classes.SetCertificatePolicy();
+            Methods.SetCertificatePolicy();
         }
 
         private void Main_Form_Shown(object sender, EventArgs e)
         {
-            bool isdebug = Classes.DebugBuild(Assembly.GetExecutingAssembly());
+            bool isdebug = Methods.DebugBuild(Assembly.GetExecutingAssembly());
             Version version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
             string ver = string.Format("(v{0}.{1}.{2})", version.Major, version.Minor, version.Build);
             VerCode = version.Revision;
@@ -167,7 +168,7 @@ namespace Collei_Launcher
                         Thread.Sleep(100);
                     }
                     is_loading_cc = true;
-                    string ccs = Classes.Get("http://launcher.bambi5.top/Main?action=Get_Config&data=");
+                    string ccs = Methods.Get("http://launcher.bambi5.top/Main?action=Get_Config&data=");
                     if (ccs == null)
                     {
                         is_loading_cc = false;
@@ -189,7 +190,7 @@ namespace Collei_Launcher
                         DialogResult dgr = MessageBox.Show(show, "版本更新提醒", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
                         if (dgr == DialogResult.Yes)
                         {
-                            System.Diagnostics.Process.Start("https://amfeng.cn/196.html");
+                            System.Diagnostics.Process.Start(cc.UpdateUrl);
                         }
                         else if (dgr == DialogResult.No)
                         {
@@ -246,14 +247,14 @@ namespace Collei_Launcher
             Local_Config.FixLC(ref lc);
             LoadSettingsToForm();
         }
-        public void LoadSettingsToForm()
+        public void LoadSettingsToForm(bool Save = true)
         {
             Proxy_port_numericUpDown.Value = lc.config.ProxyPort;
             Auto_close_proxy_checkBox.Checked = lc.config.Auto_Close_Proxy;
             Show_Public_Server_checkBox.Checked = lc.config.Show_Public_Server;
-            if(lc.config.Game_Path == null)
+            if (lc.config.Game_Path == null)
             {
-                lc.config.Game_Path = Classes.GameRegReader.GetGameExePath();
+                lc.config.Game_Path = Methods.GameRegReader.GetGameExePath();
             }
             if (lc.config.Game_Path != null)
             {
@@ -266,8 +267,29 @@ namespace Collei_Launcher
                 {
                     MetaFile_Input_textBox.Text = Path.GetDirectoryName(lc.config.Game_Path) + @"\GenshinImpact_Data\Managed\Metadata\global-metadata.dat";
                 }
+                if (File.Exists(Path.GetDirectoryName(lc.config.Game_Path) + @"\YuanShen_Data\Native\UserAssembly.dll"))
+                {
+                    UAFile_Input_textBox.Text = Path.GetDirectoryName(lc.config.Game_Path) + @"\YuanShen_Data\Native\UserAssembly.dll";
+                }
+                else if (File.Exists(Path.GetDirectoryName(lc.config.Game_Path) + @"\GenshinImpact_Data\Native\UserAssembly.dll"))
+                {
+                    UAFile_Input_textBox.Text = Path.GetDirectoryName(lc.config.Game_Path) + @"\GenshinImpact_Data\Native\UserAssembly.dll";
+                }
             }
-            Save_Local_Config();
+            CheckChannel_checkBox.Checked = lc.patch.CheckChannel;
+            PatchP1_checkBox.Checked = lc.patch.PatchP1;
+            Nopatch1_textBox.Text = lc.patch.Nopatch1;
+            Patched1_textBox.Text = lc.patch.Patched1;
+            Nopatch2_cn_textBox.Text = lc.patch.Nopatch2_cn;
+            Nopatch2_os_textBox.Text = lc.patch.Nopatch2_os;
+            Patched2_Meta_textBox.Text = lc.patch.Patched2_Meta;
+            Patched2_UA_textBox.Text = lc.patch.Patched2_UA;
+            Features_cn_textBox.Text = lc.patch.Features_cn;
+            Features_os_textBox.Text = lc.patch.Features_os;
+            if (Save)
+            {
+                Save_Local_Config();
+            }
 
         }
         private void Show_Public_Server_checkBox_CheckedChanged(object sender, EventArgs e)
@@ -341,6 +363,8 @@ namespace Collei_Launcher
             Debug.Print("正在保存config文件"); ;
             Local_Config.FixLC(ref lc);
             File.WriteAllText(config_path, JsonConvert.SerializeObject(lc));
+            Debug.Print("已保存config文件");
+            LoadSettingsToForm(false);
         }
         private void Save_proxy_button_Click(object sender, EventArgs e)
         {
@@ -539,7 +563,7 @@ namespace Collei_Launcher
                               {
                                   string str = "https://" + servers[s].host + ":" + servers[s].dispatch + "/status/server";
                                   Debug.Print(str);
-                                  Index_Get ig = Classes.Get_for_Index(str);
+                                  Index_Get ig = Methods.Get_for_Index(str);
                                   if (ig.Use_time >= 0 && ig.StatusCode == System.Net.HttpStatusCode.OK)
                                   {
                                       Def_status.Root df = JsonConvert.DeserializeObject<Def_status.Root>(ig.Result);
@@ -608,7 +632,7 @@ namespace Collei_Launcher
 
         private void Find_GameExe_button_Click(object sender, EventArgs e)
         {
-            string path = Classes.GameRegReader.GetGameExePath();
+            string path = Methods.GameRegReader.GetGameExePath();
             if (path == null)
             {
                 MessageBox.Show("自动寻找路径失败", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -637,7 +661,7 @@ namespace Collei_Launcher
 
         private void Outpath_checkBox_CheckedChanged(object sender, EventArgs e)
         {
-            Output_panel.Enabled = !INOUT_checkBox.Checked;
+            Output_panel.Enabled = !INOUT_Meta_checkBox.Checked;
         }
 
         private void Set_MetaOutputpath_button_Click(object sender, EventArgs e)
@@ -682,7 +706,7 @@ namespace Collei_Launcher
         {
             string input = MetaFile_Input_textBox.Text;
             string output;
-            if (!INOUT_checkBox.Checked)
+            if (!INOUT_Meta_checkBox.Checked)
             {
                 output = MetaFile_Output_textBox.Text;
             }
@@ -704,7 +728,7 @@ namespace Collei_Launcher
         {
             string input = MetaFile_Input_textBox.Text;
             string output;
-            if (!INOUT_checkBox.Checked)
+            if (!INOUT_Meta_checkBox.Checked)
             {
                 output = MetaFile_Output_textBox.Text;
             }
@@ -722,11 +746,11 @@ namespace Collei_Launcher
             MessageBox.Show("OK", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void Patch_File_Defkey_button_Click(object sender, EventArgs e)
+        private void Patch_Meta_button_Click(object sender, EventArgs e)
         {
             string input = MetaFile_Input_textBox.Text;
             string output;
-            if (!INOUT_checkBox.Checked)
+            if (!INOUT_Meta_checkBox.Checked)
             {
                 output = MetaFile_Output_textBox.Text;
             }
@@ -739,16 +763,16 @@ namespace Collei_Launcher
                 MessageBox.Show("路径未选择！", "错误信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            int i = Patch_Mgr.Patch_File(input, output);
+            string show = Patch_Mgr.Patch_File(input, output, lc.patch);
             GC.Collect();
-            MessageBox.Show("替换了" + i + "次", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(show, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void UnPatch_File_Defkey_button_Click(object sender, EventArgs e)
+        private void UnPatch_Meta_button_Click(object sender, EventArgs e)
         {
             string input = MetaFile_Input_textBox.Text;
             string output;
-            if (!INOUT_checkBox.Checked)
+            if (!INOUT_Meta_checkBox.Checked)
             {
                 output = MetaFile_Output_textBox.Text;
             }
@@ -762,10 +786,121 @@ namespace Collei_Launcher
                 return;
             }
 
-            int i = Patch_Mgr.UnPatch_File(input, output);
+            string show = Patch_Mgr.UnPatch_File(input, output, lc.patch);
             GC.Collect();
-            MessageBox.Show("替换了" + i + "次", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(show, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        private void CheckChannel_checkBox_CheckedChanged(object sender, EventArgs e)
+        {
+            SetChannel_Panel.Enabled = !CheckChannel_checkBox.Checked;
+        }
+
+        private void Delete_PC_button_Click(object sender, EventArgs e)
+        {
+            lc.patch = new Patch_Config();
+            Save_Local_Config();
+            MessageBox.Show("OK", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void Save_PC_button_Click(object sender, EventArgs e)
+        {
+            lc.patch.CheckChannel = CheckChannel_checkBox.Checked;
+            lc.patch.PatchP1 = PatchP1_checkBox.Checked;
+            lc.patch.Nopatch1 = Nopatch1_textBox.Text;
+            lc.patch.Patched1 = Patched1_textBox.Text;
+            lc.patch.Nopatch2_cn = Nopatch2_cn_textBox.Text;
+            lc.patch.Nopatch2_os = Nopatch2_os_textBox.Text;
+            lc.patch.Patched2_Meta = Patched2_Meta_textBox.Text;
+            lc.patch.Patched2_UA = Patched2_UA_textBox.Text;
+            lc.patch.Features_cn = Features_cn_textBox.Text;
+            lc.patch.Features_os = Features_os_textBox.Text;
+            Save_Local_Config();
+            MessageBox.Show("OK", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+
+        private void Set_UAInputpath_button_Click(object sender, EventArgs e)
+        {
+            string path = Choice_Path("UserAssembly文件|UserAssembly.dll|所有文件|*.*", "选择文件", Path.GetDirectoryName(lc.config.Game_Path));
+            if (path == null)
+            {
+                return;
+            }
+            UAFile_Input_textBox.Text = path;
+        }
+
+        private void Set_UAOutputpath_button_Click(object sender, EventArgs e)
+        {
+            string path = Choice_Save_Path("dll文件|*.dll|所有文件|*.*", "选择保存位置", Path.GetDirectoryName(lc.config.Game_Path), "UserAssembly.dll");
+            if (path == null)
+            {
+                return;
+            }
+            UAFile_Output_textBox.Text = path;
+        }
+        public void UA_Actions(Channel channel,bool ispatch)
+        {
+            string input = UAFile_Input_textBox.Text;
+            string output;
+            if (!INOUT_UA_checkBox.Checked)
+            {
+                output = UAFile_Output_textBox.Text;
+            }
+            else
+            {
+                output = input;
+            }
+            if (input == null || output == null || input == "" || output == "")
+            {
+                MessageBox.Show("路径未选择！", "错误信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            string show="";
+            if(ispatch)
+            {
+                show= UA_Patch_Mgr.Patch_File(input, output, lc.patch, channel);
+            }
+            else
+            {
+
+                show = UA_Patch_Mgr.UnPatch_File(input, output, lc.patch, channel);
+            }
+            GC.Collect();
+            MessageBox.Show(show, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void Patch_UA_CN_button_Click(object sender, EventArgs e)
+        {
+            UA_Actions(Channel.CN,true);
+        }
+
+        private void UnPatch_UA_CN_button_Click(object sender, EventArgs e)
+        {
+
+            UA_Actions(Channel.CN, false);
+        }
+
+        private void Patch_UA_OS_button_Click(object sender, EventArgs e)
+        {
+
+            UA_Actions(Channel.OS, true);
+        }
+
+        private void UnPatch_UA_OS_button_Click(object sender, EventArgs e)
+        {
+            UA_Actions(Channel.OS, false);
+        }
+
+        private void INOUT_UA_checkBox_CheckedChanged(object sender, EventArgs e)
+        {
+            UA_Output_panel.Enabled = !INOUT_UA_checkBox.Checked;
+        }
+
+        private void Author_label_Click(object sender, EventArgs e)
+        {
+
+            System.Diagnostics.Process.Start("http://launcher.bambi5.top");
+        }
     }
 }
