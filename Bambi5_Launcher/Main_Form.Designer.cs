@@ -103,6 +103,8 @@ namespace Collei_Launcher
             this.Nopatch2_os_textBox = new System.Windows.Forms.TextBox();
             this.Patched2_Meta_tabPage = new System.Windows.Forms.TabPage();
             this.Patched2_Meta_textBox = new System.Windows.Forms.TextBox();
+            this.Patched2_UA_tabPage = new System.Windows.Forms.TabPage();
+            this.Patched2_UA_textBox = new System.Windows.Forms.TextBox();
             this.Features_cn_tabPage = new System.Windows.Forms.TabPage();
             this.Features_cn_textBox = new System.Windows.Forms.TextBox();
             this.Features_os_tabPage = new System.Windows.Forms.TabPage();
@@ -132,8 +134,6 @@ namespace Collei_Launcher
             this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Status_timer = new System.Windows.Forms.Timer(this.components);
             this.Author_label = new System.Windows.Forms.Label();
-            this.Patched2_UA_tabPage = new System.Windows.Forms.TabPage();
-            this.Patched2_UA_textBox = new System.Windows.Forms.TextBox();
             this.Main_tabControl.SuspendLayout();
             this.Home_tabPage.SuspendLayout();
             this.Servers_List_tabPage.SuspendLayout();
@@ -151,13 +151,13 @@ namespace Collei_Launcher
             this.Nopatch2_cn_tabPage.SuspendLayout();
             this.Nopatch2_os_tabPage.SuspendLayout();
             this.Patched2_Meta_tabPage.SuspendLayout();
+            this.Patched2_UA_tabPage.SuspendLayout();
             this.Features_cn_tabPage.SuspendLayout();
             this.Features_os_tabPage.SuspendLayout();
             this.Settings_tabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Proxy_port_numericUpDown)).BeginInit();
             this.Main_statusStrip.SuspendLayout();
             this.Servers_contextMenuStrip.SuspendLayout();
-            this.Patched2_UA_tabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // Main_tabControl
@@ -759,9 +759,9 @@ namespace Collei_Launcher
             // Patched1_tabPage
             // 
             this.Patched1_tabPage.Controls.Add(this.Patched1_textBox);
-            this.Patched1_tabPage.Location = new System.Drawing.Point(4, 32);
+            this.Patched1_tabPage.Location = new System.Drawing.Point(4, 60);
             this.Patched1_tabPage.Name = "Patched1_tabPage";
-            this.Patched1_tabPage.Size = new System.Drawing.Size(636, 215);
+            this.Patched1_tabPage.Size = new System.Drawing.Size(636, 187);
             this.Patched1_tabPage.TabIndex = 1;
             this.Patched1_tabPage.Text = "已修补key1";
             this.Patched1_tabPage.UseVisualStyleBackColor = true;
@@ -772,15 +772,15 @@ namespace Collei_Launcher
             this.Patched1_textBox.Location = new System.Drawing.Point(0, 0);
             this.Patched1_textBox.Multiline = true;
             this.Patched1_textBox.Name = "Patched1_textBox";
-            this.Patched1_textBox.Size = new System.Drawing.Size(636, 215);
+            this.Patched1_textBox.Size = new System.Drawing.Size(636, 187);
             this.Patched1_textBox.TabIndex = 1;
             // 
             // Nopatch2_cn_tabPage
             // 
             this.Nopatch2_cn_tabPage.Controls.Add(this.Nopatch2_cn_textBox);
-            this.Nopatch2_cn_tabPage.Location = new System.Drawing.Point(4, 32);
+            this.Nopatch2_cn_tabPage.Location = new System.Drawing.Point(4, 60);
             this.Nopatch2_cn_tabPage.Name = "Nopatch2_cn_tabPage";
-            this.Nopatch2_cn_tabPage.Size = new System.Drawing.Size(636, 215);
+            this.Nopatch2_cn_tabPage.Size = new System.Drawing.Size(636, 187);
             this.Nopatch2_cn_tabPage.TabIndex = 2;
             this.Nopatch2_cn_tabPage.Text = "未修补key2_CN";
             this.Nopatch2_cn_tabPage.UseVisualStyleBackColor = true;
@@ -791,7 +791,7 @@ namespace Collei_Launcher
             this.Nopatch2_cn_textBox.Location = new System.Drawing.Point(0, 0);
             this.Nopatch2_cn_textBox.Multiline = true;
             this.Nopatch2_cn_textBox.Name = "Nopatch2_cn_textBox";
-            this.Nopatch2_cn_textBox.Size = new System.Drawing.Size(636, 215);
+            this.Nopatch2_cn_textBox.Size = new System.Drawing.Size(636, 187);
             this.Nopatch2_cn_textBox.TabIndex = 3;
             // 
             // Nopatch2_os_tabPage
@@ -831,6 +831,25 @@ namespace Collei_Launcher
             this.Patched2_Meta_textBox.Name = "Patched2_Meta_textBox";
             this.Patched2_Meta_textBox.Size = new System.Drawing.Size(636, 187);
             this.Patched2_Meta_textBox.TabIndex = 2;
+            // 
+            // Patched2_UA_tabPage
+            // 
+            this.Patched2_UA_tabPage.Controls.Add(this.Patched2_UA_textBox);
+            this.Patched2_UA_tabPage.Location = new System.Drawing.Point(4, 60);
+            this.Patched2_UA_tabPage.Name = "Patched2_UA_tabPage";
+            this.Patched2_UA_tabPage.Size = new System.Drawing.Size(636, 187);
+            this.Patched2_UA_tabPage.TabIndex = 8;
+            this.Patched2_UA_tabPage.Text = "已修补key2(UA)";
+            this.Patched2_UA_tabPage.UseVisualStyleBackColor = true;
+            // 
+            // Patched2_UA_textBox
+            // 
+            this.Patched2_UA_textBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Patched2_UA_textBox.Location = new System.Drawing.Point(0, 0);
+            this.Patched2_UA_textBox.Multiline = true;
+            this.Patched2_UA_textBox.Name = "Patched2_UA_textBox";
+            this.Patched2_UA_textBox.Size = new System.Drawing.Size(636, 187);
+            this.Patched2_UA_textBox.TabIndex = 3;
             // 
             // Features_cn_tabPage
             // 
@@ -1134,25 +1153,6 @@ namespace Collei_Launcher
             this.Author_label.Text = "By Bambi5";
             this.Author_label.Click += new System.EventHandler(this.Author_label_Click);
             // 
-            // Patched2_UA_tabPage
-            // 
-            this.Patched2_UA_tabPage.Controls.Add(this.Patched2_UA_textBox);
-            this.Patched2_UA_tabPage.Location = new System.Drawing.Point(4, 60);
-            this.Patched2_UA_tabPage.Name = "Patched2_UA_tabPage";
-            this.Patched2_UA_tabPage.Size = new System.Drawing.Size(636, 187);
-            this.Patched2_UA_tabPage.TabIndex = 8;
-            this.Patched2_UA_tabPage.Text = "已修补key2(UA)";
-            this.Patched2_UA_tabPage.UseVisualStyleBackColor = true;
-            // 
-            // Patched2_UA_textBox
-            // 
-            this.Patched2_UA_textBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Patched2_UA_textBox.Location = new System.Drawing.Point(0, 0);
-            this.Patched2_UA_textBox.Multiline = true;
-            this.Patched2_UA_textBox.Name = "Patched2_UA_textBox";
-            this.Patched2_UA_textBox.Size = new System.Drawing.Size(636, 187);
-            this.Patched2_UA_textBox.TabIndex = 3;
-            // 
             // Main_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
@@ -1203,6 +1203,8 @@ namespace Collei_Launcher
             this.Nopatch2_os_tabPage.PerformLayout();
             this.Patched2_Meta_tabPage.ResumeLayout(false);
             this.Patched2_Meta_tabPage.PerformLayout();
+            this.Patched2_UA_tabPage.ResumeLayout(false);
+            this.Patched2_UA_tabPage.PerformLayout();
             this.Features_cn_tabPage.ResumeLayout(false);
             this.Features_cn_tabPage.PerformLayout();
             this.Features_os_tabPage.ResumeLayout(false);
@@ -1213,8 +1215,6 @@ namespace Collei_Launcher
             this.Main_statusStrip.ResumeLayout(false);
             this.Main_statusStrip.PerformLayout();
             this.Servers_contextMenuStrip.ResumeLayout(false);
-            this.Patched2_UA_tabPage.ResumeLayout(false);
-            this.Patched2_UA_tabPage.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

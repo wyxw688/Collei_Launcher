@@ -23,8 +23,6 @@ namespace Collei_Launcher
         public int VerCode;
         public Cloud_Config cc;
         public Local_Config lc;
-        public bool PCSF = true;
-        public bool Offine = true;
         public bool is_first_check = true;
         public string config_path = Application.StartupPath + @"\config.json";
         public List<ServersItem_List> servers = new List<ServersItem_List>();
@@ -286,6 +284,15 @@ namespace Collei_Launcher
             Patched2_UA_textBox.Text = lc.patch.Patched2_UA;
             Features_cn_textBox.Text = lc.patch.Features_cn;
             Features_os_textBox.Text = lc.patch.Features_os;
+            if (lc.patch.SetChannel == Channel.CN)
+            {
+                CN_Channel_radioButton.Checked = true;
+            }
+            else if (lc.patch.SetChannel == Channel.OS)
+            {
+                OS_Channel_radioButton.Checked = true;
+            }
+
             if (Save)
             {
                 Save_Local_Config();
@@ -815,6 +822,15 @@ namespace Collei_Launcher
             lc.patch.Patched2_UA = Patched2_UA_textBox.Text;
             lc.patch.Features_cn = Features_cn_textBox.Text;
             lc.patch.Features_os = Features_os_textBox.Text;
+            if(CN_Channel_radioButton.Checked)
+            {
+                lc.patch.SetChannel = Channel.CN;
+            }
+            else if(OS_Channel_radioButton.Checked)
+            {
+                lc.patch.SetChannel = Channel.OS;
+            }
+
             Save_Local_Config();
             MessageBox.Show("OK", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
