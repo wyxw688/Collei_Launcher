@@ -9,12 +9,12 @@ namespace Collei_Launcher
 {
     public class Proxy_Mgr
     {
-        public Proxy_Mgr(Index_Form index)
+        public Proxy_Mgr(Details_Form index)
         {
             Index = index;
             handler = new SessionStateHandler(Index.On_BeforeRequest);
         }
-        public Index_Form Index { get; set; }
+        public Details_Form Index { get; set; }
         //初始化Fiddler
         public X509Certificate2 oRootCert;
         public SessionStateHandler handler;

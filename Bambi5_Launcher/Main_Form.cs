@@ -38,6 +38,7 @@ namespace Collei_Launcher
 
         private void Main_Form_Shown(object sender, EventArgs e)
         {
+            this.Servers_listView.Controls.Add(this.NoServerTip_label);
             bool isdebug = Methods.DebugBuild(Assembly.GetExecutingAssembly());
             Version version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
             string ver = string.Format("(v{0}.{1}.{2})", version.Major, version.Minor, version.Build);
@@ -333,7 +334,6 @@ namespace Collei_Launcher
                 servers.Add(ser);
             }
             Load_Server_List();
-            loaded = true;
         }
         public void Load_Server_List()
         {
@@ -362,7 +362,16 @@ namespace Collei_Launcher
                 }
                 Servers_listView.Items.Add(lvi);
             }
+            if(Servers_listView.Items.Count == 0)
+            {
+                NoServerTip_label.Visible = true;
+            }
+            else
+            {
+                NoServerTip_label.Visible = false;
+            }
             Servers_listView.EndUpdate();
+            loaded = true;
             Load_Server_Status();
         }
         public void Save_Local_Config()
@@ -515,7 +524,7 @@ namespace Collei_Launcher
             }
             else
             {
-                Index_Form.Open_Index(servers[ci]);
+                Details_Form.Open_Index(servers[ci]);
             }
         }
 
@@ -570,7 +579,7 @@ namespace Collei_Launcher
                               {
                                   string str = "https://" + servers[s].host + ":" + servers[s].dispatch + "/status/server";
                                   Debug.Print(str);
-                                  Index_Get ig = Methods.Get_for_Index(str);
+                                  Details_Get ig = Methods.Get_for_Index(str);
                                   if (ig.Use_time >= 0 && ig.StatusCode == System.Net.HttpStatusCode.OK)
                                   {
                                       Def_status.Root df = JsonConvert.DeserializeObject<Def_status.Root>(ig.Result);
@@ -917,6 +926,11 @@ namespace Collei_Launcher
         {
 
             System.Diagnostics.Process.Start("http://launcher.bambi5.top");
+        }
+
+        private void NoServerTip_label_MouseDown(object sender, MouseEventArgs e)
+        {
+            Servers_listView_MouseDown(sender, new MouseEventArgs(e.Button,e.Clicks, e.X + NoServerTip_label.Location.X, e.Y + NoServerTip_label.Location.Y, e.Delta));
         }
     }
 }

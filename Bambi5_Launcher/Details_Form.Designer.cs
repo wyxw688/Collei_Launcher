@@ -1,6 +1,6 @@
 ﻿namespace Collei_Launcher
 {
-    partial class Index_Form
+    partial class Details_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Index_Form));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Details_Form));
             this.Turn_button = new System.Windows.Forms.Button();
             this.Content_textBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();

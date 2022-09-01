@@ -30,7 +30,7 @@ namespace Collei_Launcher
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
             "Loading···",
             "loading···",
             "loading",
@@ -122,6 +122,7 @@ namespace Collei_Launcher
             this.Show_Public_Server_checkBox = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Proxy_port_numericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.NoServerTip_label = new System.Windows.Forms.Label();
             this.Main_statusStrip = new System.Windows.Forms.StatusStrip();
             this.Proxy_status_toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.Servers_contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -231,7 +232,7 @@ namespace Collei_Launcher
             this.Servers_listView.GridLines = true;
             this.Servers_listView.HideSelection = false;
             this.Servers_listView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem5});
             this.Servers_listView.Location = new System.Drawing.Point(3, 3);
             this.Servers_listView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Servers_listView.MultiSelect = false;
@@ -1047,6 +1048,22 @@ namespace Collei_Launcher
             0,
             0});
             // 
+            // NoServerTip_label
+            // 
+            this.NoServerTip_label.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.NoServerTip_label.AutoSize = true;
+            this.NoServerTip_label.BackColor = System.Drawing.Color.Transparent;
+            this.NoServerTip_label.Font = new System.Drawing.Font("微软雅黑", 15F);
+            this.NoServerTip_label.Location = new System.Drawing.Point(214, 169);
+            this.NoServerTip_label.Name = "NoServerTip_label";
+            this.NoServerTip_label.Size = new System.Drawing.Size(163, 23);
+            this.NoServerTip_label.TabIndex = 10;
+            this.NoServerTip_label.Text = "右键表格添加服务器";
+            this.NoServerTip_label.Visible = false;
+            this.NoServerTip_label.MouseDown += new System.Windows.Forms.MouseEventHandler(this.NoServerTip_label_MouseDown);
+            // 
             // Main_statusStrip
             // 
             this.Main_statusStrip.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -1315,6 +1332,7 @@ namespace Collei_Launcher
         public System.Windows.Forms.Button Patch_UA_OS_button;
         private System.Windows.Forms.TabPage Patched2_UA_tabPage;
         private System.Windows.Forms.TextBox Patched2_UA_textBox;
+        private System.Windows.Forms.Label NoServerTip_label;
     }
 }
 

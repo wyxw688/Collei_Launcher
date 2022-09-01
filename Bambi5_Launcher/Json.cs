@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Collei_Launcher
 {
-    public class Index_Get
+    public class Details_Get
     {
         public string Result { get; set; }
         public long Use_time { get; set; }

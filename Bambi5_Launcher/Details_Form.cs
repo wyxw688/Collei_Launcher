@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace Collei_Launcher
 {
-    public partial class Index_Form : Form
+    public partial class Details_Form : Form
     {
-        public Index_Form()
+        public Details_Form()
         {
             Main_Form.form.Status_timer.Enabled = false;
             indexf = this;
@@ -23,7 +23,7 @@ namespace Collei_Launcher
                 Turn_button.Text = "未设置游戏路径";
             }
         }
-        public static Index_Form indexf;
+        public static Details_Form indexf;
         public ServersItem_List server;
         public Proxy_Mgr pm;
         public bool cg = true;
@@ -33,16 +33,16 @@ namespace Collei_Launcher
             if (oS.host.EndsWith(".yuanshen.com") || oS.host.EndsWith(".hoyoverse.com") || oS.host.EndsWith(".mihoyo.com"))
             {
                 string ohost = oS.host + ":" + oS.port;
-                oS.host = Index_Form.indexf.server.host;
+                oS.host = Details_Form.indexf.server.host;
                 if (oS.port == 443 || oS.port == 80)
                 {
-                    oS.port = Index_Form.indexf.server.dispatch;
+                    oS.port = Details_Form.indexf.server.dispatch;
                 }
-                Index_Form.indexf.Print_log(ohost + " -> " + oS.host);
+                Details_Form.indexf.Print_log(ohost + " -> " + oS.host);
             }
             if (oS.port == 22102)
             {
-                oS.port = Index_Form.indexf.server.game;
+                oS.port = Details_Form.indexf.server.game;
             }
         }
         public bool no_gamepath()
@@ -63,7 +63,7 @@ namespace Collei_Launcher
         }
         public static void Open_Index(ServersItem_List ser)
         {
-            Index_Form index = new Index_Form();
+            Details_Form index = new Details_Form();
             index.Private_Open_Index(ser);
             index.Dispose();
         }
@@ -219,7 +219,7 @@ namespace Collei_Launcher
                 Uping_Status = true;
                 string display = "";
                 bool error = false;
-                Index_Get ig = Methods.Get_for_Index(Get_url("/status/server"));
+                Details_Get ig = Methods.Get_for_Index(Get_url("/status/server"));
                 if (ig != null)
                 {
                     if (ig.Use_time >= 0)
@@ -275,7 +275,7 @@ namespace Collei_Launcher
         {
             try
             {
-                Index_Get ig = Methods.Get_for_Index(Get_url("/status/server"));
+                Details_Get ig = Methods.Get_for_Index(Get_url("/status/server"));
                 if (ig.Use_time >= 0)
                 {
                     if (ig.StatusCode == System.Net.HttpStatusCode.OK)

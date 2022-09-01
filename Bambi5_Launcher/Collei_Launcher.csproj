@@ -130,11 +130,11 @@
     <Compile Include="Edit_Form.Designer.cs">
       <DependentUpon>Edit_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Index_Form.cs">
+    <Compile Include="Details_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Index_Form.Designer.cs">
-      <DependentUpon>Index_Form.cs</DependentUpon>
+    <Compile Include="Details_Form.Designer.cs">
+      <DependentUpon>Details_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Json.cs" />
     <Compile Include="Main_Form.cs">
@@ -160,8 +160,8 @@
     <EmbeddedResource Include="Edit_Form.resx">
       <DependentUpon>Edit_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Index_Form.resx">
-      <DependentUpon>Index_Form.cs</DependentUpon>
+    <EmbeddedResource Include="Details_Form.resx">
+      <DependentUpon>Details_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main_Form.resx">
       <DependentUpon>Main_Form.cs</DependentUpon>

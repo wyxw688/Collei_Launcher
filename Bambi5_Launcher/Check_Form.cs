@@ -86,7 +86,7 @@ namespace Collei_Launcher
                 Check_button.Text = "正在检查";
                 Log_Print("本机代理配置:" + Main_Form.form.Get_Proxy_Text());
                 Log_Print("正在尝试获取服务器信息···");
-                Index_Get ig = Methods.Get_for_Index(Get_url("/status/server"));
+                Details_Get ig = Methods.Get_for_Index(Get_url("/status/server"));
                 if (ig.Use_time >= 0)
                 {
                     if (ig.StatusCode == System.Net.HttpStatusCode.OK)
@@ -107,15 +107,8 @@ namespace Collei_Launcher
                 try
                 {
                     Ping ping = new Ping();
-                start:
                     PingReply pr = ping.Send(host, 1000);
-                    
-                    if (pr.RoundtripTime == 0&& pr.Status == IPStatus.Success)
-                    {
-                        Debug.Print("Ping retry");
-                        goto start;
-                    }
-                    else if(pr.RoundtripTime == 0)
+                    if(pr.Status != IPStatus.Success)
                     {
                         Log_Print("Ping失败:" + pr.Status.ToString());
                     }
@@ -129,11 +122,8 @@ namespace Collei_Launcher
                 {
                     Log_Print("Ping失败:" + ex.Message);
                 }
-                int maxtime = 3000;
-                bool timeout = true;
                 bool print = true;
-                bool ok=false;
-                var tk = new Thread(new ThreadStart(delegate
+                var tk = Task.Run(()=>
                 {
                     DateTime sdt = DateTime.Now;
                     Log_Print("正在获取conv···");
@@ -150,15 +140,23 @@ namespace Collei_Launcher
                         Log_Print("服务器Game端口无法连接！");
                         return;
                     }
-                    if (hostEntry.AddressList.Length == 0)
+                    IPAddress endpoint = null;
+                    foreach (IPAddress ip4 in hostEntry.AddressList)
+                    {
+                        if (ip4.AddressFamily == AddressFamily.InterNetwork)
+                        {
+                            endpoint = ip4;
+                        }
+                    }
+                    if (endpoint==null)
                     {
                         if (!print)
                             return;
-                        Log_Print("解析域名失败: " + gamehost);
+                        Log_Print("解析ipv4地址失败: " + gamehost);
                         Log_Print("服务器Game端口无法连接！");
+
                         return;
                     }
-                    var endpoint = hostEntry.AddressList[0];
                     var ip = new IPEndPoint(endpoint, 22102);
                     var client = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
                     byte[] data = Methods.ConvertHexStringToBytes("000000ff00000000000000000000000519419494");
@@ -179,8 +177,6 @@ namespace Collei_Launcher
                             c++;
                         }
                         Console.WriteLine(ret + "," + c);
-                        timeout = false;
-                        ok= true;
                         if (!print)
                             return;
                         Log_Print("服务器返回conv:" + ret);
@@ -211,28 +207,14 @@ namespace Collei_Launcher
                         Log_Print("Exception:" + e.Message);
                         Log_Print("服务器Game端口无法连接！");
                     }
-                }));
-                tk.Start();
-                int j = 0;
-                while(!ok)
-                {
-                    if(j*100>=maxtime)
-                    {
-                        break;
-                    }
-                    Thread.Sleep(100);
-                    j++;
-                }
-                if (timeout)
-                {
-                    tk.Abort();
-                    print = false;
-                    Log_Print("服务器Game端口连接超时！");
-                }
-                Log_Print("检查完成");
-                Check_button.Enabled = true;
-                Check_button.Text = "开始检查";
+                }).ContinueWith(t=>End_Test());
             });
+        }
+        public async Task End_Test()
+        {
+            Log_Print("检查完成");
+            Check_button.Enabled = true;
+            Check_button.Text = "开始检查";
         }
     }
 }
