@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Text;
 using System.Threading;
 using System.IO;
+using System.Globalization;
 
 namespace Collei_Launcher
 {
@@ -17,6 +18,7 @@ namespace Collei_Launcher
         [STAThread]
         static void Main()
         {
+            //Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //设置应用程序处理异常方式：ThreadException处理

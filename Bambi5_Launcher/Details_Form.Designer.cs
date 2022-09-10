@@ -55,42 +55,26 @@
             // 
             // Turn_button
             // 
-            this.Turn_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Turn_button.Location = new System.Drawing.Point(12, 362);
+            resources.ApplyResources(this.Turn_button, "Turn_button");
             this.Turn_button.Name = "Turn_button";
-            this.Turn_button.Size = new System.Drawing.Size(200, 50);
-            this.Turn_button.TabIndex = 54;
-            this.Turn_button.Text = "启动代理并打开游戏";
             this.Turn_button.UseVisualStyleBackColor = true;
             this.Turn_button.Click += new System.EventHandler(this.Turn_button_Click);
             // 
             // Content_textBox
             // 
-            this.Content_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.Content_textBox.Location = new System.Drawing.Point(15, 140);
-            this.Content_textBox.Multiline = true;
+            resources.ApplyResources(this.Content_textBox, "Content_textBox");
             this.Content_textBox.Name = "Content_textBox";
             this.Content_textBox.ReadOnly = true;
-            this.Content_textBox.Size = new System.Drawing.Size(235, 216);
-            this.Content_textBox.TabIndex = 53;
             this.Content_textBox.Tag = "Content";
             // 
             // label7
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(11, 114);
+            resources.ApplyResources(this.label7, "label7");
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(112, 23);
-            this.label7.TabIndex = 52;
-            this.label7.Text = "服务器备注：";
             // 
             // Game_port_numericUpDown
             // 
-            this.Game_port_numericUpDown.Location = new System.Drawing.Point(364, 82);
+            resources.ApplyResources(this.Game_port_numericUpDown, "Game_port_numericUpDown");
             this.Game_port_numericUpDown.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -103,8 +87,6 @@
             0});
             this.Game_port_numericUpDown.Name = "Game_port_numericUpDown";
             this.Game_port_numericUpDown.ReadOnly = true;
-            this.Game_port_numericUpDown.Size = new System.Drawing.Size(124, 29);
-            this.Game_port_numericUpDown.TabIndex = 51;
             this.Game_port_numericUpDown.Value = new decimal(new int[] {
             22102,
             0,
@@ -113,7 +95,7 @@
             // 
             // Dispatch_port_numericUpDown
             // 
-            this.Dispatch_port_numericUpDown.Location = new System.Drawing.Point(136, 82);
+            resources.ApplyResources(this.Dispatch_port_numericUpDown, "Dispatch_port_numericUpDown");
             this.Dispatch_port_numericUpDown.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -126,8 +108,6 @@
             0});
             this.Dispatch_port_numericUpDown.Name = "Dispatch_port_numericUpDown";
             this.Dispatch_port_numericUpDown.ReadOnly = true;
-            this.Dispatch_port_numericUpDown.Size = new System.Drawing.Size(124, 29);
-            this.Dispatch_port_numericUpDown.TabIndex = 50;
             this.Dispatch_port_numericUpDown.Value = new decimal(new int[] {
             443,
             0,
@@ -136,89 +116,49 @@
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(262, 84);
+            resources.ApplyResources(this.label6, "label6");
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(96, 23);
-            this.label6.TabIndex = 49;
-            this.label6.Text = "Game端口:";
             // 
             // label5
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(11, 84);
+            resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(119, 23);
-            this.label5.TabIndex = 48;
-            this.label5.Text = "Dispatch端口:";
             // 
             // Host_textBox
             // 
-            this.Host_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Host_textBox.Location = new System.Drawing.Point(229, 47);
+            resources.ApplyResources(this.Host_textBox, "Host_textBox");
             this.Host_textBox.Name = "Host_textBox";
             this.Host_textBox.ReadOnly = true;
-            this.Host_textBox.Size = new System.Drawing.Size(259, 29);
-            this.Host_textBox.TabIndex = 47;
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(11, 50);
+            resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(212, 23);
-            this.label4.TabIndex = 46;
-            this.label4.Text = "服务器地址(域名或ip地址):";
             // 
             // Title_textBox
             // 
-            this.Title_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Title_textBox.Location = new System.Drawing.Point(229, 12);
+            resources.ApplyResources(this.Title_textBox, "Title_textBox");
             this.Title_textBox.Name = "Title_textBox";
             this.Title_textBox.ReadOnly = true;
-            this.Title_textBox.Size = new System.Drawing.Size(259, 29);
-            this.Title_textBox.TabIndex = 45;
             // 
             // label3
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 15);
+            resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 23);
-            this.label3.TabIndex = 44;
-            this.label3.Text = "服务器名称:";
             // 
             // Status_statusStrip
             // 
+            resources.ApplyResources(this.Status_statusStrip, "Status_statusStrip");
             this.Status_statusStrip.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.Status_statusStrip.Font = new System.Drawing.Font("微软雅黑", 10F);
             this.Status_statusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.Status_statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Server_status_toolStripStatusLabel});
-            this.Status_statusStrip.Location = new System.Drawing.Point(0, 415);
             this.Status_statusStrip.Name = "Status_statusStrip";
-            this.Status_statusStrip.Size = new System.Drawing.Size(498, 29);
-            this.Status_statusStrip.TabIndex = 55;
-            this.Status_statusStrip.Text = "Status";
             // 
             // Server_status_toolStripStatusLabel
             // 
+            resources.ApplyResources(this.Server_status_toolStripStatusLabel, "Server_status_toolStripStatusLabel");
             this.Server_status_toolStripStatusLabel.Name = "Server_status_toolStripStatusLabel";
-            this.Server_status_toolStripStatusLabel.Size = new System.Drawing.Size(175, 23);
-            this.Server_status_toolStripStatusLabel.Text = "正在获取服务器状态···";
             // 
             // Server_Status_timer
             // 
@@ -228,56 +168,34 @@
             // 
             // Check_button
             // 
-            this.Check_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Check_button.Location = new System.Drawing.Point(364, 362);
+            resources.ApplyResources(this.Check_button, "Check_button");
             this.Check_button.Name = "Check_button";
-            this.Check_button.Size = new System.Drawing.Size(122, 50);
-            this.Check_button.TabIndex = 56;
-            this.Check_button.Text = "检查服务器";
             this.Check_button.UseVisualStyleBackColor = true;
             this.Check_button.Click += new System.EventHandler(this.Check_button_Click);
             // 
             // Turn_Proxy_button
             // 
-            this.Turn_Proxy_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Turn_Proxy_button.Location = new System.Drawing.Point(218, 362);
+            resources.ApplyResources(this.Turn_Proxy_button, "Turn_Proxy_button");
             this.Turn_Proxy_button.Name = "Turn_Proxy_button";
-            this.Turn_Proxy_button.Size = new System.Drawing.Size(140, 50);
-            this.Turn_Proxy_button.TabIndex = 57;
-            this.Turn_Proxy_button.Text = "仅启动代理";
             this.Turn_Proxy_button.UseVisualStyleBackColor = true;
             this.Turn_Proxy_button.Click += new System.EventHandler(this.Turn_Proxy_button_Click);
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(252, 114);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 23);
-            this.label1.TabIndex = 59;
-            this.label1.Text = "日志：";
             // 
             // Log_richTextBox
             // 
-            this.Log_richTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Log_richTextBox.Location = new System.Drawing.Point(256, 140);
+            resources.ApplyResources(this.Log_richTextBox, "Log_richTextBox");
             this.Log_richTextBox.Name = "Log_richTextBox";
             this.Log_richTextBox.ReadOnly = true;
-            this.Log_richTextBox.Size = new System.Drawing.Size(235, 216);
-            this.Log_richTextBox.TabIndex = 60;
-            this.Log_richTextBox.Text = "";
             // 
-            // Index_Form
+            // Details_Form
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            resources.ApplyResources(this, "$this");
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(498, 444);
             this.Controls.Add(this.Log_richTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Turn_Proxy_button);
@@ -294,14 +212,8 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Title_textBox);
             this.Controls.Add(this.label3);
-            this.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(516, 491);
-            this.Name = "Index_Form";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Title";
+            this.Name = "Details_Form";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Index_Form_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Index_Form_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.Game_port_numericUpDown)).EndInit();

@@ -157,11 +157,20 @@
       <DependentUpon>Check_Form.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Details_Form.en.resx">
+      <DependentUpon>Details_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit_Form.en.resx">
+      <DependentUpon>Edit_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Edit_Form.resx">
       <DependentUpon>Edit_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Details_Form.resx">
       <DependentUpon>Details_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main_Form.en.resx">
+      <DependentUpon>Main_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main_Form.resx">
       <DependentUpon>Main_Form.cs</DependentUpon>

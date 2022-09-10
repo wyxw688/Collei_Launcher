@@ -167,7 +167,7 @@ namespace Collei_Launcher
                         Thread.Sleep(100);
                     }
                     is_loading_cc = true;
-                    string ccs = Methods.Get("http://launcher.bambi5.top/Main?action=Get_Config&data=");
+                    string ccs = Methods.Get($"http://launcher.bambi5.top/Main?action=Get_Config&data=&lang={Thread.CurrentThread.CurrentUICulture.Name}");
                     if (ccs == null)
                     {
                         is_loading_cc = false;
@@ -718,8 +718,9 @@ namespace Collei_Launcher
             return null;
         }
 
-        private void Decrypt_File_button_Click(object sender, EventArgs e)
+        public void Meta_Actions(Meta_Action action)
         {
+            Show_Meta_Doing_Tip(true);
             string input = MetaFile_Input_textBox.Text;
             string output;
             if (!INOUT_Meta_checkBox.Checked)
@@ -735,76 +736,77 @@ namespace Collei_Launcher
                 MessageBox.Show("路径未选择！", "错误信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            Patch_Mgr.Decrypt_File(input, output);
-            GC.Collect();
-            MessageBox.Show("OK", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            var t = new Thread(()=>
+            {
+                
+                string show = "OK";
+
+                try
+                {
+
+                    switch (action)
+                    {
+                        case Meta_Action.Patch:
+                            {
+                                show = Patch_Mgr.Patch_File(input, output, lc.patch);
+                                break;
+                            }
+                        case Meta_Action.UnPatch:
+                            {
+                                show = Patch_Mgr.UnPatch_File(input, output, lc.patch);
+                                break;
+                            }
+                        case Meta_Action.Encrypt:
+                            {
+                                Patch_Mgr.Encrypt_File(input, output);
+                                break;
+                            }
+                        case Meta_Action.Decrypt:
+                            {
+                                Patch_Mgr.Decrypt_File(input, output);
+                                break;
+                            }
+                    }
+
+                    MessageBox.Show(show, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    GC.Collect();
+                }
+                catch(System.Runtime.InteropServices.SEHException)
+                {
+                    MessageBox.Show("在解包或打包Meta时出现了错误，这可能是由以下原因导致的\n\n①尝试修补(或反修补)已经被解包过的Meta文件\n②Meta文件已被损坏\n\n若您已经解包过Meta，请尝试打包后重试\n若您已经打包过Meta，请尝试解包后重试", "解包/打包时出现错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    Show_Meta_Doing_Tip(false);
+                }
+            });
+            t.Start();
+            
+        }
+        public void Show_Meta_Doing_Tip(bool Doing)
+        {
+            Meta_DoingTip_label.Visible = Doing;
+            Meta_Actions_groupBox.Enabled = !Doing;
+        }
+
+        private void Decrypt_File_button_Click(object sender, EventArgs e)
+        {
+            Meta_Actions(Meta_Action.Decrypt);
         }
 
         private void Encrypt_File_button_Click(object sender, EventArgs e)
         {
-            string input = MetaFile_Input_textBox.Text;
-            string output;
-            if (!INOUT_Meta_checkBox.Checked)
-            {
-                output = MetaFile_Output_textBox.Text;
-            }
-            else
-            {
-                output = input;
-            }
-            if (input == null || output == null || input == "" || output == "")
-            {
-                MessageBox.Show("路径未选择！", "错误信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            Patch_Mgr.Encrypt_File(input, output);
-            GC.Collect();
-            MessageBox.Show("OK", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Meta_Actions(Meta_Action.Encrypt);
         }
 
         private void Patch_Meta_button_Click(object sender, EventArgs e)
         {
-            string input = MetaFile_Input_textBox.Text;
-            string output;
-            if (!INOUT_Meta_checkBox.Checked)
-            {
-                output = MetaFile_Output_textBox.Text;
-            }
-            else
-            {
-                output = input;
-            }
-            if (input == null || output == null || input == "" || output == "")
-            {
-                MessageBox.Show("路径未选择！", "错误信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            string show = Patch_Mgr.Patch_File(input, output, lc.patch);
-            GC.Collect();
-            MessageBox.Show(show, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Meta_Actions(Meta_Action.Patch);
         }
 
         private void UnPatch_Meta_button_Click(object sender, EventArgs e)
         {
-            string input = MetaFile_Input_textBox.Text;
-            string output;
-            if (!INOUT_Meta_checkBox.Checked)
-            {
-                output = MetaFile_Output_textBox.Text;
-            }
-            else
-            {
-                output = input;
-            }
-            if (input == null || output == null || input == "" || output == "")
-            {
-                MessageBox.Show("路径未选择！", "错误信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            string show = Patch_Mgr.UnPatch_File(input, output, lc.patch);
-            GC.Collect();
-            MessageBox.Show(show, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Meta_Actions(Meta_Action.UnPatch);
         }
 
         private void CheckChannel_checkBox_CheckedChanged(object sender, EventArgs e)
@@ -866,6 +868,7 @@ namespace Collei_Launcher
         }
         public void UA_Actions(Channel channel,bool ispatch)
         {
+            Show_UA_Doing_Tip(true);
             string input = UAFile_Input_textBox.Text;
             string output;
             if (!INOUT_UA_checkBox.Checked)
@@ -881,20 +884,38 @@ namespace Collei_Launcher
                 MessageBox.Show("路径未选择！", "错误信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            string show="";
-            if(ispatch)
-            {
-                show= UA_Patch_Mgr.Patch_File(input, output, lc.patch, channel);
-            }
-            else
+
+            var t = new Thread(() =>
             {
 
-                show = UA_Patch_Mgr.UnPatch_File(input, output, lc.patch, channel);
-            }
-            GC.Collect();
-            MessageBox.Show(show, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string show = "";
+                try
+                {
+                    if (ispatch)
+                    {
+                        show = UA_Patch_Mgr.Patch_File(input, output, lc.patch, channel);
+                    }
+                    else
+                    {
+
+                        show = UA_Patch_Mgr.UnPatch_File(input, output, lc.patch, channel);
+                    }
+                    GC.Collect();
+                    MessageBox.Show(show, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                finally
+                {
+                    Show_UA_Doing_Tip(false);
+                }
+            });
+            t.Start();
         }
 
+        public void Show_UA_Doing_Tip(bool Doing)
+        {
+            UA_DoingTip_label.Visible = Doing;
+            UA_Actions_groupBox.Enabled = !Doing;
+        }
         private void Patch_UA_CN_button_Click(object sender, EventArgs e)
         {
             UA_Actions(Channel.CN,true);

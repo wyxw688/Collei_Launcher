@@ -117,290 +117,115 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>498, 444</value>
-  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Check_button.TabIndex" type="System.Int32, mscorlib">
-    <value>56</value>
-  </data>
-  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="Content_textBox.TabIndex" type="System.Int32, mscorlib">
-    <value>53</value>
-  </data>
-  <data name="&gt;&gt;Turn_button.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>252, 114</value>
-  </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 23</value>
-  </data>
-  <data name="&gt;&gt;Content_textBox.Name" xml:space="preserve">
-    <value>Content_textBox</value>
-  </data>
-  <data name="&gt;&gt;label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;Game_port_numericUpDown.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="Status_statusStrip.Font" type="System.Drawing.Font, System.Drawing">
-    <value>微软雅黑, 10pt</value>
-  </data>
-  <data name="&gt;&gt;Turn_Proxy_button.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;Host_textBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Turn_button.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 362</value>
-  </data>
-  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>262, 84</value>
-  </data>
-  <data name="&gt;&gt;Content_textBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Dispatch_port_numericUpDown.Name" xml:space="preserve">
-    <value>Dispatch_port_numericUpDown</value>
-  </data>
-  <data name="Check_button.Location" type="System.Drawing.Point, System.Drawing">
-    <value>364, 362</value>
-  </data>
-  <data name="Content_textBox.Multiline" type="System.Boolean, mscorlib">
+  <data name="Turn_button.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;Status_statusStrip.Name" xml:space="preserve">
-    <value>Status_statusStrip</value>
-  </data>
-  <data name="Log_richTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>235, 216</value>
-  </data>
-  <data name="Check_button.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 50</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="Game_port_numericUpDown.Location" type="System.Drawing.Point, System.Drawing">
-    <value>364, 82</value>
-  </data>
-  <data name="Status_statusStrip.TabIndex" type="System.Int32, mscorlib">
-    <value>55</value>
-  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="Turn_button.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 50</value>
-  </data>
-  <data name="&gt;&gt;Host_textBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="Status_statusStrip.Text" xml:space="preserve">
-    <value>Status</value>
-  </data>
-  <data name="Server_status_toolStripStatusLabel.Text" xml:space="preserve">
-    <value>正在获取服务器状态···</value>
-  </data>
-  <data name="&gt;&gt;Log_richTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>日志：</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Details_Form</value>
-  </data>
-  <data name="&gt;&gt;Title_textBox.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;Title_textBox.Name" xml:space="preserve">
-    <value>Title_textBox</value>
+    <value>241, 50</value>
   </data>
   <data name="Turn_button.Text" xml:space="preserve">
-    <value>启动代理并打开游戏</value>
+    <value>Start proxy and open game</value>
   </data>
   <data name="Content_textBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 140</value>
-  </data>
-  <data name="Turn_button.TabIndex" type="System.Int32, mscorlib">
-    <value>54</value>
-  </data>
-  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 15</value>
-  </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>服务器名称:</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
-  </data>
-  <data name="&gt;&gt;Host_textBox.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;Content_textBox.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="Dispatch_port_numericUpDown.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 29</value>
-  </data>
-  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="label7.Text" xml:space="preserve">
-    <value>服务器备注：</value>
-  </data>
-  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;Dispatch_port_numericUpDown.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;Check_button.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label4.TabIndex" type="System.Int32, mscorlib">
-    <value>46</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 23</value>
-  </data>
-  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="&gt;&gt;label3.Name" xml:space="preserve">
-    <value>label3</value>
-  </data>
-  <data name="Turn_Proxy_button.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 50</value>
-  </data>
-  <data name="Dispatch_port_numericUpDown.TabIndex" type="System.Int32, mscorlib">
-    <value>50</value>
-  </data>
-  <data name="Turn_button.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="Host_textBox.TabIndex" type="System.Int32, mscorlib">
-    <value>47</value>
-  </data>
-  <data name="Log_richTextBox.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;Turn_Proxy_button.Name" xml:space="preserve">
-    <value>Turn_Proxy_button</value>
-  </data>
-  <data name="label6.TabIndex" type="System.Int32, mscorlib">
-    <value>49</value>
-  </data>
-  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Check_button.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;Dispatch_port_numericUpDown.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label3.TabIndex" type="System.Int32, mscorlib">
-    <value>44</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Title</value>
-  </data>
-  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
-    <value>微软雅黑, 10pt</value>
-  </data>
-  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="Title_textBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>229, 12</value>
-  </data>
-  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>10, 23</value>
-  </data>
-  <data name="Game_port_numericUpDown.TabIndex" type="System.Int32, mscorlib">
-    <value>51</value>
-  </data>
-  <data name="&gt;&gt;Status_statusStrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>516, 491</value>
-  </data>
-  <data name="Log_richTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>60</value>
-  </data>
-  <data name="&gt;&gt;Game_port_numericUpDown.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Server_Status_timer.Name" xml:space="preserve">
-    <value>Server_Status_timer</value>
-  </data>
-  <data name="Host_textBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>259, 29</value>
-  </data>
-  <data name="&gt;&gt;Status_statusStrip.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;Turn_button.Name" xml:space="preserve">
-    <value>Turn_button</value>
-  </data>
-  <data name="Log_richTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>256, 140</value>
-  </data>
-  <data name="Dispatch_port_numericUpDown.Location" type="System.Drawing.Point, System.Drawing">
-    <value>136, 82</value>
-  </data>
-  <data name="label7.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+    <value>15, 169</value>
   </data>
   <data name="Content_textBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>235, 216</value>
+    <value>235, 187</value>
   </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>59</value>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 143</value>
   </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 23</value>
   </data>
-  <data name="&gt;&gt;label5.Name" xml:space="preserve">
-    <value>label5</value>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Server remarks:</value>
+  </data>
+  <data name="Game_port_numericUpDown.Location" type="System.Drawing.Point, System.Drawing">
+    <value>362, 111</value>
+  </data>
+  <data name="Dispatch_port_numericUpDown.Location" type="System.Drawing.Point, System.Drawing">
+    <value>141, 111</value>
+  </data>
+  <data name="Dispatch_port_numericUpDown.Size" type="System.Drawing.Size, System.Drawing">
+    <value>109, 29</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>255, 113</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>101, 23</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Game port:</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 113</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 23</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Dispatch port:</value>
+  </data>
+  <data name="Host_textBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 76</value>
+  </data>
+  <data name="Host_textBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>471, 29</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>372, 23</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Server address (domain name or IP address):</value>
+  </data>
+  <data name="Title_textBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>136, 12</value>
   </data>
   <data name="Title_textBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>259, 29</value>
+    <value>352, 29</value>
   </data>
-  <data name="&gt;&gt;Turn_Proxy_button.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 23</value>
   </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Server name:</value>
   </data>
-  <data name="&gt;&gt;Game_port_numericUpDown.Name" xml:space="preserve">
-    <value>Game_port_numericUpDown</value>
+  <data name="Server_status_toolStripStatusLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 23</value>
   </data>
-  <data name="label5.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
+  <data name="Server_status_toolStripStatusLabel.Text" xml:space="preserve">
+    <value>Getting server status···</value>
+  </data>
+  <data name="Check_button.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Turn_Proxy_button.Location" type="System.Drawing.Point, System.Drawing">
+    <value>259, 362</value>
+  </data>
+  <data name="Turn_Proxy_button.Size" type="System.Drawing.Size, System.Drawing">
+    <value>227, 50</value>
+  </data>
+  <data name="Turn_Proxy_button.Text" xml:space="preserve">
+    <value>Only Start Proxy</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>252, 143</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 23</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>logs:</value>
+  </data>
+  <data name="Log_richTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>256, 169</value>
+  </data>
+  <data name="Log_richTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>235, 187</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -4913,205 +4738,4 @@
         //////////////////////////////////////////////////8=
 </value>
   </data>
-  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Log_richTextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 50</value>
-  </data>
-  <data name="label4.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>212, 23</value>
-  </data>
-  <data name="&gt;&gt;Log_richTextBox.Name" xml:space="preserve">
-    <value>Log_richTextBox</value>
-  </data>
-  <data name="&gt;&gt;Server_status_toolStripStatusLabel.Name" xml:space="preserve">
-    <value>Server_status_toolStripStatusLabel</value>
-  </data>
-  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Server_status_toolStripStatusLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 23</value>
-  </data>
-  <data name="Turn_Proxy_button.TabIndex" type="System.Int32, mscorlib">
-    <value>57</value>
-  </data>
-  <data name="&gt;&gt;Server_status_toolStripStatusLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Game_port_numericUpDown.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 114</value>
-  </data>
-  <data name="&gt;&gt;label7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Check_button.Text" xml:space="preserve">
-    <value>检查服务器</value>
-  </data>
-  <data name="Turn_Proxy_button.Text" xml:space="preserve">
-    <value>仅启动代理</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Server_Status_timer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 84</value>
-  </data>
-  <data name="&gt;&gt;label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Dispatch_port_numericUpDown.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="Check_button.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="&gt;&gt;Title_textBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
-  </data>
-  <data name="Turn_Proxy_button.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 23</value>
-  </data>
-  <data name="Host_textBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="&gt;&gt;Content_textBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="&gt;&gt;label7.Name" xml:space="preserve">
-    <value>label7</value>
-  </data>
-  <data name="label7.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="Game_port_numericUpDown.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 29</value>
-  </data>
-  <data name="&gt;&gt;label6.Name" xml:space="preserve">
-    <value>label6</value>
-  </data>
-  <data name="&gt;&gt;Status_statusStrip.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="label7.TabIndex" type="System.Int32, mscorlib">
-    <value>52</value>
-  </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>Game端口:</value>
-  </data>
-  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;Turn_button.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Host_textBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>229, 47</value>
-  </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>服务器地址(域名或ip地址):</value>
-  </data>
-  <data name="&gt;&gt;Log_richTextBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="Content_textBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left</value>
-  </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 23</value>
-  </data>
-  <data name="&gt;&gt;Host_textBox.Name" xml:space="preserve">
-    <value>Host_textBox</value>
-  </data>
-  <data name="label5.TabIndex" type="System.Int32, mscorlib">
-    <value>48</value>
-  </data>
-  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Turn_button.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="Turn_Proxy_button.Location" type="System.Drawing.Point, System.Drawing">
-    <value>218, 362</value>
-  </data>
-  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 23</value>
-  </data>
-  <data name="label5.Text" xml:space="preserve">
-    <value>Dispatch端口:</value>
-  </data>
-  <data name="&gt;&gt;Check_button.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Check_button.Name" xml:space="preserve">
-    <value>Check_button</value>
-  </data>
-  <data name="Title_textBox.TabIndex" type="System.Int32, mscorlib">
-    <value>45</value>
-  </data>
-  <data name="label3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="&gt;&gt;Log_richTextBox.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;Title_textBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Title_textBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="&gt;&gt;Turn_Proxy_button.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Status_statusStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>498, 29</value>
-  </data>
-  <data name="Status_statusStrip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 415</value>
-  </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
-  </data>
-  <metadata name="Status_statusStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Server_Status_timer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>204, 17</value>
-  </metadata>
 </root>

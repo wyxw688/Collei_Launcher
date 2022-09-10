@@ -47,72 +47,37 @@
             // 
             // label3
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 15);
+            resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 23);
-            this.label3.TabIndex = 32;
-            this.label3.Text = "服务器名称:";
             // 
             // Title_textBox
             // 
-            this.Title_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Title_textBox.Location = new System.Drawing.Point(227, 12);
+            resources.ApplyResources(this.Title_textBox, "Title_textBox");
             this.Title_textBox.Name = "Title_textBox";
-            this.Title_textBox.Size = new System.Drawing.Size(259, 29);
-            this.Title_textBox.TabIndex = 33;
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 50);
+            resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(212, 23);
-            this.label4.TabIndex = 34;
-            this.label4.Text = "服务器地址(域名或ip地址):";
             // 
             // Host_textBox
             // 
-            this.Host_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Host_textBox.Location = new System.Drawing.Point(227, 47);
+            resources.ApplyResources(this.Host_textBox, "Host_textBox");
             this.Host_textBox.Name = "Host_textBox";
-            this.Host_textBox.Size = new System.Drawing.Size(259, 29);
-            this.Host_textBox.TabIndex = 35;
             // 
             // label5
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 84);
+            resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(119, 23);
-            this.label5.TabIndex = 36;
-            this.label5.Text = "Dispatch端口:";
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(260, 84);
+            resources.ApplyResources(this.label6, "label6");
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(96, 23);
-            this.label6.TabIndex = 37;
-            this.label6.Text = "Game端口:";
             // 
             // Dispatch_port_numericUpDown
             // 
-            this.Dispatch_port_numericUpDown.Location = new System.Drawing.Point(134, 82);
+            resources.ApplyResources(this.Dispatch_port_numericUpDown, "Dispatch_port_numericUpDown");
             this.Dispatch_port_numericUpDown.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -124,8 +89,6 @@
             0,
             0});
             this.Dispatch_port_numericUpDown.Name = "Dispatch_port_numericUpDown";
-            this.Dispatch_port_numericUpDown.Size = new System.Drawing.Size(124, 29);
-            this.Dispatch_port_numericUpDown.TabIndex = 38;
             this.Dispatch_port_numericUpDown.Value = new decimal(new int[] {
             443,
             0,
@@ -134,7 +97,7 @@
             // 
             // Game_port_numericUpDown
             // 
-            this.Game_port_numericUpDown.Location = new System.Drawing.Point(362, 82);
+            resources.ApplyResources(this.Game_port_numericUpDown, "Game_port_numericUpDown");
             this.Game_port_numericUpDown.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -146,8 +109,6 @@
             0,
             0});
             this.Game_port_numericUpDown.Name = "Game_port_numericUpDown";
-            this.Game_port_numericUpDown.Size = new System.Drawing.Size(124, 29);
-            this.Game_port_numericUpDown.TabIndex = 39;
             this.Game_port_numericUpDown.Value = new decimal(new int[] {
             22102,
             0,
@@ -156,56 +117,34 @@
             // 
             // label7
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 114);
+            resources.ApplyResources(this.label7, "label7");
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(112, 23);
-            this.label7.TabIndex = 40;
-            this.label7.Text = "服务器备注：";
             // 
             // Content_textBox
             // 
-            this.Content_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Content_textBox.Location = new System.Drawing.Point(13, 140);
-            this.Content_textBox.Multiline = true;
+            resources.ApplyResources(this.Content_textBox, "Content_textBox");
             this.Content_textBox.Name = "Content_textBox";
-            this.Content_textBox.Size = new System.Drawing.Size(473, 194);
-            this.Content_textBox.TabIndex = 41;
             this.Content_textBox.Tag = "Content";
             // 
             // Cancel_button
             // 
-            this.Cancel_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Cancel_button.Location = new System.Drawing.Point(362, 340);
+            resources.ApplyResources(this.Cancel_button, "Cancel_button");
             this.Cancel_button.Name = "Cancel_button";
-            this.Cancel_button.Size = new System.Drawing.Size(125, 50);
-            this.Cancel_button.TabIndex = 43;
-            this.Cancel_button.Text = "取消";
             this.Cancel_button.UseVisualStyleBackColor = true;
             this.Cancel_button.Click += new System.EventHandler(this.Cancel_button_Click);
             // 
             // Update_button
             // 
-            this.Update_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Update_button.Location = new System.Drawing.Point(13, 340);
+            resources.ApplyResources(this.Update_button, "Update_button");
             this.Update_button.Name = "Update_button";
-            this.Update_button.Size = new System.Drawing.Size(150, 50);
-            this.Update_button.TabIndex = 42;
-            this.Update_button.Text = "确定";
             this.Update_button.UseVisualStyleBackColor = true;
             this.Update_button.Click += new System.EventHandler(this.Update_button_Click);
             // 
             // Edit_Form
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            resources.ApplyResources(this, "$this");
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(498, 402);
             this.Controls.Add(this.Update_button);
             this.Controls.Add(this.Cancel_button);
             this.Controls.Add(this.Content_textBox);
@@ -218,13 +157,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Title_textBox);
             this.Controls.Add(this.label3);
-            this.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.MinimumSize = new System.Drawing.Size(516, 449);
             this.Name = "Edit_Form";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "编辑服务器";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Edit_Form_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.Dispatch_port_numericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Game_port_numericUpDown)).EndInit();

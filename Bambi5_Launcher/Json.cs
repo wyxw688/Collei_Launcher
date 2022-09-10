@@ -125,3 +125,7 @@ public enum Channel
 {
     CN,OS
 }
+public enum Meta_Action
+{
+    Patch,UnPatch,Encrypt,Decrypt
+}
