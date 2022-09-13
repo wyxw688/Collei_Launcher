@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Collei_Launcher
 {
-    public static class Patch_Mgr
+    public static class Meta_Patch_Mgr
     {
         public static string Patch_Bytes(ref byte[] filebytes,Patch_Config pc)
         {

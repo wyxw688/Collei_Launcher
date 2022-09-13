@@ -107,14 +107,14 @@ namespace Collei_Launcher
     }
     public class Patch_Config
     {
-        public string Features_cn = strings.Features_cn;
-        public string Features_os = strings.Features_os;
-        public string Nopatch1 = strings.Nopatch1;
-        public string Nopatch2_cn = strings.Nopatch2_cn;
-        public string Nopatch2_os = strings.Nopatch2_os;
-        public string Patched1 = strings.Patched1;
-        public string Patched2_Meta = strings.Patched2_Meta;
-        public string Patched2_UA = strings.Patched2_UA;
+        public string Features_cn = Patch_Data.Features_cn;
+        public string Features_os = Patch_Data.Features_os;
+        public string Nopatch1 = Patch_Data.Nopatch1;
+        public string Nopatch2_cn = Patch_Data.Nopatch2_cn;
+        public string Nopatch2_os = Patch_Data.Nopatch2_os;
+        public string Patched1 = Patch_Data.Patched1;
+        public string Patched2_Meta = Patch_Data.Patched2_Meta;
+        public string Patched2_UA = Patch_Data.Patched2_UA;
         public bool PatchP1 = true;
         public bool CheckChannel = true;
         public Channel SetChannel = Channel.CN;

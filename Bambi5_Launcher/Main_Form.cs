@@ -42,18 +42,11 @@ namespace Collei_Launcher
             bool isdebug = Methods.DebugBuild(Assembly.GetExecutingAssembly());
             Version version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
             string ver = string.Format("(v{0}.{1}.{2})", version.Major, version.Minor, version.Build);
-            VerCode = version.Revision;
+            VerCode = version.Major*100+ version.Minor*10+ version.Build;
             this.Text += ver;
-            if (isdebug)
-            {
-                this.Text += " - Debug";
-            }
-            else
-            {
-                this.Text += " - Release";
-            }
+            this.Text += isdebug ? " - Debug" : " - Release";
             Check_Proxy();
-            Load_Local_Config();
+            Load_Local_Config(sender,e);
         }
 
         public void Check_Proxy()
@@ -110,10 +103,6 @@ namespace Collei_Launcher
                     if (ps != null)
                     {
                         proxy.ProxyServer = ps.ToString();
-                    }
-                    else
-                    {
-                        ps = null;
                     }
                 }
             }
@@ -181,12 +170,17 @@ namespace Collei_Launcher
                     Notice_label.ForeColor = System.Drawing.Color.Black;
                     if (is_first_check && VerCode < cc.config.lastvercode && lc.config.lastvercode != cc.config.lastvercode)
                     {
-                        string show = "发现有新版本，是否更新?";
-                        show += "\n[当前版本]:" + VerCode;
-                        show += "\n[最新版本]:" + cc.config.lastvercode;
-                        show += "\n[更新内容]:" + cc.config.lastverstr;
-                        show += "\n点击“是”，跳转到更新连接\n点击“否”，跳过此版本\n点击“取消”，本次关闭此消息框";
-                        DialogResult dgr = MessageBox.Show(show, "版本更新提醒", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+                        StringBuilder stringBuilder = new StringBuilder();
+                        stringBuilder.AppendLine("发现有新版本，是否更新?");
+                        stringBuilder.AppendLine("[当前版本]:" + VerCode); ;
+                        stringBuilder.AppendLine("[最新版本]:" + cc.config.lastvercode);
+                        stringBuilder.AppendLine("[更新内容]:" );
+                        stringBuilder.AppendLine(cc.config.lastverstr);
+                        stringBuilder.AppendLine();
+                        stringBuilder.AppendLine("点击“是”，跳转到更新连接");
+                        stringBuilder.AppendLine("点击“否”，跳过此版本");
+                        stringBuilder.AppendLine("点击“取消”，本次关闭此消息框");
+                        DialogResult dgr = MessageBox.Show(stringBuilder.ToString(), "版本更新提醒", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
                         if (dgr == DialogResult.Yes)
                         {
                             System.Diagnostics.Process.Start(cc.UpdateUrl);
@@ -222,7 +216,7 @@ namespace Collei_Launcher
                 Clear_Proxy();
             }
         }
-        public void Load_Local_Config()
+        public void Load_Local_Config(object sender=null, EventArgs e=null)
         {
             Debug.Print(config_path);
             if (File.Exists(config_path))
@@ -244,9 +238,9 @@ namespace Collei_Launcher
             }
 
             Local_Config.FixLC(ref lc);
-            LoadSettingsToForm();
+            LoadSettingsToForm(sender,e);
         }
-        public void LoadSettingsToForm(bool Save = true)
+        public void LoadSettingsToForm(object sender = null, EventArgs e = null,bool Save = true)
         {
             Proxy_port_numericUpDown.Value = lc.config.ProxyPort;
             Auto_close_proxy_checkBox.Checked = lc.config.Auto_Close_Proxy;
@@ -258,21 +252,24 @@ namespace Collei_Launcher
             if (lc.config.Game_Path != null)
             {
                 Game_Path_textBox.Text = lc.config.Game_Path;
-                if (File.Exists(Path.GetDirectoryName(lc.config.Game_Path) + @"\YuanShen_Data\Managed\Metadata\global-metadata.dat"))
+                if (sender != null&&e!=null)
                 {
-                    MetaFile_Input_textBox.Text = Path.GetDirectoryName(lc.config.Game_Path) + @"\YuanShen_Data\Managed\Metadata\global-metadata.dat";
-                }
-                else if (File.Exists(Path.GetDirectoryName(lc.config.Game_Path) + @"\GenshinImpact_Data\Managed\Metadata\global-metadata.dat"))
-                {
-                    MetaFile_Input_textBox.Text = Path.GetDirectoryName(lc.config.Game_Path) + @"\GenshinImpact_Data\Managed\Metadata\global-metadata.dat";
-                }
-                if (File.Exists(Path.GetDirectoryName(lc.config.Game_Path) + @"\YuanShen_Data\Native\UserAssembly.dll"))
-                {
-                    UAFile_Input_textBox.Text = Path.GetDirectoryName(lc.config.Game_Path) + @"\YuanShen_Data\Native\UserAssembly.dll";
-                }
-                else if (File.Exists(Path.GetDirectoryName(lc.config.Game_Path) + @"\GenshinImpact_Data\Native\UserAssembly.dll"))
-                {
-                    UAFile_Input_textBox.Text = Path.GetDirectoryName(lc.config.Game_Path) + @"\GenshinImpact_Data\Native\UserAssembly.dll";
+                    if (File.Exists(Path.GetDirectoryName(lc.config.Game_Path) + @"\YuanShen_Data\Managed\Metadata\global-metadata.dat"))
+                    {
+                        MetaFile_Input_textBox.Text = Path.GetDirectoryName(lc.config.Game_Path) + @"\YuanShen_Data\Managed\Metadata\global-metadata.dat";
+                    }
+                    else if (File.Exists(Path.GetDirectoryName(lc.config.Game_Path) + @"\GenshinImpact_Data\Managed\Metadata\global-metadata.dat"))
+                    {
+                        MetaFile_Input_textBox.Text = Path.GetDirectoryName(lc.config.Game_Path) + @"\GenshinImpact_Data\Managed\Metadata\global-metadata.dat";
+                    }
+                    if (File.Exists(Path.GetDirectoryName(lc.config.Game_Path) + @"\YuanShen_Data\Native\UserAssembly.dll"))
+                    {
+                        UAFile_Input_textBox.Text = Path.GetDirectoryName(lc.config.Game_Path) + @"\YuanShen_Data\Native\UserAssembly.dll";
+                    }
+                    else if (File.Exists(Path.GetDirectoryName(lc.config.Game_Path) + @"\GenshinImpact_Data\Native\UserAssembly.dll"))
+                    {
+                        UAFile_Input_textBox.Text = Path.GetDirectoryName(lc.config.Game_Path) + @"\GenshinImpact_Data\Native\UserAssembly.dll";
+                    }
                 }
             }
             CheckChannel_checkBox.Checked = lc.patch.CheckChannel;
@@ -380,7 +377,7 @@ namespace Collei_Launcher
             Local_Config.FixLC(ref lc);
             File.WriteAllText(config_path, JsonConvert.SerializeObject(lc));
             Debug.Print("已保存config文件");
-            LoadSettingsToForm(false);
+            LoadSettingsToForm(null,null,false);
         }
         private void Save_proxy_button_Click(object sender, EventArgs e)
         {
@@ -748,22 +745,22 @@ namespace Collei_Launcher
                     {
                         case Meta_Action.Patch:
                             {
-                                show = Patch_Mgr.Patch_File(input, output, lc.patch);
+                                show = Meta_Patch_Mgr.Patch_File(input, output, lc.patch);
                                 break;
                             }
                         case Meta_Action.UnPatch:
                             {
-                                show = Patch_Mgr.UnPatch_File(input, output, lc.patch);
+                                show = Meta_Patch_Mgr.UnPatch_File(input, output, lc.patch);
                                 break;
                             }
                         case Meta_Action.Encrypt:
                             {
-                                Patch_Mgr.Encrypt_File(input, output);
+                                Meta_Patch_Mgr.Encrypt_File(input, output);
                                 break;
                             }
                         case Meta_Action.Decrypt:
                             {
-                                Patch_Mgr.Decrypt_File(input, output);
+                                Meta_Patch_Mgr.Decrypt_File(input, output);
                                 break;
                             }
                     }
@@ -866,7 +863,7 @@ namespace Collei_Launcher
             }
             UAFile_Output_textBox.Text = path;
         }
-        public void UA_Actions(Channel channel,bool ispatch)
+        public void UA_Actions(bool ispatch)
         {
             Show_UA_Doing_Tip(true);
             string input = UAFile_Input_textBox.Text;
@@ -885,7 +882,7 @@ namespace Collei_Launcher
                 return;
             }
 
-            var t = new Thread(() =>
+            new Thread(() =>
             {
 
                 string show = "";
@@ -893,12 +890,12 @@ namespace Collei_Launcher
                 {
                     if (ispatch)
                     {
-                        show = UA_Patch_Mgr.Patch_File(input, output, lc.patch, channel);
+                        show = UA_Patch_Mgr.Patch_File(input, output, lc.patch);
                     }
                     else
                     {
 
-                        show = UA_Patch_Mgr.UnPatch_File(input, output, lc.patch, channel);
+                        show = UA_Patch_Mgr.UnPatch_File(input, output, lc.patch);
                     }
                     GC.Collect();
                     MessageBox.Show(show, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -907,35 +904,13 @@ namespace Collei_Launcher
                 {
                     Show_UA_Doing_Tip(false);
                 }
-            });
-            t.Start();
+            }).Start();
         }
 
         public void Show_UA_Doing_Tip(bool Doing)
         {
             UA_DoingTip_label.Visible = Doing;
             UA_Actions_groupBox.Enabled = !Doing;
-        }
-        private void Patch_UA_CN_button_Click(object sender, EventArgs e)
-        {
-            UA_Actions(Channel.CN,true);
-        }
-
-        private void UnPatch_UA_CN_button_Click(object sender, EventArgs e)
-        {
-
-            UA_Actions(Channel.CN, false);
-        }
-
-        private void Patch_UA_OS_button_Click(object sender, EventArgs e)
-        {
-
-            UA_Actions(Channel.OS, true);
-        }
-
-        private void UnPatch_UA_OS_button_Click(object sender, EventArgs e)
-        {
-            UA_Actions(Channel.OS, false);
         }
 
         private void INOUT_UA_checkBox_CheckedChanged(object sender, EventArgs e)
@@ -952,6 +927,16 @@ namespace Collei_Launcher
         private void NoServerTip_label_MouseDown(object sender, MouseEventArgs e)
         {
             Servers_listView_MouseDown(sender, new MouseEventArgs(e.Button,e.Clicks, e.X + NoServerTip_label.Location.X, e.Y + NoServerTip_label.Location.Y, e.Delta));
+        }
+
+        private void Patch_UA_button_Click(object sender, EventArgs e)
+        {
+            UA_Actions(true);
+        }
+
+        private void UnPatch_UA_button_Click(object sender, EventArgs e)
+        {
+            UA_Actions(false);
         }
     }
 }

@@ -22,14 +22,14 @@ namespace Collei_Launcher {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class strings {
+    internal class Patch_Data {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal strings() {
+        internal Patch_Data() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Collei_Launcher {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Collei_Launcher.strings", typeof(strings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Collei_Launcher.Patch_Data", typeof(Patch_Data).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -124,7 +124,7 @@ namespace Collei_Launcher {
         }
         
         /// <summary>
-        ///   查找类似 xbbx2m1feHyrQ7jP+8mtDF/pyYLrJWKWAdEv3wZrOtjOZzeLGPzsmkcgncgoRhX4dT+1itSMR9j9m0/OwsH2UoF6U32LxCOQWQD1AMgIZjAkJeJvFTrtn8fMQ1701CkbaLTVIjRMlTw8kNXvNA/A9UatoiDmi4TFG6mrxTKZpIcTInvPEpkK2A7Qsp1E4skFK8jmysy7uRhMaYHtPTsBvxP0zn3lhKB3W+HTqpneewXWHjCDfL7Nbby91jbz5EKPZXWLuhXIvR1Cu4tiruorwXJxmXaP1HQZonytECNU/UOzP6GNLdq0eFDE4b04Wjp396551G99YiFP2nqHVJ5OMQ== 的本地化字符串。
+        ///   查找类似 AMW28dptX3h8q0O4z/vJrQxf6cmC6yVilgHRL98GazrYzmc3ixj87JpHIJ3IKEYV+HU/tYrUjEfY/ZtPzsLB9lKBelN9i8QjkFkA9QDICGYwJCXibxU67Z/HzENe9NQpG2i01SI0TJU8PJDV7zQPwPVGraIg5ouExRupq8UymaSHEyJ7zxKZCtgO0LKdROLJBSvI5srMu7kYTGmB7T07Ab8T9M595YSgd1vh06qZ3nsF1h4wg3y+zW28vdY28+RCj2V1i7oVyL0dQruLYq7qK8FycZl2j9R0GaJ8rRAjVP1Dsz+hjS3atHhQxOG9OFo6d/euedRvfWIhT9p6h1SeTjE= 的本地化字符串。
         /// </summary>
         internal static string Patched2_UA {
             get {

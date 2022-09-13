@@ -293,41 +293,11 @@
   <data name="UA_DoingTip_label.Text" xml:space="preserve">
     <value>Processing UserAssembly···</value>
   </data>
-  <data name="UnPatch_UA_OS_button.Location" type="System.Drawing.Point, System.Drawing">
-    <value>312, 81</value>
+  <data name="UnPatch_UA_button.Text" xml:space="preserve">
+    <value>UnPatch UA with key2</value>
   </data>
-  <data name="UnPatch_UA_OS_button.Size" type="System.Drawing.Size, System.Drawing">
-    <value>326, 50</value>
-  </data>
-  <data name="UnPatch_UA_OS_button.Text" xml:space="preserve">
-    <value>Use key2 to UnPatch OS UA</value>
-  </data>
-  <data name="Patch_UA_OS_button.Location" type="System.Drawing.Point, System.Drawing">
-    <value>312, 21</value>
-  </data>
-  <data name="Patch_UA_OS_button.Size" type="System.Drawing.Size, System.Drawing">
-    <value>326, 50</value>
-  </data>
-  <data name="Patch_UA_OS_button.Text" xml:space="preserve">
-    <value>Use key2 to Patch OS UA</value>
-  </data>
-  <data name="UnPatch_UA_CN_button.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 81</value>
-  </data>
-  <data name="UnPatch_UA_CN_button.Size" type="System.Drawing.Size, System.Drawing">
-    <value>300, 50</value>
-  </data>
-  <data name="UnPatch_UA_CN_button.Text" xml:space="preserve">
-    <value>Use key2 to UnPatch CN UA</value>
-  </data>
-  <data name="Patch_UA_CN_button.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 21</value>
-  </data>
-  <data name="Patch_UA_CN_button.Size" type="System.Drawing.Size, System.Drawing">
-    <value>300, 50</value>
-  </data>
-  <data name="Patch_UA_CN_button.Text" xml:space="preserve">
-    <value>Use key2 to Patch CN UA</value>
+  <data name="Patch_UA_button.Text" xml:space="preserve">
+    <value>Patch UA with key2</value>
   </data>
   <data name="UA_Output_panel.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 156</value>

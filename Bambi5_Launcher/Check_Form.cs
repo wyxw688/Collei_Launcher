@@ -127,12 +127,12 @@ namespace Collei_Launcher
                 {
                     DateTime sdt = DateTime.Now;
                     Log_Print("正在获取conv···");
-                    IPHostEntry hostEntry = null;
+                    IPAddress[] AddressList = null;
                     try
                     {
-                        hostEntry = Dns.GetHostEntry(gamehost);
+                        AddressList = Dns.GetHostAddresses(gamehost);
                     }
-                    catch
+                    catch(Exception ex)
                     {
                         if (!print)
                             return;
@@ -141,7 +141,7 @@ namespace Collei_Launcher
                         return;
                     }
                     IPAddress endpoint = null;
-                    foreach (IPAddress ip4 in hostEntry.AddressList)
+                    foreach (IPAddress ip4 in AddressList)
                     {
                         if (ip4.AddressFamily == AddressFamily.InterNetwork)
                         {

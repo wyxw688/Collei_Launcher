@@ -365,7 +365,7 @@ public static class Methods
 
         }
 #if DEBUG
-        Debug.Print("FindCount:" + index);
+        Debug.Print("FindIndex:" + index);
 #endif
         return index;
     }
