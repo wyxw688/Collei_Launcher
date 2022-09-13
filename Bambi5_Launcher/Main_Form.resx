@@ -121,10 +121,593 @@
   <data name="Main_tabControl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
+  <data name="&gt;&gt;Notice_label.Name" xml:space="preserve">
+    <value>Notice_label</value>
+  </data>
+  <data name="&gt;&gt;Notice_label.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Notice_label.Parent" xml:space="preserve">
+    <value>Home_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Notice_label.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="Home_tabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 32</value>
+  </data>
+  <data name="Home_tabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="Home_tabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>650, 393</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Home_tabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="Home_tabPage.Text" xml:space="preserve">
+    <value>主页</value>
+  </data>
+  <data name="&gt;&gt;Home_tabPage.Name" xml:space="preserve">
+    <value>Home_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Home_tabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Home_tabPage.Parent" xml:space="preserve">
+    <value>Main_tabControl</value>
+  </data>
+  <data name="&gt;&gt;Home_tabPage.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;Servers_listView.Name" xml:space="preserve">
+    <value>Servers_listView</value>
+  </data>
+  <data name="&gt;&gt;Servers_listView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Servers_listView.Parent" xml:space="preserve">
+    <value>Servers_List_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Servers_listView.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="Servers_List_tabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 32</value>
+  </data>
+  <data name="Servers_List_tabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="Servers_List_tabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>650, 393</value>
+  </data>
+  <data name="Servers_List_tabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="Servers_List_tabPage.Text" xml:space="preserve">
+    <value>服务器列表</value>
+  </data>
+  <data name="&gt;&gt;Servers_List_tabPage.Name" xml:space="preserve">
+    <value>Servers_List_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Servers_List_tabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Servers_List_tabPage.Parent" xml:space="preserve">
+    <value>Main_tabControl</value>
+  </data>
+  <data name="&gt;&gt;Servers_List_tabPage.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve">
+    <value>label6</value>
+  </data>
+  <data name="&gt;&gt;label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+    <value>Meta_tabPage</value>
+  </data>
+  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;Meta_Actions_groupBox.Name" xml:space="preserve">
+    <value>Meta_Actions_groupBox</value>
+  </data>
+  <data name="&gt;&gt;Meta_Actions_groupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Meta_Actions_groupBox.Parent" xml:space="preserve">
+    <value>Meta_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Meta_Actions_groupBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;Output_panel.Name" xml:space="preserve">
+    <value>Output_panel</value>
+  </data>
+  <data name="&gt;&gt;Output_panel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Output_panel.Parent" xml:space="preserve">
+    <value>Meta_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Output_panel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;INOUT_Meta_checkBox.Name" xml:space="preserve">
+    <value>INOUT_Meta_checkBox</value>
+  </data>
+  <data name="&gt;&gt;INOUT_Meta_checkBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;INOUT_Meta_checkBox.Parent" xml:space="preserve">
+    <value>Meta_tabPage</value>
+  </data>
+  <data name="&gt;&gt;INOUT_Meta_checkBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;Set_MetaInputpath_button.Name" xml:space="preserve">
+    <value>Set_MetaInputpath_button</value>
+  </data>
+  <data name="&gt;&gt;Set_MetaInputpath_button.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Set_MetaInputpath_button.Parent" xml:space="preserve">
+    <value>Meta_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Set_MetaInputpath_button.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;MetaFile_Input_textBox.Name" xml:space="preserve">
+    <value>MetaFile_Input_textBox</value>
+  </data>
+  <data name="&gt;&gt;MetaFile_Input_textBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MetaFile_Input_textBox.Parent" xml:space="preserve">
+    <value>Meta_tabPage</value>
+  </data>
+  <data name="&gt;&gt;MetaFile_Input_textBox.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
+  </data>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+    <value>Meta_tabPage</value>
+  </data>
+  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="Meta_tabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 32</value>
+  </data>
+  <data name="Meta_tabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>650, 393</value>
+  </data>
+  <data name="Meta_tabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="Meta_tabPage.Text" xml:space="preserve">
+    <value>修补Meta</value>
+  </data>
+  <data name="&gt;&gt;Meta_tabPage.Name" xml:space="preserve">
+    <value>Meta_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Meta_tabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Meta_tabPage.Parent" xml:space="preserve">
+    <value>Main_tabControl</value>
+  </data>
+  <data name="&gt;&gt;Meta_tabPage.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;label11.Name" xml:space="preserve">
+    <value>label11</value>
+  </data>
+  <data name="&gt;&gt;label11.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label11.Parent" xml:space="preserve">
+    <value>UA_tabPage</value>
+  </data>
+  <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;UA_Actions_groupBox.Name" xml:space="preserve">
+    <value>UA_Actions_groupBox</value>
+  </data>
+  <data name="&gt;&gt;UA_Actions_groupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;UA_Actions_groupBox.Parent" xml:space="preserve">
+    <value>UA_tabPage</value>
+  </data>
+  <data name="&gt;&gt;UA_Actions_groupBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;UA_Output_panel.Name" xml:space="preserve">
+    <value>UA_Output_panel</value>
+  </data>
+  <data name="&gt;&gt;UA_Output_panel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;UA_Output_panel.Parent" xml:space="preserve">
+    <value>UA_tabPage</value>
+  </data>
+  <data name="&gt;&gt;UA_Output_panel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;INOUT_UA_checkBox.Name" xml:space="preserve">
+    <value>INOUT_UA_checkBox</value>
+  </data>
+  <data name="&gt;&gt;INOUT_UA_checkBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;INOUT_UA_checkBox.Parent" xml:space="preserve">
+    <value>UA_tabPage</value>
+  </data>
+  <data name="&gt;&gt;INOUT_UA_checkBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;Set_UAInputpath_button.Name" xml:space="preserve">
+    <value>Set_UAInputpath_button</value>
+  </data>
+  <data name="&gt;&gt;Set_UAInputpath_button.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Set_UAInputpath_button.Parent" xml:space="preserve">
+    <value>UA_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Set_UAInputpath_button.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;UAFile_Input_textBox.Name" xml:space="preserve">
+    <value>UAFile_Input_textBox</value>
+  </data>
+  <data name="&gt;&gt;UAFile_Input_textBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;UAFile_Input_textBox.Parent" xml:space="preserve">
+    <value>UA_tabPage</value>
+  </data>
+  <data name="&gt;&gt;UAFile_Input_textBox.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;label13.Name" xml:space="preserve">
+    <value>label13</value>
+  </data>
+  <data name="&gt;&gt;label13.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label13.Parent" xml:space="preserve">
+    <value>UA_tabPage</value>
+  </data>
+  <data name="&gt;&gt;label13.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="UA_tabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 32</value>
+  </data>
+  <data name="UA_tabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>650, 393</value>
+  </data>
+  <data name="UA_tabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="UA_tabPage.Text" xml:space="preserve">
+    <value>修补UA</value>
+  </data>
+  <data name="&gt;&gt;UA_tabPage.Name" xml:space="preserve">
+    <value>UA_tabPage</value>
+  </data>
+  <data name="&gt;&gt;UA_tabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;UA_tabPage.Parent" xml:space="preserve">
+    <value>Main_tabControl</value>
+  </data>
+  <data name="&gt;&gt;UA_tabPage.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;Patch_Settings_Tip_label.Name" xml:space="preserve">
+    <value>Patch_Settings_Tip_label</value>
+  </data>
+  <data name="&gt;&gt;Patch_Settings_Tip_label.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Patch_Settings_Tip_label.Parent" xml:space="preserve">
+    <value>Patch_Settings_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Patch_Settings_Tip_label.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;SetChannel_Panel.Name" xml:space="preserve">
+    <value>SetChannel_Panel</value>
+  </data>
+  <data name="&gt;&gt;SetChannel_Panel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SetChannel_Panel.Parent" xml:space="preserve">
+    <value>Patch_Settings_tabPage</value>
+  </data>
+  <data name="&gt;&gt;SetChannel_Panel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;CheckChannel_checkBox.Name" xml:space="preserve">
+    <value>CheckChannel_checkBox</value>
+  </data>
+  <data name="&gt;&gt;CheckChannel_checkBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CheckChannel_checkBox.Parent" xml:space="preserve">
+    <value>Patch_Settings_tabPage</value>
+  </data>
+  <data name="&gt;&gt;CheckChannel_checkBox.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;PatchP1_checkBox.Name" xml:space="preserve">
+    <value>PatchP1_checkBox</value>
+  </data>
+  <data name="&gt;&gt;PatchP1_checkBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PatchP1_checkBox.Parent" xml:space="preserve">
+    <value>Patch_Settings_tabPage</value>
+  </data>
+  <data name="&gt;&gt;PatchP1_checkBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;Save_PC_button.Name" xml:space="preserve">
+    <value>Save_PC_button</value>
+  </data>
+  <data name="&gt;&gt;Save_PC_button.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Save_PC_button.Parent" xml:space="preserve">
+    <value>Patch_Settings_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Save_PC_button.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;Patch_Bytes_tabControl.Name" xml:space="preserve">
+    <value>Patch_Bytes_tabControl</value>
+  </data>
+  <data name="&gt;&gt;Patch_Bytes_tabControl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Patch_Bytes_tabControl.Parent" xml:space="preserve">
+    <value>Patch_Settings_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Patch_Bytes_tabControl.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="Patch_Settings_tabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 32</value>
+  </data>
+  <data name="Patch_Settings_tabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>650, 393</value>
+  </data>
+  <data name="Patch_Settings_tabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="Patch_Settings_tabPage.Text" xml:space="preserve">
+    <value>修补设置</value>
+  </data>
+  <data name="&gt;&gt;Patch_Settings_tabPage.Name" xml:space="preserve">
+    <value>Patch_Settings_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Patch_Settings_tabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Patch_Settings_tabPage.Parent" xml:space="preserve">
+    <value>Main_tabControl</value>
+  </data>
+  <data name="&gt;&gt;Patch_Settings_tabPage.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;Save_Config_button.Name" xml:space="preserve">
+    <value>Save_Config_button</value>
+  </data>
+  <data name="&gt;&gt;Save_Config_button.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Save_Config_button.Parent" xml:space="preserve">
+    <value>Settings_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Save_Config_button.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;Delete_PC_button.Name" xml:space="preserve">
+    <value>Delete_PC_button</value>
+  </data>
+  <data name="&gt;&gt;Delete_PC_button.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Delete_PC_button.Parent" xml:space="preserve">
+    <value>Settings_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Delete_PC_button.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;Find_GameExe_button.Name" xml:space="preserve">
+    <value>Find_GameExe_button</value>
+  </data>
+  <data name="&gt;&gt;Find_GameExe_button.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Find_GameExe_button.Parent" xml:space="preserve">
+    <value>Settings_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Find_GameExe_button.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;Open_Check_button.Name" xml:space="preserve">
+    <value>Open_Check_button</value>
+  </data>
+  <data name="&gt;&gt;Open_Check_button.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Open_Check_button.Parent" xml:space="preserve">
+    <value>Settings_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Open_Check_button.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>Settings_tabPage</value>
+  </data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;Choice_Game_Path_button.Name" xml:space="preserve">
+    <value>Choice_Game_Path_button</value>
+  </data>
+  <data name="&gt;&gt;Choice_Game_Path_button.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Choice_Game_Path_button.Parent" xml:space="preserve">
+    <value>Settings_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Choice_Game_Path_button.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;Game_Path_textBox.Name" xml:space="preserve">
+    <value>Game_Path_textBox</value>
+  </data>
+  <data name="&gt;&gt;Game_Path_textBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Game_Path_textBox.Parent" xml:space="preserve">
+    <value>Settings_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Game_Path_textBox.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>Settings_tabPage</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;Auto_close_proxy_checkBox.Name" xml:space="preserve">
+    <value>Auto_close_proxy_checkBox</value>
+  </data>
+  <data name="&gt;&gt;Auto_close_proxy_checkBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Auto_close_proxy_checkBox.Parent" xml:space="preserve">
+    <value>Settings_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Auto_close_proxy_checkBox.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;Show_Public_Server_checkBox.Name" xml:space="preserve">
+    <value>Show_Public_Server_checkBox</value>
+  </data>
+  <data name="&gt;&gt;Show_Public_Server_checkBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Show_Public_Server_checkBox.Parent" xml:space="preserve">
+    <value>Settings_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Show_Public_Server_checkBox.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>Settings_tabPage</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;Proxy_port_numericUpDown.Name" xml:space="preserve">
+    <value>Proxy_port_numericUpDown</value>
+  </data>
+  <data name="&gt;&gt;Proxy_port_numericUpDown.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Proxy_port_numericUpDown.Parent" xml:space="preserve">
+    <value>Settings_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Proxy_port_numericUpDown.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="Settings_tabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 32</value>
+  </data>
+  <data name="Settings_tabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="Settings_tabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>650, 393</value>
+  </data>
+  <data name="Settings_tabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="Settings_tabPage.Text" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="&gt;&gt;Settings_tabPage.Name" xml:space="preserve">
+    <value>Settings_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Settings_tabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Settings_tabPage.Parent" xml:space="preserve">
+    <value>Main_tabControl</value>
+  </data>
+  <data name="&gt;&gt;Settings_tabPage.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="Main_tabControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="Main_tabControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>658, 429</value>
+  </data>
+  <data name="Main_tabControl.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;Main_tabControl.Name" xml:space="preserve">
+    <value>Main_tabControl</value>
+  </data>
+  <data name="&gt;&gt;Main_tabControl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Main_tabControl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Main_tabControl.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <data name="Notice_label.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="Notice_label.Font" type="System.Drawing.Font, System.Drawing">
     <value>微软雅黑, 15pt</value>
   </data>
@@ -134,7 +717,6 @@
   <data name="Notice_label.Size" type="System.Drawing.Size, System.Drawing">
     <value>644, 387</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="Notice_label.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
@@ -155,72 +737,6 @@
   </data>
   <data name="&gt;&gt;Notice_label.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="Home_tabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 32</value>
-  </data>
-  <data name="Home_tabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="Home_tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>650, 393</value>
-  </data>
-  <data name="Home_tabPage.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="Home_tabPage.Text" xml:space="preserve">
-    <value>主页</value>
-  </data>
-  <data name="&gt;&gt;Home_tabPage.Name" xml:space="preserve">
-    <value>Home_tabPage</value>
-  </data>
-  <data name="&gt;&gt;Home_tabPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Home_tabPage.Parent" xml:space="preserve">
-    <value>Main_tabControl</value>
-  </data>
-  <data name="&gt;&gt;Home_tabPage.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="Title_columnHeader.Text" xml:space="preserve">
-    <value>标题</value>
-  </data>
-  <data name="Title_columnHeader.Width" type="System.Int32, mscorlib">
-    <value>100</value>
-  </data>
-  <data name="Host_columnHeader.Text" xml:space="preserve">
-    <value>服务器</value>
-  </data>
-  <data name="Host_columnHeader.Width" type="System.Int32, mscorlib">
-    <value>150</value>
-  </data>
-  <data name="Dispatch_columnHeader.Text" xml:space="preserve">
-    <value>Dispatch</value>
-  </data>
-  <data name="Dispatch_columnHeader.Width" type="System.Int32, mscorlib">
-    <value>75</value>
-  </data>
-  <data name="Game_columnHeader.Text" xml:space="preserve">
-    <value>Game</value>
-  </data>
-  <data name="Count_columnHeader.Text" xml:space="preserve">
-    <value>在线数</value>
-  </data>
-  <data name="Ver_columnHeader.Text" xml:space="preserve">
-    <value>版本</value>
-  </data>
-  <data name="Ver_columnHeader.Width" type="System.Int32, mscorlib">
-    <value>75</value>
-  </data>
-  <data name="Ping_columnHeader.Text" xml:space="preserve">
-    <value>Ping</value>
-  </data>
-  <data name="Content_columnHeader.Text" xml:space="preserve">
-    <value>介绍</value>
-  </data>
-  <data name="Content_columnHeader.Width" type="System.Int32, mscorlib">
-    <value>200</value>
   </data>
   <data name="Servers_listView.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -283,32 +799,44 @@
   <data name="&gt;&gt;Servers_listView.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="Servers_List_tabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 32</value>
+  <data name="Title_columnHeader.Text" xml:space="preserve">
+    <value>标题</value>
   </data>
-  <data name="Servers_List_tabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
+  <data name="Title_columnHeader.Width" type="System.Int32, mscorlib">
+    <value>100</value>
   </data>
-  <data name="Servers_List_tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>650, 393</value>
+  <data name="Host_columnHeader.Text" xml:space="preserve">
+    <value>服务器</value>
   </data>
-  <data name="Servers_List_tabPage.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="Host_columnHeader.Width" type="System.Int32, mscorlib">
+    <value>150</value>
   </data>
-  <data name="Servers_List_tabPage.Text" xml:space="preserve">
-    <value>服务器列表</value>
+  <data name="Dispatch_columnHeader.Text" xml:space="preserve">
+    <value>Dispatch</value>
   </data>
-  <data name="&gt;&gt;Servers_List_tabPage.Name" xml:space="preserve">
-    <value>Servers_List_tabPage</value>
+  <data name="Dispatch_columnHeader.Width" type="System.Int32, mscorlib">
+    <value>75</value>
   </data>
-  <data name="&gt;&gt;Servers_List_tabPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Game_columnHeader.Text" xml:space="preserve">
+    <value>Game</value>
   </data>
-  <data name="&gt;&gt;Servers_List_tabPage.Parent" xml:space="preserve">
-    <value>Main_tabControl</value>
+  <data name="Count_columnHeader.Text" xml:space="preserve">
+    <value>在线数</value>
   </data>
-  <data name="&gt;&gt;Servers_List_tabPage.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="Ver_columnHeader.Text" xml:space="preserve">
+    <value>版本</value>
+  </data>
+  <data name="Ver_columnHeader.Width" type="System.Int32, mscorlib">
+    <value>75</value>
+  </data>
+  <data name="Ping_columnHeader.Text" xml:space="preserve">
+    <value>Ping</value>
+  </data>
+  <data name="Content_columnHeader.Text" xml:space="preserve">
+    <value>介绍</value>
+  </data>
+  <data name="Content_columnHeader.Width" type="System.Int32, mscorlib">
+    <value>200</value>
   </data>
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -339,6 +867,90 @@
   </data>
   <data name="Meta_Actions_groupBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;Meta_DoingTip_label.Name" xml:space="preserve">
+    <value>Meta_DoingTip_label</value>
+  </data>
+  <data name="&gt;&gt;Meta_DoingTip_label.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Meta_DoingTip_label.Parent" xml:space="preserve">
+    <value>Meta_Actions_groupBox</value>
+  </data>
+  <data name="&gt;&gt;Meta_DoingTip_label.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;UnPatch_Meta_button.Name" xml:space="preserve">
+    <value>UnPatch_Meta_button</value>
+  </data>
+  <data name="&gt;&gt;UnPatch_Meta_button.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;UnPatch_Meta_button.Parent" xml:space="preserve">
+    <value>Meta_Actions_groupBox</value>
+  </data>
+  <data name="&gt;&gt;UnPatch_Meta_button.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;Patch_Meta_button.Name" xml:space="preserve">
+    <value>Patch_Meta_button</value>
+  </data>
+  <data name="&gt;&gt;Patch_Meta_button.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Patch_Meta_button.Parent" xml:space="preserve">
+    <value>Meta_Actions_groupBox</value>
+  </data>
+  <data name="&gt;&gt;Patch_Meta_button.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;Encrypt_File_button.Name" xml:space="preserve">
+    <value>Encrypt_File_button</value>
+  </data>
+  <data name="&gt;&gt;Encrypt_File_button.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Encrypt_File_button.Parent" xml:space="preserve">
+    <value>Meta_Actions_groupBox</value>
+  </data>
+  <data name="&gt;&gt;Encrypt_File_button.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;Decrypt_File_button.Name" xml:space="preserve">
+    <value>Decrypt_File_button</value>
+  </data>
+  <data name="&gt;&gt;Decrypt_File_button.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Decrypt_File_button.Parent" xml:space="preserve">
+    <value>Meta_Actions_groupBox</value>
+  </data>
+  <data name="&gt;&gt;Decrypt_File_button.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="Meta_Actions_groupBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 257</value>
+  </data>
+  <data name="Meta_Actions_groupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>644, 133</value>
+  </data>
+  <data name="Meta_Actions_groupBox.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="Meta_Actions_groupBox.Text" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="&gt;&gt;Meta_Actions_groupBox.Name" xml:space="preserve">
+    <value>Meta_Actions_groupBox</value>
+  </data>
+  <data name="&gt;&gt;Meta_Actions_groupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Meta_Actions_groupBox.Parent" xml:space="preserve">
+    <value>Meta_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Meta_Actions_groupBox.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="Meta_DoingTip_label.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -481,32 +1093,68 @@
   <data name="&gt;&gt;Decrypt_File_button.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="Meta_Actions_groupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 257</value>
-  </data>
-  <data name="Meta_Actions_groupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>644, 133</value>
-  </data>
-  <data name="Meta_Actions_groupBox.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="Meta_Actions_groupBox.Text" xml:space="preserve">
-    <value>操作</value>
-  </data>
-  <data name="&gt;&gt;Meta_Actions_groupBox.Name" xml:space="preserve">
-    <value>Meta_Actions_groupBox</value>
-  </data>
-  <data name="&gt;&gt;Meta_Actions_groupBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Meta_Actions_groupBox.Parent" xml:space="preserve">
-    <value>Meta_tabPage</value>
-  </data>
-  <data name="&gt;&gt;Meta_Actions_groupBox.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="Output_panel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;Set_MetaOutputpath_button.Name" xml:space="preserve">
+    <value>Set_MetaOutputpath_button</value>
+  </data>
+  <data name="&gt;&gt;Set_MetaOutputpath_button.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Set_MetaOutputpath_button.Parent" xml:space="preserve">
+    <value>Output_panel</value>
+  </data>
+  <data name="&gt;&gt;Set_MetaOutputpath_button.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;MetaFile_Output_textBox.Name" xml:space="preserve">
+    <value>MetaFile_Output_textBox</value>
+  </data>
+  <data name="&gt;&gt;MetaFile_Output_textBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MetaFile_Output_textBox.Parent" xml:space="preserve">
+    <value>Output_panel</value>
+  </data>
+  <data name="&gt;&gt;MetaFile_Output_textBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;label5.Name" xml:space="preserve">
+    <value>label5</value>
+  </data>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
+    <value>Output_panel</value>
+  </data>
+  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="Output_panel.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Output_panel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 131</value>
+  </data>
+  <data name="Output_panel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>632, 120</value>
+  </data>
+  <data name="Output_panel.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;Output_panel.Name" xml:space="preserve">
+    <value>Output_panel</value>
+  </data>
+  <data name="&gt;&gt;Output_panel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Output_panel.Parent" xml:space="preserve">
+    <value>Meta_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Output_panel.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="Set_MetaOutputpath_button.Location" type="System.Drawing.Point, System.Drawing">
     <value>19, 66</value>
@@ -581,30 +1229,6 @@
     <value>Output_panel</value>
   </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="Output_panel.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="Output_panel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 131</value>
-  </data>
-  <data name="Output_panel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>632, 120</value>
-  </data>
-  <data name="Output_panel.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="&gt;&gt;Output_panel.Name" xml:space="preserve">
-    <value>Output_panel</value>
-  </data>
-  <data name="&gt;&gt;Output_panel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Output_panel.Parent" xml:space="preserve">
-    <value>Meta_tabPage</value>
-  </data>
-  <data name="&gt;&gt;Output_panel.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="INOUT_Meta_checkBox.AutoSize" type="System.Boolean, mscorlib">
@@ -709,30 +1333,6 @@
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="Meta_tabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 32</value>
-  </data>
-  <data name="Meta_tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>650, 393</value>
-  </data>
-  <data name="Meta_tabPage.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="Meta_tabPage.Text" xml:space="preserve">
-    <value>修补Meta</value>
-  </data>
-  <data name="&gt;&gt;Meta_tabPage.Name" xml:space="preserve">
-    <value>Meta_tabPage</value>
-  </data>
-  <data name="&gt;&gt;Meta_tabPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Meta_tabPage.Parent" xml:space="preserve">
-    <value>Main_tabControl</value>
-  </data>
-  <data name="&gt;&gt;Meta_tabPage.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="label11.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -762,6 +1362,66 @@
   </data>
   <data name="UA_Actions_groupBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;UA_DoingTip_label.Name" xml:space="preserve">
+    <value>UA_DoingTip_label</value>
+  </data>
+  <data name="&gt;&gt;UA_DoingTip_label.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;UA_DoingTip_label.Parent" xml:space="preserve">
+    <value>UA_Actions_groupBox</value>
+  </data>
+  <data name="&gt;&gt;UA_DoingTip_label.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;UnPatch_UA_button.Name" xml:space="preserve">
+    <value>UnPatch_UA_button</value>
+  </data>
+  <data name="&gt;&gt;UnPatch_UA_button.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;UnPatch_UA_button.Parent" xml:space="preserve">
+    <value>UA_Actions_groupBox</value>
+  </data>
+  <data name="&gt;&gt;UnPatch_UA_button.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;Patch_UA_button.Name" xml:space="preserve">
+    <value>Patch_UA_button</value>
+  </data>
+  <data name="&gt;&gt;Patch_UA_button.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Patch_UA_button.Parent" xml:space="preserve">
+    <value>UA_Actions_groupBox</value>
+  </data>
+  <data name="&gt;&gt;Patch_UA_button.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="UA_Actions_groupBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 257</value>
+  </data>
+  <data name="UA_Actions_groupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>644, 133</value>
+  </data>
+  <data name="UA_Actions_groupBox.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="UA_Actions_groupBox.Text" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="&gt;&gt;UA_Actions_groupBox.Name" xml:space="preserve">
+    <value>UA_Actions_groupBox</value>
+  </data>
+  <data name="&gt;&gt;UA_Actions_groupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;UA_Actions_groupBox.Parent" xml:space="preserve">
+    <value>UA_tabPage</value>
+  </data>
+  <data name="&gt;&gt;UA_Actions_groupBox.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="UA_DoingTip_label.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -859,32 +1519,68 @@
   <data name="&gt;&gt;Patch_UA_button.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="UA_Actions_groupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 257</value>
-  </data>
-  <data name="UA_Actions_groupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>644, 133</value>
-  </data>
-  <data name="UA_Actions_groupBox.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="UA_Actions_groupBox.Text" xml:space="preserve">
-    <value>操作</value>
-  </data>
-  <data name="&gt;&gt;UA_Actions_groupBox.Name" xml:space="preserve">
-    <value>UA_Actions_groupBox</value>
-  </data>
-  <data name="&gt;&gt;UA_Actions_groupBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;UA_Actions_groupBox.Parent" xml:space="preserve">
-    <value>UA_tabPage</value>
-  </data>
-  <data name="&gt;&gt;UA_Actions_groupBox.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="UA_Output_panel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;Set_UAOutputpath_button.Name" xml:space="preserve">
+    <value>Set_UAOutputpath_button</value>
+  </data>
+  <data name="&gt;&gt;Set_UAOutputpath_button.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Set_UAOutputpath_button.Parent" xml:space="preserve">
+    <value>UA_Output_panel</value>
+  </data>
+  <data name="&gt;&gt;Set_UAOutputpath_button.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;UAFile_Output_textBox.Name" xml:space="preserve">
+    <value>UAFile_Output_textBox</value>
+  </data>
+  <data name="&gt;&gt;UAFile_Output_textBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;UAFile_Output_textBox.Parent" xml:space="preserve">
+    <value>UA_Output_panel</value>
+  </data>
+  <data name="&gt;&gt;UAFile_Output_textBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;label12.Name" xml:space="preserve">
+    <value>label12</value>
+  </data>
+  <data name="&gt;&gt;label12.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label12.Parent" xml:space="preserve">
+    <value>UA_Output_panel</value>
+  </data>
+  <data name="&gt;&gt;label12.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="UA_Output_panel.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="UA_Output_panel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 131</value>
+  </data>
+  <data name="UA_Output_panel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>632, 120</value>
+  </data>
+  <data name="UA_Output_panel.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;UA_Output_panel.Name" xml:space="preserve">
+    <value>UA_Output_panel</value>
+  </data>
+  <data name="&gt;&gt;UA_Output_panel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;UA_Output_panel.Parent" xml:space="preserve">
+    <value>UA_tabPage</value>
+  </data>
+  <data name="&gt;&gt;UA_Output_panel.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="Set_UAOutputpath_button.Location" type="System.Drawing.Point, System.Drawing">
     <value>19, 66</value>
@@ -959,30 +1655,6 @@
     <value>UA_Output_panel</value>
   </data>
   <data name="&gt;&gt;label12.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="UA_Output_panel.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="UA_Output_panel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 131</value>
-  </data>
-  <data name="UA_Output_panel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>632, 120</value>
-  </data>
-  <data name="UA_Output_panel.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="&gt;&gt;UA_Output_panel.Name" xml:space="preserve">
-    <value>UA_Output_panel</value>
-  </data>
-  <data name="&gt;&gt;UA_Output_panel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;UA_Output_panel.Parent" xml:space="preserve">
-    <value>UA_tabPage</value>
-  </data>
-  <data name="&gt;&gt;UA_Output_panel.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="INOUT_UA_checkBox.AutoSize" type="System.Boolean, mscorlib">
@@ -1087,30 +1759,6 @@
   <data name="&gt;&gt;label13.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="UA_tabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 32</value>
-  </data>
-  <data name="UA_tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>650, 393</value>
-  </data>
-  <data name="UA_tabPage.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="UA_tabPage.Text" xml:space="preserve">
-    <value>修补UA</value>
-  </data>
-  <data name="&gt;&gt;UA_tabPage.Name" xml:space="preserve">
-    <value>UA_tabPage</value>
-  </data>
-  <data name="&gt;&gt;UA_tabPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;UA_tabPage.Parent" xml:space="preserve">
-    <value>Main_tabControl</value>
-  </data>
-  <data name="&gt;&gt;UA_tabPage.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
   <data name="Patch_Settings_Tip_label.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
   </data>
@@ -1118,7 +1766,7 @@
     <value>3, 319</value>
   </data>
   <data name="Patch_Settings_Tip_label.Size" type="System.Drawing.Size, System.Drawing">
-    <value>644, 74</value>
+    <value>438, 74</value>
   </data>
   <data name="Patch_Settings_Tip_label.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -1144,11 +1792,71 @@
   <data name="&gt;&gt;Patch_Settings_Tip_label.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="&gt;&gt;CN_Channel_radioButton.Name" xml:space="preserve">
+    <value>CN_Channel_radioButton</value>
+  </data>
+  <data name="&gt;&gt;CN_Channel_radioButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CN_Channel_radioButton.Parent" xml:space="preserve">
+    <value>SetChannel_Panel</value>
+  </data>
+  <data name="&gt;&gt;CN_Channel_radioButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;label7.Name" xml:space="preserve">
+    <value>label7</value>
+  </data>
+  <data name="&gt;&gt;label7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
+    <value>SetChannel_Panel</value>
+  </data>
+  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;OS_Channel_radioButton.Name" xml:space="preserve">
+    <value>OS_Channel_radioButton</value>
+  </data>
+  <data name="&gt;&gt;OS_Channel_radioButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OS_Channel_radioButton.Parent" xml:space="preserve">
+    <value>SetChannel_Panel</value>
+  </data>
+  <data name="&gt;&gt;OS_Channel_radioButton.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="SetChannel_Panel.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="SetChannel_Panel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>259, 9</value>
+  </data>
+  <data name="SetChannel_Panel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>251, 50</value>
+  </data>
+  <data name="SetChannel_Panel.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;SetChannel_Panel.Name" xml:space="preserve">
+    <value>SetChannel_Panel</value>
+  </data>
+  <data name="&gt;&gt;SetChannel_Panel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SetChannel_Panel.Parent" xml:space="preserve">
+    <value>Patch_Settings_tabPage</value>
+  </data>
+  <data name="&gt;&gt;SetChannel_Panel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="CN_Channel_radioButton.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="CN_Channel_radioButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>121, 14</value>
+    <value>128, 14</value>
   </data>
   <data name="CN_Channel_radioButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>56, 27</value>
@@ -1202,7 +1910,7 @@
     <value>True</value>
   </data>
   <data name="OS_Channel_radioButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>183, 14</value>
+    <value>190, 14</value>
   </data>
   <data name="OS_Channel_radioButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>55, 27</value>
@@ -1225,35 +1933,11 @@
   <data name="&gt;&gt;OS_Channel_radioButton.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="SetChannel_Panel.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="SetChannel_Panel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>402, 9</value>
-  </data>
-  <data name="SetChannel_Panel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>241, 50</value>
-  </data>
-  <data name="SetChannel_Panel.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;SetChannel_Panel.Name" xml:space="preserve">
-    <value>SetChannel_Panel</value>
-  </data>
-  <data name="&gt;&gt;SetChannel_Panel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;SetChannel_Panel.Parent" xml:space="preserve">
-    <value>Patch_Settings_tabPage</value>
-  </data>
-  <data name="&gt;&gt;SetChannel_Panel.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="CheckChannel_checkBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="CheckChannel_checkBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>268, 22</value>
+    <value>119, 22</value>
   </data>
   <data name="CheckChannel_checkBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>134, 27</value>
@@ -1280,7 +1964,7 @@
     <value>True</value>
   </data>
   <data name="PatchP1_checkBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>163, 22</value>
+    <value>9, 22</value>
   </data>
   <data name="PatchP1_checkBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>104, 27</value>
@@ -1303,17 +1987,23 @@
   <data name="&gt;&gt;PatchP1_checkBox.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="Save_PC_button.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="Save_PC_button.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="Save_PC_button.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 9</value>
+    <value>447, 331</value>
   </data>
   <data name="Save_PC_button.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 50</value>
+    <value>200, 50</value>
   </data>
   <data name="Save_PC_button.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="Save_PC_button.Text" xml:space="preserve">
-    <value>保存修补设置</value>
+    <value>手动保存修补设置</value>
   </data>
   <data name="&gt;&gt;Save_PC_button.Name" xml:space="preserve">
     <value>Save_PC_button</value>
@@ -1330,20 +2020,122 @@
   <data name="Patch_Bytes_tabControl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="Nopatch1_textBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="&gt;&gt;Nopatch1_tabPage.Name" xml:space="preserve">
+    <value>Nopatch1_tabPage</value>
   </data>
-  <data name="Nopatch1_textBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="&gt;&gt;Nopatch1_tabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Nopatch1_textBox.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;Nopatch1_tabPage.Parent" xml:space="preserve">
+    <value>Patch_Bytes_tabControl</value>
   </data>
-  <data name="Nopatch1_textBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>636, 187</value>
-  </data>
-  <data name="Nopatch1_textBox.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;Nopatch1_tabPage.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="&gt;&gt;Patched1_tabPage.Name" xml:space="preserve">
+    <value>Patched1_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Patched1_tabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Patched1_tabPage.Parent" xml:space="preserve">
+    <value>Patch_Bytes_tabControl</value>
+  </data>
+  <data name="&gt;&gt;Patched1_tabPage.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;Nopatch2_cn_tabPage.Name" xml:space="preserve">
+    <value>Nopatch2_cn_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Nopatch2_cn_tabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Nopatch2_cn_tabPage.Parent" xml:space="preserve">
+    <value>Patch_Bytes_tabControl</value>
+  </data>
+  <data name="&gt;&gt;Nopatch2_cn_tabPage.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;Nopatch2_os_tabPage.Name" xml:space="preserve">
+    <value>Nopatch2_os_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Nopatch2_os_tabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Nopatch2_os_tabPage.Parent" xml:space="preserve">
+    <value>Patch_Bytes_tabControl</value>
+  </data>
+  <data name="&gt;&gt;Nopatch2_os_tabPage.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;Patched2_Meta_tabPage.Name" xml:space="preserve">
+    <value>Patched2_Meta_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Patched2_Meta_tabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Patched2_Meta_tabPage.Parent" xml:space="preserve">
+    <value>Patch_Bytes_tabControl</value>
+  </data>
+  <data name="&gt;&gt;Patched2_Meta_tabPage.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;Patched2_UA_tabPage.Name" xml:space="preserve">
+    <value>Patched2_UA_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Patched2_UA_tabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Patched2_UA_tabPage.Parent" xml:space="preserve">
+    <value>Patch_Bytes_tabControl</value>
+  </data>
+  <data name="&gt;&gt;Patched2_UA_tabPage.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;Features_cn_tabPage.Name" xml:space="preserve">
+    <value>Features_cn_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Features_cn_tabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Features_cn_tabPage.Parent" xml:space="preserve">
+    <value>Patch_Bytes_tabControl</value>
+  </data>
+  <data name="&gt;&gt;Features_cn_tabPage.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;Features_os_tabPage.Name" xml:space="preserve">
+    <value>Features_os_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Features_os_tabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Features_os_tabPage.Parent" xml:space="preserve">
+    <value>Patch_Bytes_tabControl</value>
+  </data>
+  <data name="&gt;&gt;Features_os_tabPage.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="Patch_Bytes_tabControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 65</value>
+  </data>
+  <data name="Patch_Bytes_tabControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>644, 251</value>
+  </data>
+  <data name="Patch_Bytes_tabControl.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;Patch_Bytes_tabControl.Name" xml:space="preserve">
+    <value>Patch_Bytes_tabControl</value>
+  </data>
+  <data name="&gt;&gt;Patch_Bytes_tabControl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Patch_Bytes_tabControl.Parent" xml:space="preserve">
+    <value>Patch_Settings_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Patch_Bytes_tabControl.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="&gt;&gt;Nopatch1_textBox.Name" xml:space="preserve">
     <value>Nopatch1_textBox</value>
@@ -1381,20 +2173,32 @@
   <data name="&gt;&gt;Nopatch1_tabPage.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="Patched1_textBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="Nopatch1_textBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="Patched1_textBox.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="Nopatch1_textBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="Patched1_textBox.Multiline" type="System.Boolean, mscorlib">
+  <data name="Nopatch1_textBox.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="Patched1_textBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>636, 201</value>
+  <data name="Nopatch1_textBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>636, 187</value>
   </data>
-  <data name="Patched1_textBox.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="Nopatch1_textBox.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;Nopatch1_textBox.Name" xml:space="preserve">
+    <value>Nopatch1_textBox</value>
+  </data>
+  <data name="&gt;&gt;Nopatch1_textBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Nopatch1_textBox.Parent" xml:space="preserve">
+    <value>Nopatch1_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Nopatch1_textBox.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;Patched1_textBox.Name" xml:space="preserve">
     <value>Patched1_textBox</value>
@@ -1432,20 +2236,32 @@
   <data name="&gt;&gt;Patched1_tabPage.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="Nopatch2_cn_textBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="Patched1_textBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="Nopatch2_cn_textBox.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="Patched1_textBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="Nopatch2_cn_textBox.Multiline" type="System.Boolean, mscorlib">
+  <data name="Patched1_textBox.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="Nopatch2_cn_textBox.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="Patched1_textBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>636, 201</value>
   </data>
-  <data name="Nopatch2_cn_textBox.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="Patched1_textBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;Patched1_textBox.Name" xml:space="preserve">
+    <value>Patched1_textBox</value>
+  </data>
+  <data name="&gt;&gt;Patched1_textBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Patched1_textBox.Parent" xml:space="preserve">
+    <value>Patched1_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Patched1_textBox.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;Nopatch2_cn_textBox.Name" xml:space="preserve">
     <value>Nopatch2_cn_textBox</value>
@@ -1483,20 +2299,32 @@
   <data name="&gt;&gt;Nopatch2_cn_tabPage.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="Nopatch2_os_textBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="Nopatch2_cn_textBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="Nopatch2_os_textBox.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="Nopatch2_cn_textBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="Nopatch2_os_textBox.Multiline" type="System.Boolean, mscorlib">
+  <data name="Nopatch2_cn_textBox.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="Nopatch2_os_textBox.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="Nopatch2_cn_textBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>636, 201</value>
   </data>
-  <data name="Nopatch2_os_textBox.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <data name="Nopatch2_cn_textBox.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;Nopatch2_cn_textBox.Name" xml:space="preserve">
+    <value>Nopatch2_cn_textBox</value>
+  </data>
+  <data name="&gt;&gt;Nopatch2_cn_textBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Nopatch2_cn_textBox.Parent" xml:space="preserve">
+    <value>Nopatch2_cn_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Nopatch2_cn_textBox.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;Nopatch2_os_textBox.Name" xml:space="preserve">
     <value>Nopatch2_os_textBox</value>
@@ -1534,20 +2362,32 @@
   <data name="&gt;&gt;Nopatch2_os_tabPage.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="Patched2_Meta_textBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="Nopatch2_os_textBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="Patched2_Meta_textBox.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="Nopatch2_os_textBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="Patched2_Meta_textBox.Multiline" type="System.Boolean, mscorlib">
+  <data name="Nopatch2_os_textBox.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="Patched2_Meta_textBox.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="Nopatch2_os_textBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>636, 201</value>
   </data>
-  <data name="Patched2_Meta_textBox.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="Nopatch2_os_textBox.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;Nopatch2_os_textBox.Name" xml:space="preserve">
+    <value>Nopatch2_os_textBox</value>
+  </data>
+  <data name="&gt;&gt;Nopatch2_os_textBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Nopatch2_os_textBox.Parent" xml:space="preserve">
+    <value>Nopatch2_os_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Nopatch2_os_textBox.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;Patched2_Meta_textBox.Name" xml:space="preserve">
     <value>Patched2_Meta_textBox</value>
@@ -1585,20 +2425,32 @@
   <data name="&gt;&gt;Patched2_Meta_tabPage.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="Patched2_UA_textBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="Patched2_Meta_textBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="Patched2_UA_textBox.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="Patched2_Meta_textBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="Patched2_UA_textBox.Multiline" type="System.Boolean, mscorlib">
+  <data name="Patched2_Meta_textBox.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="Patched2_UA_textBox.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="Patched2_Meta_textBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>636, 201</value>
   </data>
-  <data name="Patched2_UA_textBox.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="Patched2_Meta_textBox.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;Patched2_Meta_textBox.Name" xml:space="preserve">
+    <value>Patched2_Meta_textBox</value>
+  </data>
+  <data name="&gt;&gt;Patched2_Meta_textBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Patched2_Meta_textBox.Parent" xml:space="preserve">
+    <value>Patched2_Meta_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Patched2_Meta_textBox.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;Patched2_UA_textBox.Name" xml:space="preserve">
     <value>Patched2_UA_textBox</value>
@@ -1636,20 +2488,32 @@
   <data name="&gt;&gt;Patched2_UA_tabPage.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="Features_cn_textBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="Patched2_UA_textBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="Features_cn_textBox.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="Patched2_UA_textBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="Features_cn_textBox.Multiline" type="System.Boolean, mscorlib">
+  <data name="Patched2_UA_textBox.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="Features_cn_textBox.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="Patched2_UA_textBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>636, 201</value>
   </data>
-  <data name="Features_cn_textBox.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="Patched2_UA_textBox.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;Patched2_UA_textBox.Name" xml:space="preserve">
+    <value>Patched2_UA_textBox</value>
+  </data>
+  <data name="&gt;&gt;Patched2_UA_textBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Patched2_UA_textBox.Parent" xml:space="preserve">
+    <value>Patched2_UA_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Patched2_UA_textBox.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;Features_cn_textBox.Name" xml:space="preserve">
     <value>Features_cn_textBox</value>
@@ -1687,20 +2551,32 @@
   <data name="&gt;&gt;Features_cn_tabPage.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="Features_os_textBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="Features_cn_textBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="Features_os_textBox.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="Features_cn_textBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="Features_os_textBox.Multiline" type="System.Boolean, mscorlib">
+  <data name="Features_cn_textBox.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="Features_os_textBox.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="Features_cn_textBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>636, 201</value>
   </data>
-  <data name="Features_os_textBox.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+  <data name="Features_cn_textBox.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;Features_cn_textBox.Name" xml:space="preserve">
+    <value>Features_cn_textBox</value>
+  </data>
+  <data name="&gt;&gt;Features_cn_textBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Features_cn_textBox.Parent" xml:space="preserve">
+    <value>Features_cn_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Features_cn_textBox.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;Features_os_textBox.Name" xml:space="preserve">
     <value>Features_os_textBox</value>
@@ -1738,50 +2614,62 @@
   <data name="&gt;&gt;Features_os_tabPage.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="Patch_Bytes_tabControl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 65</value>
+  <data name="Features_os_textBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
-  <data name="Patch_Bytes_tabControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>644, 251</value>
+  <data name="Features_os_textBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
-  <data name="Patch_Bytes_tabControl.TabIndex" type="System.Int32, mscorlib">
+  <data name="Features_os_textBox.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Features_os_textBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>636, 201</value>
+  </data>
+  <data name="Features_os_textBox.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;Features_os_textBox.Name" xml:space="preserve">
+    <value>Features_os_textBox</value>
+  </data>
+  <data name="&gt;&gt;Features_os_textBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Features_os_textBox.Parent" xml:space="preserve">
+    <value>Features_os_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Features_os_textBox.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;Patch_Bytes_tabControl.Name" xml:space="preserve">
-    <value>Patch_Bytes_tabControl</value>
+  <data name="Save_Config_button.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
   </data>
-  <data name="&gt;&gt;Patch_Bytes_tabControl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Save_Config_button.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;Patch_Bytes_tabControl.Parent" xml:space="preserve">
-    <value>Patch_Settings_tabPage</value>
+  <data name="Save_Config_button.Location" type="System.Drawing.Point, System.Drawing">
+    <value>494, 6</value>
   </data>
-  <data name="&gt;&gt;Patch_Bytes_tabControl.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <data name="Save_Config_button.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 50</value>
   </data>
-  <data name="Patch_Settings_tabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 32</value>
+  <data name="Save_Config_button.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
   </data>
-  <data name="Patch_Settings_tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>650, 393</value>
+  <data name="Save_Config_button.Text" xml:space="preserve">
+    <value>手动保存设置</value>
   </data>
-  <data name="Patch_Settings_tabPage.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="&gt;&gt;Save_Config_button.Name" xml:space="preserve">
+    <value>Save_Config_button</value>
   </data>
-  <data name="Patch_Settings_tabPage.Text" xml:space="preserve">
-    <value>修补设置</value>
+  <data name="&gt;&gt;Save_Config_button.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Patch_Settings_tabPage.Name" xml:space="preserve">
-    <value>Patch_Settings_tabPage</value>
+  <data name="&gt;&gt;Save_Config_button.Parent" xml:space="preserve">
+    <value>Settings_tabPage</value>
   </data>
-  <data name="&gt;&gt;Patch_Settings_tabPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Patch_Settings_tabPage.Parent" xml:space="preserve">
-    <value>Main_tabControl</value>
-  </data>
-  <data name="&gt;&gt;Patch_Settings_tabPage.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;Save_Config_button.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="Delete_PC_button.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 237</value>
@@ -1805,7 +2693,7 @@
     <value>Settings_tabPage</value>
   </data>
   <data name="&gt;&gt;Delete_PC_button.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="Find_GameExe_button.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 158</value>
@@ -1829,7 +2717,10 @@
     <value>Settings_tabPage</value>
   </data>
   <data name="&gt;&gt;Find_GameExe_button.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
+  </data>
+  <data name="Open_Check_button.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
   </data>
   <data name="Open_Check_button.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 337</value>
@@ -1853,30 +2744,6 @@
     <value>Settings_tabPage</value>
   </data>
   <data name="&gt;&gt;Open_Check_button.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="Save_proxy_button.Location" type="System.Drawing.Point, System.Drawing">
-    <value>223, 6</value>
-  </data>
-  <data name="Save_proxy_button.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 50</value>
-  </data>
-  <data name="Save_proxy_button.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="Save_proxy_button.Text" xml:space="preserve">
-    <value>保存端口</value>
-  </data>
-  <data name="&gt;&gt;Save_proxy_button.Name" xml:space="preserve">
-    <value>Save_proxy_button</value>
-  </data>
-  <data name="&gt;&gt;Save_proxy_button.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Save_proxy_button.Parent" xml:space="preserve">
-    <value>Settings_tabPage</value>
-  </data>
-  <data name="&gt;&gt;Save_proxy_button.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
@@ -2083,54 +2950,6 @@
   <data name="&gt;&gt;Proxy_port_numericUpDown.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
-  <data name="Settings_tabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 32</value>
-  </data>
-  <data name="Settings_tabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="Settings_tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>650, 393</value>
-  </data>
-  <data name="Settings_tabPage.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="Settings_tabPage.Text" xml:space="preserve">
-    <value>设置</value>
-  </data>
-  <data name="&gt;&gt;Settings_tabPage.Name" xml:space="preserve">
-    <value>Settings_tabPage</value>
-  </data>
-  <data name="&gt;&gt;Settings_tabPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Settings_tabPage.Parent" xml:space="preserve">
-    <value>Main_tabControl</value>
-  </data>
-  <data name="&gt;&gt;Settings_tabPage.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="Main_tabControl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 12</value>
-  </data>
-  <data name="Main_tabControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>658, 429</value>
-  </data>
-  <data name="Main_tabControl.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;Main_tabControl.Name" xml:space="preserve">
-    <value>Main_tabControl</value>
-  </data>
-  <data name="&gt;&gt;Main_tabControl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Main_tabControl.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Main_tabControl.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
   <data name="NoServerTip_label.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
@@ -2167,12 +2986,6 @@
   <data name="Main_statusStrip.Font" type="System.Drawing.Font, System.Drawing">
     <value>微软雅黑, 10pt</value>
   </data>
-  <data name="Proxy_status_toolStripStatusLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 23</value>
-  </data>
-  <data name="Proxy_status_toolStripStatusLabel.Text" xml:space="preserve">
-    <value>查看当前代理配置</value>
-  </data>
   <data name="Main_statusStrip.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 449</value>
   </data>
@@ -2197,11 +3010,26 @@
   <data name="&gt;&gt;Main_statusStrip.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="Proxy_status_toolStripStatusLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 23</value>
+  </data>
+  <data name="Proxy_status_toolStripStatusLabel.Text" xml:space="preserve">
+    <value>查看当前代理配置</value>
+  </data>
   <metadata name="Servers_contextMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>196, 17</value>
   </metadata>
   <data name="Servers_contextMenuStrip.Font" type="System.Drawing.Font, System.Drawing">
     <value>微软雅黑, 12.5pt</value>
+  </data>
+  <data name="Servers_contextMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 176</value>
+  </data>
+  <data name="&gt;&gt;Servers_contextMenuStrip.Name" xml:space="preserve">
+    <value>Servers_contextMenuStrip</value>
+  </data>
+  <data name="&gt;&gt;Servers_contextMenuStrip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="添加ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>172, 32</value>
@@ -2238,15 +3066,6 @@
   </data>
   <data name="删除ToolStripMenuItem.Text" xml:space="preserve">
     <value>删除</value>
-  </data>
-  <data name="Servers_contextMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 176</value>
-  </data>
-  <data name="&gt;&gt;Servers_contextMenuStrip.Name" xml:space="preserve">
-    <value>Servers_contextMenuStrip</value>
-  </data>
-  <data name="&gt;&gt;Servers_contextMenuStrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <metadata name="Status_timer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>446, 17</value>

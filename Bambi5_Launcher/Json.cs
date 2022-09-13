@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -76,6 +77,7 @@ namespace Collei_Launcher
         public List<ServersItem> servers;
         public Config config;
         public Patch_Config patch;
+        public Habits habits;
         public static void FixLC(ref Local_Config elc)
         {
             if (elc == null)
@@ -98,6 +100,10 @@ namespace Collei_Launcher
             {
                 elc.patch = new Patch_Config();
             }
+            if(elc.habits == null)
+            {
+                elc.habits = new Habits();
+            }
         }
     }
     public class Proxy_Config
@@ -118,6 +124,18 @@ namespace Collei_Launcher
         public bool PatchP1 = true;
         public bool CheckChannel = true;
         public Channel SetChannel = Channel.CN;
+    }
+    public class Habits
+    {
+        public Size MainFormSize = Main_Form.form.Size;
+
+        public string MetaFile_Input = Main_Form.form.MetaFile_Input_textBox.Text;
+        public bool INOUT_Meta = Main_Form.form.INOUT_Meta_checkBox.Checked;
+        public string MetaFile_Output = Main_Form.form.MetaFile_Output_textBox.Text;
+
+        public string UAFile_Input = Main_Form.form.UAFile_Input_textBox.Text;
+        public bool INOUT_UA = Main_Form.form.INOUT_UA_checkBox.Checked;
+        public string UAFile_Output = Main_Form.form.UAFile_Output_textBox.Text;
     }
 }
 

@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Net.NetworkInformation;
 using System.Reflection;
@@ -42,11 +43,11 @@ namespace Collei_Launcher
             bool isdebug = Methods.DebugBuild(Assembly.GetExecutingAssembly());
             Version version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
             string ver = string.Format("(v{0}.{1}.{2})", version.Major, version.Minor, version.Build);
-            VerCode = version.Major*100+ version.Minor*10+ version.Build;
+            VerCode = version.Major * 100 + version.Minor * 10 + version.Build;
             this.Text += ver;
             this.Text += isdebug ? " - Debug" : " - Release";
             Check_Proxy();
-            Load_Local_Config(sender,e);
+            Load_Local_Config(sender, e);
         }
 
         public void Check_Proxy()
@@ -174,7 +175,7 @@ namespace Collei_Launcher
                         stringBuilder.AppendLine("发现有新版本，是否更新?");
                         stringBuilder.AppendLine("[当前版本]:" + VerCode); ;
                         stringBuilder.AppendLine("[最新版本]:" + cc.config.lastvercode);
-                        stringBuilder.AppendLine("[更新内容]:" );
+                        stringBuilder.AppendLine("[更新内容]:");
                         stringBuilder.AppendLine(cc.config.lastverstr);
                         stringBuilder.AppendLine();
                         stringBuilder.AppendLine("点击“是”，跳转到更新连接");
@@ -205,18 +206,20 @@ namespace Collei_Launcher
         private void Auto_close_proxy_checkBox_CheckedChanged(object sender, EventArgs e)
         {
             lc.config.Auto_Close_Proxy = Auto_close_proxy_checkBox.Checked;
-            Save_Local_Config();
         }
 
         private void Main_Form_FormClosing(object sender, FormClosingEventArgs e)
         {
+            Apply_Patch_Config();
+            Save_Habits_ToLC();
             Save_Local_Config();
             if (lc.config.Auto_Close_Proxy)
             {
                 Clear_Proxy();
             }
+            System.Environment.Exit(0);
         }
-        public void Load_Local_Config(object sender=null, EventArgs e=null)
+        public void Load_Local_Config(object sender = null, EventArgs e = null)
         {
             Debug.Print(config_path);
             if (File.Exists(config_path))
@@ -238,9 +241,46 @@ namespace Collei_Launcher
             }
 
             Local_Config.FixLC(ref lc);
-            LoadSettingsToForm(sender,e);
+            LoadSettingsToForm(sender, e);
+            Apply_Habits_ToForm();
         }
-        public void LoadSettingsToForm(object sender = null, EventArgs e = null,bool Save = true)
+        public void Apply_Habits_ToForm()
+        {
+            Size = lc.habits.MainFormSize;
+
+            MetaFile_Input_textBox.Text = lc.habits.MetaFile_Input;
+            INOUT_Meta_checkBox.Checked = lc.habits.INOUT_Meta;
+            MetaFile_Output_textBox.Text = lc.habits.MetaFile_Output;
+
+            UAFile_Input_textBox.Text = lc.habits.UAFile_Input;
+            INOUT_UA_checkBox.Checked = lc.habits.INOUT_UA;
+            UAFile_Output_textBox.Text = lc.habits.UAFile_Output;
+
+            if (MetaFile_Input_textBox.Text=="")
+            {
+                if (File.Exists(Path.GetDirectoryName(lc.config.Game_Path) + @"\YuanShen_Data\Managed\Metadata\global-metadata.dat"))
+                {
+                    MetaFile_Input_textBox.Text = Path.GetDirectoryName(lc.config.Game_Path) + @"\YuanShen_Data\Managed\Metadata\global-metadata.dat";
+                }
+                else if (File.Exists(Path.GetDirectoryName(lc.config.Game_Path) + @"\GenshinImpact_Data\Managed\Metadata\global-metadata.dat"))
+                {
+                    MetaFile_Input_textBox.Text = Path.GetDirectoryName(lc.config.Game_Path) + @"\GenshinImpact_Data\Managed\Metadata\global-metadata.dat";
+                }
+            }
+            if(UAFile_Input_textBox.Text == "")
+            {
+                if (File.Exists(Path.GetDirectoryName(lc.config.Game_Path) + @"\YuanShen_Data\Native\UserAssembly.dll"))
+                {
+                    UAFile_Input_textBox.Text = Path.GetDirectoryName(lc.config.Game_Path) + @"\YuanShen_Data\Native\UserAssembly.dll";
+                }
+                else if (File.Exists(Path.GetDirectoryName(lc.config.Game_Path) + @"\GenshinImpact_Data\Native\UserAssembly.dll"))
+                {
+                    UAFile_Input_textBox.Text = Path.GetDirectoryName(lc.config.Game_Path) + @"\GenshinImpact_Data\Native\UserAssembly.dll";
+                }
+            }
+            this.Opacity = 1;
+        }
+        public void LoadSettingsToForm(object sender = null, EventArgs e = null, bool Save = true)
         {
             Proxy_port_numericUpDown.Value = lc.config.ProxyPort;
             Auto_close_proxy_checkBox.Checked = lc.config.Auto_Close_Proxy;
@@ -252,25 +292,6 @@ namespace Collei_Launcher
             if (lc.config.Game_Path != null)
             {
                 Game_Path_textBox.Text = lc.config.Game_Path;
-                if (sender != null&&e!=null)
-                {
-                    if (File.Exists(Path.GetDirectoryName(lc.config.Game_Path) + @"\YuanShen_Data\Managed\Metadata\global-metadata.dat"))
-                    {
-                        MetaFile_Input_textBox.Text = Path.GetDirectoryName(lc.config.Game_Path) + @"\YuanShen_Data\Managed\Metadata\global-metadata.dat";
-                    }
-                    else if (File.Exists(Path.GetDirectoryName(lc.config.Game_Path) + @"\GenshinImpact_Data\Managed\Metadata\global-metadata.dat"))
-                    {
-                        MetaFile_Input_textBox.Text = Path.GetDirectoryName(lc.config.Game_Path) + @"\GenshinImpact_Data\Managed\Metadata\global-metadata.dat";
-                    }
-                    if (File.Exists(Path.GetDirectoryName(lc.config.Game_Path) + @"\YuanShen_Data\Native\UserAssembly.dll"))
-                    {
-                        UAFile_Input_textBox.Text = Path.GetDirectoryName(lc.config.Game_Path) + @"\YuanShen_Data\Native\UserAssembly.dll";
-                    }
-                    else if (File.Exists(Path.GetDirectoryName(lc.config.Game_Path) + @"\GenshinImpact_Data\Native\UserAssembly.dll"))
-                    {
-                        UAFile_Input_textBox.Text = Path.GetDirectoryName(lc.config.Game_Path) + @"\GenshinImpact_Data\Native\UserAssembly.dll";
-                    }
-                }
             }
             CheckChannel_checkBox.Checked = lc.patch.CheckChannel;
             PatchP1_checkBox.Checked = lc.patch.PatchP1;
@@ -300,7 +321,6 @@ namespace Collei_Launcher
         private void Show_Public_Server_checkBox_CheckedChanged(object sender, EventArgs e)
         {
             lc.config.Show_Public_Server = Show_Public_Server_checkBox.Checked;
-            Save_Local_Config();
         }
         public void Load_Servers()
         {
@@ -359,7 +379,7 @@ namespace Collei_Launcher
                 }
                 Servers_listView.Items.Add(lvi);
             }
-            if(Servers_listView.Items.Count == 0)
+            if (Servers_listView.Items.Count == 0)
             {
                 NoServerTip_label.Visible = true;
             }
@@ -377,12 +397,7 @@ namespace Collei_Launcher
             Local_Config.FixLC(ref lc);
             File.WriteAllText(config_path, JsonConvert.SerializeObject(lc));
             Debug.Print("已保存config文件");
-            LoadSettingsToForm(null,null,false);
-        }
-        private void Save_proxy_button_Click(object sender, EventArgs e)
-        {
-            lc.config.ProxyPort = (ushort)Proxy_port_numericUpDown.Value;
-            Save_Local_Config();
+            LoadSettingsToForm(null, null, false);
         }
         public void Choice_Game_Path_button_Click(object sender, EventArgs e)
         {
@@ -638,10 +653,6 @@ namespace Collei_Launcher
             Load_Server_Status();
         }
 
-        private void Main_Form_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            System.Environment.Exit(0);
-        }
 
         private void Find_GameExe_button_Click(object sender, EventArgs e)
         {
@@ -733,9 +744,9 @@ namespace Collei_Launcher
                 MessageBox.Show("路径未选择！", "错误信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            var t = new Thread(()=>
+            var t = new Thread(() =>
             {
-                
+
                 string show = "OK";
 
                 try
@@ -768,7 +779,7 @@ namespace Collei_Launcher
                     MessageBox.Show(show, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     GC.Collect();
                 }
-                catch(System.Runtime.InteropServices.SEHException)
+                catch (System.Runtime.InteropServices.SEHException)
                 {
                     MessageBox.Show("在解包或打包Meta时出现了错误，这可能是由以下原因导致的\n\n①尝试修补(或反修补)已经被解包过的Meta文件\n②Meta文件已被损坏\n\n若您已经解包过Meta，请尝试打包后重试\n若您已经打包过Meta，请尝试解包后重试", "解包/打包时出现错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -778,7 +789,7 @@ namespace Collei_Launcher
                 }
             });
             t.Start();
-            
+
         }
         public void Show_Meta_Doing_Tip(bool Doing)
         {
@@ -820,6 +831,13 @@ namespace Collei_Launcher
 
         private void Save_PC_button_Click(object sender, EventArgs e)
         {
+            Apply_Patch_Config();
+            Save_Local_Config();
+            MessageBox.Show("OK", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        public void Apply_Patch_Config()
+        {
             lc.patch.CheckChannel = CheckChannel_checkBox.Checked;
             lc.patch.PatchP1 = PatchP1_checkBox.Checked;
             lc.patch.Nopatch1 = Nopatch1_textBox.Text;
@@ -830,20 +848,16 @@ namespace Collei_Launcher
             lc.patch.Patched2_UA = Patched2_UA_textBox.Text;
             lc.patch.Features_cn = Features_cn_textBox.Text;
             lc.patch.Features_os = Features_os_textBox.Text;
-            if(CN_Channel_radioButton.Checked)
+            if (CN_Channel_radioButton.Checked)
             {
                 lc.patch.SetChannel = Channel.CN;
             }
-            else if(OS_Channel_radioButton.Checked)
+            else if (OS_Channel_radioButton.Checked)
             {
                 lc.patch.SetChannel = Channel.OS;
             }
-
-            Save_Local_Config();
-            MessageBox.Show("OK", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Debug.Print("修补设置已应用");
         }
-
-
         private void Set_UAInputpath_button_Click(object sender, EventArgs e)
         {
             string path = Choice_Path("UserAssembly文件|UserAssembly.dll|所有文件|*.*", "选择文件", Path.GetDirectoryName(lc.config.Game_Path));
@@ -926,7 +940,7 @@ namespace Collei_Launcher
 
         private void NoServerTip_label_MouseDown(object sender, MouseEventArgs e)
         {
-            Servers_listView_MouseDown(sender, new MouseEventArgs(e.Button,e.Clicks, e.X + NoServerTip_label.Location.X, e.Y + NoServerTip_label.Location.Y, e.Delta));
+            Servers_listView_MouseDown(sender, new MouseEventArgs(e.Button, e.Clicks, e.X + NoServerTip_label.Location.X, e.Y + NoServerTip_label.Location.Y, e.Delta));
         }
 
         private void Patch_UA_button_Click(object sender, EventArgs e)
@@ -937,6 +951,40 @@ namespace Collei_Launcher
         private void UnPatch_UA_button_Click(object sender, EventArgs e)
         {
             UA_Actions(false);
+        }
+
+        private void Patch_Settings_tabPage_Leave(object sender, EventArgs e)
+        {
+            Apply_Patch_Config();
+            Save_Local_Config();
+        }
+
+        private void Proxy_port_numericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            lc.config.ProxyPort = (ushort)Proxy_port_numericUpDown.Value;
+        }
+
+        private void Save_Config_button_Click(object sender, EventArgs e)
+        {
+            Save_Local_Config();
+            MessageBox.Show("OK", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void Settings_tabPage_Leave(object sender, EventArgs e)
+        {
+            Save_Local_Config();
+        }
+        public void Save_Habits_ToLC()
+        {
+            lc.habits.MainFormSize = Size;
+
+            lc.habits.MetaFile_Input = MetaFile_Input_textBox.Text;
+            lc.habits.INOUT_Meta = INOUT_Meta_checkBox.Checked;
+            lc.habits.MetaFile_Output = MetaFile_Output_textBox.Text;
+
+            lc.habits.UAFile_Input = UAFile_Input_textBox.Text;
+            lc.habits.INOUT_UA = INOUT_UA_checkBox.Checked;
+            lc.habits.UAFile_Output = UAFile_Output_textBox.Text;
         }
     }
 }

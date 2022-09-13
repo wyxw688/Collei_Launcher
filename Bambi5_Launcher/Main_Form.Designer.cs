@@ -101,10 +101,10 @@ namespace Collei_Launcher
             this.Features_os_tabPage = new System.Windows.Forms.TabPage();
             this.Features_os_textBox = new System.Windows.Forms.TextBox();
             this.Settings_tabPage = new System.Windows.Forms.TabPage();
+            this.Save_Config_button = new System.Windows.Forms.Button();
             this.Delete_PC_button = new System.Windows.Forms.Button();
             this.Find_GameExe_button = new System.Windows.Forms.Button();
             this.Open_Check_button = new System.Windows.Forms.Button();
-            this.Save_proxy_button = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.Choice_Game_Path_button = new System.Windows.Forms.Button();
             this.Game_Path_textBox = new System.Windows.Forms.TextBox();
@@ -471,6 +471,7 @@ namespace Collei_Launcher
             resources.ApplyResources(this.Patch_Settings_tabPage, "Patch_Settings_tabPage");
             this.Patch_Settings_tabPage.Name = "Patch_Settings_tabPage";
             this.Patch_Settings_tabPage.UseVisualStyleBackColor = true;
+            this.Patch_Settings_tabPage.Leave += new System.EventHandler(this.Patch_Settings_tabPage_Leave);
             // 
             // Patch_Settings_Tip_label
             // 
@@ -641,10 +642,10 @@ namespace Collei_Launcher
             // 
             // Settings_tabPage
             // 
+            this.Settings_tabPage.Controls.Add(this.Save_Config_button);
             this.Settings_tabPage.Controls.Add(this.Delete_PC_button);
             this.Settings_tabPage.Controls.Add(this.Find_GameExe_button);
             this.Settings_tabPage.Controls.Add(this.Open_Check_button);
-            this.Settings_tabPage.Controls.Add(this.Save_proxy_button);
             this.Settings_tabPage.Controls.Add(this.label3);
             this.Settings_tabPage.Controls.Add(this.Choice_Game_Path_button);
             this.Settings_tabPage.Controls.Add(this.Game_Path_textBox);
@@ -656,6 +657,14 @@ namespace Collei_Launcher
             resources.ApplyResources(this.Settings_tabPage, "Settings_tabPage");
             this.Settings_tabPage.Name = "Settings_tabPage";
             this.Settings_tabPage.UseVisualStyleBackColor = true;
+            this.Settings_tabPage.Leave += new System.EventHandler(this.Settings_tabPage_Leave);
+            // 
+            // Save_Config_button
+            // 
+            resources.ApplyResources(this.Save_Config_button, "Save_Config_button");
+            this.Save_Config_button.Name = "Save_Config_button";
+            this.Save_Config_button.UseVisualStyleBackColor = true;
+            this.Save_Config_button.Click += new System.EventHandler(this.Save_Config_button_Click);
             // 
             // Delete_PC_button
             // 
@@ -677,13 +686,6 @@ namespace Collei_Launcher
             this.Open_Check_button.Name = "Open_Check_button";
             this.Open_Check_button.UseVisualStyleBackColor = true;
             this.Open_Check_button.Click += new System.EventHandler(this.Open_Check_button_Click);
-            // 
-            // Save_proxy_button
-            // 
-            resources.ApplyResources(this.Save_proxy_button, "Save_proxy_button");
-            this.Save_proxy_button.Name = "Save_proxy_button";
-            this.Save_proxy_button.UseVisualStyleBackColor = true;
-            this.Save_proxy_button.Click += new System.EventHandler(this.Save_proxy_button_Click);
             // 
             // label3
             // 
@@ -751,6 +753,7 @@ namespace Collei_Launcher
             0,
             0,
             0});
+            this.Proxy_port_numericUpDown.ValueChanged += new System.EventHandler(this.Proxy_port_numericUpDown_ValueChanged);
             // 
             // NoServerTip_label
             // 
@@ -857,9 +860,10 @@ namespace Collei_Launcher
             this.Controls.Add(this.Author_label);
             this.Controls.Add(this.Main_statusStrip);
             this.Controls.Add(this.Main_tabControl);
+            this.MaximizeBox = false;
             this.Name = "Main_Form";
+            this.Opacity = 0D;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_Form_FormClosing);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_Form_FormClosed);
             this.Shown += new System.EventHandler(this.Main_Form_Shown);
             this.Main_tabControl.ResumeLayout(false);
             this.Home_tabPage.ResumeLayout(false);
@@ -935,7 +939,6 @@ namespace Collei_Launcher
         public System.Windows.Forms.TextBox Game_Path_textBox;
         public System.Windows.Forms.Button Choice_Game_Path_button;
         public System.Windows.Forms.Label label3;
-        public System.Windows.Forms.Button Save_proxy_button;
         public System.Windows.Forms.Button Open_Check_button;
         public System.Windows.Forms.Button Find_GameExe_button;
         public System.Windows.Forms.ToolStripMenuItem 检查连接ToolStripMenuItem;
@@ -1002,6 +1005,7 @@ namespace Collei_Launcher
         private System.Windows.Forms.Label Meta_DoingTip_label;
         private System.Windows.Forms.Label UA_DoingTip_label;
         public System.Windows.Forms.Button UnPatch_UA_button;
+        public System.Windows.Forms.Button Save_Config_button;
     }
 }
 
