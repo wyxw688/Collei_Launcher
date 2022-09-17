@@ -136,6 +136,15 @@ namespace Collei_Launcher
         public string UAFile_Input = Main_Form.form.UAFile_Input_textBox.Text;
         public bool INOUT_UA = Main_Form.form.INOUT_UA_checkBox.Checked;
         public string UAFile_Output = Main_Form.form.UAFile_Output_textBox.Text;
+
+        public int Title_columnHeader_Width = Main_Form.form.Title_columnHeader.Width;
+        public int Host_columnHeader_Width = Main_Form.form.Host_columnHeader.Width;
+        public int Dispatch_columnHeader_Width = Main_Form.form.Dispatch_columnHeader.Width;
+        public int Game_columnHeader_Width = Main_Form.form.Game_columnHeader.Width;
+        public int Count_columnHeader_Width = Main_Form.form.Count_columnHeader.Width;
+        public int Ver_columnHeader_Width = Main_Form.form.Ver_columnHeader.Width;
+        public int Ping_columnHeader_Width = Main_Form.form.Ping_columnHeader.Width;
+        public int Content_columnHeader_Width = Main_Form.form.Content_columnHeader.Width;
     }
 }
 

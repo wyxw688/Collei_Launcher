@@ -20,7 +20,6 @@ namespace Collei_Launcher
 
         public bool loaded = false;
         public static Main_Form form;
-        public bool is_loading_cc = false;
         public int VerCode;
         public Cloud_Config cc;
         public Local_Config lc;
@@ -39,7 +38,7 @@ namespace Collei_Launcher
 
         private void Main_Form_Shown(object sender, EventArgs e)
         {
-            this.Servers_listView.Controls.Add(this.NoServerTip_label);
+            //this.Servers_listView.Controls.Add(this.NoServerTip_label);
             bool isdebug = Methods.DebugBuild(Assembly.GetExecutingAssembly());
             Version version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
             string ver = string.Format("(v{0}.{1}.{2})", version.Major, version.Minor, version.Build);
@@ -156,12 +155,9 @@ namespace Collei_Launcher
                         Debug.Print("等待lc加载");
                         Thread.Sleep(100);
                     }
-                    is_loading_cc = true;
                     string ccs = Methods.Get($"http://launcher.bambi5.top/Main?action=Get_Config&data=&lang={Thread.CurrentThread.CurrentUICulture.Name}");
                     if (ccs == null)
                     {
-                        is_loading_cc = false;
-                        Load_Servers();
                         Notice_label.Text = "获取云配置文件失败";
                         Notice_label.ForeColor = System.Drawing.Color.Red;
                         return;
@@ -192,13 +188,9 @@ namespace Collei_Launcher
                         }
                     }
                     is_first_check = false;
-                    is_loading_cc = false;
-                    Load_Servers();
                 }
                 catch (Exception ex)
                 {
-                    is_loading_cc = false;
-                    Load_Servers();
                     Program.Application_Exception(ex);
                 }
             });
@@ -256,7 +248,7 @@ namespace Collei_Launcher
             INOUT_UA_checkBox.Checked = lc.habits.INOUT_UA;
             UAFile_Output_textBox.Text = lc.habits.UAFile_Output;
 
-            if (MetaFile_Input_textBox.Text=="")
+            if (MetaFile_Input_textBox.Text == "")
             {
                 if (File.Exists(Path.GetDirectoryName(lc.config.Game_Path) + @"\YuanShen_Data\Managed\Metadata\global-metadata.dat"))
                 {
@@ -267,7 +259,7 @@ namespace Collei_Launcher
                     MetaFile_Input_textBox.Text = Path.GetDirectoryName(lc.config.Game_Path) + @"\GenshinImpact_Data\Managed\Metadata\global-metadata.dat";
                 }
             }
-            if(UAFile_Input_textBox.Text == "")
+            if (UAFile_Input_textBox.Text == "")
             {
                 if (File.Exists(Path.GetDirectoryName(lc.config.Game_Path) + @"\YuanShen_Data\Native\UserAssembly.dll"))
                 {
@@ -278,6 +270,16 @@ namespace Collei_Launcher
                     UAFile_Input_textBox.Text = Path.GetDirectoryName(lc.config.Game_Path) + @"\GenshinImpact_Data\Native\UserAssembly.dll";
                 }
             }
+
+            Title_columnHeader.Width  = lc.habits.Title_columnHeader_Width;
+            Host_columnHeader.Width = lc.habits.Host_columnHeader_Width;
+            Dispatch_columnHeader.Width = lc.habits.Dispatch_columnHeader_Width;
+            Game_columnHeader.Width = lc.habits.Game_columnHeader_Width;
+            Count_columnHeader.Width = lc.habits.Count_columnHeader_Width;
+            Ver_columnHeader.Width = lc.habits.Ver_columnHeader_Width;
+            Ping_columnHeader.Width = lc.habits.Ping_columnHeader_Width;
+            Content_columnHeader.Width = lc.habits.Content_columnHeader_Width;
+
             this.Opacity = 1;
         }
         public void LoadSettingsToForm(object sender = null, EventArgs e = null, bool Save = true)
@@ -444,11 +446,8 @@ namespace Collei_Launcher
         private void Servers_List_tabPage_Enter(object sender, EventArgs e)
         {
             Status_timer.Enabled = true;
-            if (!is_loading_cc)
-            {
                 Load_Servers();
                 Load_Server_Status();
-            }
 
         }
 
@@ -822,7 +821,7 @@ namespace Collei_Launcher
             SetChannel_Panel.Enabled = !CheckChannel_checkBox.Checked;
         }
 
-        private void Delete_PC_button_Click(object sender, EventArgs e)
+        private void Reset_PC_button_Click(object sender, EventArgs e)
         {
             lc.patch = new Patch_Config();
             Save_Local_Config();
@@ -985,6 +984,16 @@ namespace Collei_Launcher
             lc.habits.UAFile_Input = UAFile_Input_textBox.Text;
             lc.habits.INOUT_UA = INOUT_UA_checkBox.Checked;
             lc.habits.UAFile_Output = UAFile_Output_textBox.Text;
+
+            lc.habits.Title_columnHeader_Width = Title_columnHeader.Width;
+            lc.habits.Host_columnHeader_Width = Host_columnHeader.Width;
+            lc.habits.Dispatch_columnHeader_Width = Dispatch_columnHeader.Width;
+            lc.habits.Game_columnHeader_Width = Game_columnHeader.Width;
+            lc.habits.Count_columnHeader_Width = Count_columnHeader.Width;
+            lc.habits.Ver_columnHeader_Width = Ver_columnHeader.Width;
+            lc.habits.Ping_columnHeader_Width = Ping_columnHeader.Width;
+            lc.habits.Content_columnHeader_Width = Content_columnHeader.Width;
         }
+
     }
 }

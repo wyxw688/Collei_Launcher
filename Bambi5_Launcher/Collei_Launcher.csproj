@@ -136,7 +136,7 @@
     <Compile Include="Details_Form.Designer.cs">
       <DependentUpon>Details_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Json.cs" />
+    <Compile Include="Models.cs" />
     <Compile Include="Main_Form.cs">
       <SubType>Form</SubType>
     </Compile>
