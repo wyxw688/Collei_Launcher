@@ -166,8 +166,8 @@ namespace Collei_Launcher
             // 
             // Home_tabPage
             // 
-            resources.ApplyResources(this.Home_tabPage, "Home_tabPage");
             this.Home_tabPage.Controls.Add(this.Notice_label);
+            resources.ApplyResources(this.Home_tabPage, "Home_tabPage");
             this.Home_tabPage.Name = "Home_tabPage";
             this.Home_tabPage.UseVisualStyleBackColor = true;
             this.Home_tabPage.Enter += new System.EventHandler(this.Home_tabPage_Enter);
@@ -179,9 +179,9 @@ namespace Collei_Launcher
             // 
             // Servers_List_tabPage
             // 
-            resources.ApplyResources(this.Servers_List_tabPage, "Servers_List_tabPage");
             this.Servers_List_tabPage.Controls.Add(this.NoServerTip_label);
             this.Servers_List_tabPage.Controls.Add(this.Servers_listView);
+            resources.ApplyResources(this.Servers_List_tabPage, "Servers_List_tabPage");
             this.Servers_List_tabPage.Name = "Servers_List_tabPage";
             this.Servers_List_tabPage.UseVisualStyleBackColor = true;
             this.Servers_List_tabPage.Enter += new System.EventHandler(this.Servers_List_tabPage_Enter);
@@ -189,14 +189,13 @@ namespace Collei_Launcher
             // 
             // NoServerTip_label
             // 
-            resources.ApplyResources(this.NoServerTip_label, "NoServerTip_label");
             this.NoServerTip_label.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.NoServerTip_label, "NoServerTip_label");
             this.NoServerTip_label.Name = "NoServerTip_label";
             this.NoServerTip_label.MouseDown += new System.Windows.Forms.MouseEventHandler(this.NoServerTip_label_MouseDown);
             // 
             // Servers_listView
             // 
-            resources.ApplyResources(this.Servers_listView, "Servers_listView");
             this.Servers_listView.AllowDrop = true;
             this.Servers_listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Title_columnHeader,
@@ -207,6 +206,7 @@ namespace Collei_Launcher
             this.Ver_columnHeader,
             this.Ping_columnHeader,
             this.Content_columnHeader});
+            resources.ApplyResources(this.Servers_listView, "Servers_listView");
             this.Servers_listView.FullRowSelect = true;
             this.Servers_listView.GridLines = true;
             this.Servers_listView.HideSelection = false;
@@ -254,7 +254,6 @@ namespace Collei_Launcher
             // 
             // Meta_tabPage
             // 
-            resources.ApplyResources(this.Meta_tabPage, "Meta_tabPage");
             this.Meta_tabPage.Controls.Add(this.label6);
             this.Meta_tabPage.Controls.Add(this.Meta_Actions_groupBox);
             this.Meta_tabPage.Controls.Add(this.Output_panel);
@@ -262,6 +261,7 @@ namespace Collei_Launcher
             this.Meta_tabPage.Controls.Add(this.Set_MetaInputpath_button);
             this.Meta_tabPage.Controls.Add(this.MetaFile_Input_textBox);
             this.Meta_tabPage.Controls.Add(this.label4);
+            resources.ApplyResources(this.Meta_tabPage, "Meta_tabPage");
             this.Meta_tabPage.Name = "Meta_tabPage";
             this.Meta_tabPage.UseVisualStyleBackColor = true;
             // 
@@ -370,7 +370,6 @@ namespace Collei_Launcher
             // 
             // UA_tabPage
             // 
-            resources.ApplyResources(this.UA_tabPage, "UA_tabPage");
             this.UA_tabPage.Controls.Add(this.label11);
             this.UA_tabPage.Controls.Add(this.UA_Actions_groupBox);
             this.UA_tabPage.Controls.Add(this.UA_Output_panel);
@@ -378,6 +377,7 @@ namespace Collei_Launcher
             this.UA_tabPage.Controls.Add(this.Set_UAInputpath_button);
             this.UA_tabPage.Controls.Add(this.UAFile_Input_textBox);
             this.UA_tabPage.Controls.Add(this.label13);
+            resources.ApplyResources(this.UA_tabPage, "UA_tabPage");
             this.UA_tabPage.Name = "UA_tabPage";
             this.UA_tabPage.UseVisualStyleBackColor = true;
             // 
@@ -470,13 +470,13 @@ namespace Collei_Launcher
             // 
             // Patch_Settings_tabPage
             // 
-            resources.ApplyResources(this.Patch_Settings_tabPage, "Patch_Settings_tabPage");
             this.Patch_Settings_tabPage.Controls.Add(this.Patch_Settings_Tip_label);
             this.Patch_Settings_tabPage.Controls.Add(this.SetChannel_Panel);
             this.Patch_Settings_tabPage.Controls.Add(this.CheckChannel_checkBox);
             this.Patch_Settings_tabPage.Controls.Add(this.PatchP1_checkBox);
             this.Patch_Settings_tabPage.Controls.Add(this.Save_PC_button);
             this.Patch_Settings_tabPage.Controls.Add(this.Patch_Bytes_tabControl);
+            resources.ApplyResources(this.Patch_Settings_tabPage, "Patch_Settings_tabPage");
             this.Patch_Settings_tabPage.Name = "Patch_Settings_tabPage";
             this.Patch_Settings_tabPage.UseVisualStyleBackColor = true;
             this.Patch_Settings_tabPage.Leave += new System.EventHandler(this.Patch_Settings_tabPage_Leave);
@@ -488,10 +488,10 @@ namespace Collei_Launcher
             // 
             // SetChannel_Panel
             // 
-            resources.ApplyResources(this.SetChannel_Panel, "SetChannel_Panel");
             this.SetChannel_Panel.Controls.Add(this.CN_Channel_radioButton);
             this.SetChannel_Panel.Controls.Add(this.label7);
             this.SetChannel_Panel.Controls.Add(this.OS_Channel_radioButton);
+            resources.ApplyResources(this.SetChannel_Panel, "SetChannel_Panel");
             this.SetChannel_Panel.Name = "SetChannel_Panel";
             // 
             // CN_Channel_radioButton
@@ -554,8 +554,8 @@ namespace Collei_Launcher
             // 
             // Nopatch1_tabPage
             // 
-            resources.ApplyResources(this.Nopatch1_tabPage, "Nopatch1_tabPage");
             this.Nopatch1_tabPage.Controls.Add(this.Nopatch1_textBox);
+            resources.ApplyResources(this.Nopatch1_tabPage, "Nopatch1_tabPage");
             this.Nopatch1_tabPage.Name = "Nopatch1_tabPage";
             this.Nopatch1_tabPage.UseVisualStyleBackColor = true;
             // 
@@ -566,8 +566,8 @@ namespace Collei_Launcher
             // 
             // Patched1_tabPage
             // 
-            resources.ApplyResources(this.Patched1_tabPage, "Patched1_tabPage");
             this.Patched1_tabPage.Controls.Add(this.Patched1_textBox);
+            resources.ApplyResources(this.Patched1_tabPage, "Patched1_tabPage");
             this.Patched1_tabPage.Name = "Patched1_tabPage";
             this.Patched1_tabPage.UseVisualStyleBackColor = true;
             // 
@@ -578,8 +578,8 @@ namespace Collei_Launcher
             // 
             // Nopatch2_cn_tabPage
             // 
-            resources.ApplyResources(this.Nopatch2_cn_tabPage, "Nopatch2_cn_tabPage");
             this.Nopatch2_cn_tabPage.Controls.Add(this.Nopatch2_cn_textBox);
+            resources.ApplyResources(this.Nopatch2_cn_tabPage, "Nopatch2_cn_tabPage");
             this.Nopatch2_cn_tabPage.Name = "Nopatch2_cn_tabPage";
             this.Nopatch2_cn_tabPage.UseVisualStyleBackColor = true;
             // 
@@ -590,8 +590,8 @@ namespace Collei_Launcher
             // 
             // Nopatch2_os_tabPage
             // 
-            resources.ApplyResources(this.Nopatch2_os_tabPage, "Nopatch2_os_tabPage");
             this.Nopatch2_os_tabPage.Controls.Add(this.Nopatch2_os_textBox);
+            resources.ApplyResources(this.Nopatch2_os_tabPage, "Nopatch2_os_tabPage");
             this.Nopatch2_os_tabPage.Name = "Nopatch2_os_tabPage";
             this.Nopatch2_os_tabPage.UseVisualStyleBackColor = true;
             // 
@@ -602,8 +602,8 @@ namespace Collei_Launcher
             // 
             // Patched2_Meta_tabPage
             // 
-            resources.ApplyResources(this.Patched2_Meta_tabPage, "Patched2_Meta_tabPage");
             this.Patched2_Meta_tabPage.Controls.Add(this.Patched2_Meta_textBox);
+            resources.ApplyResources(this.Patched2_Meta_tabPage, "Patched2_Meta_tabPage");
             this.Patched2_Meta_tabPage.Name = "Patched2_Meta_tabPage";
             this.Patched2_Meta_tabPage.UseVisualStyleBackColor = true;
             // 
@@ -614,8 +614,8 @@ namespace Collei_Launcher
             // 
             // Patched2_UA_tabPage
             // 
-            resources.ApplyResources(this.Patched2_UA_tabPage, "Patched2_UA_tabPage");
             this.Patched2_UA_tabPage.Controls.Add(this.Patched2_UA_textBox);
+            resources.ApplyResources(this.Patched2_UA_tabPage, "Patched2_UA_tabPage");
             this.Patched2_UA_tabPage.Name = "Patched2_UA_tabPage";
             this.Patched2_UA_tabPage.UseVisualStyleBackColor = true;
             // 
@@ -626,8 +626,8 @@ namespace Collei_Launcher
             // 
             // Features_cn_tabPage
             // 
-            resources.ApplyResources(this.Features_cn_tabPage, "Features_cn_tabPage");
             this.Features_cn_tabPage.Controls.Add(this.Features_cn_textBox);
+            resources.ApplyResources(this.Features_cn_tabPage, "Features_cn_tabPage");
             this.Features_cn_tabPage.Name = "Features_cn_tabPage";
             this.Features_cn_tabPage.UseVisualStyleBackColor = true;
             // 
@@ -638,8 +638,8 @@ namespace Collei_Launcher
             // 
             // Features_os_tabPage
             // 
-            resources.ApplyResources(this.Features_os_tabPage, "Features_os_tabPage");
             this.Features_os_tabPage.Controls.Add(this.Features_os_textBox);
+            resources.ApplyResources(this.Features_os_tabPage, "Features_os_tabPage");
             this.Features_os_tabPage.Name = "Features_os_tabPage";
             this.Features_os_tabPage.UseVisualStyleBackColor = true;
             // 
@@ -650,7 +650,6 @@ namespace Collei_Launcher
             // 
             // Settings_tabPage
             // 
-            resources.ApplyResources(this.Settings_tabPage, "Settings_tabPage");
             this.Settings_tabPage.Controls.Add(this.Save_Config_button);
             this.Settings_tabPage.Controls.Add(this.Reset_PC_button);
             this.Settings_tabPage.Controls.Add(this.Find_GameExe_button);
@@ -663,6 +662,7 @@ namespace Collei_Launcher
             this.Settings_tabPage.Controls.Add(this.Show_Public_Server_checkBox);
             this.Settings_tabPage.Controls.Add(this.label1);
             this.Settings_tabPage.Controls.Add(this.Proxy_port_numericUpDown);
+            resources.ApplyResources(this.Settings_tabPage, "Settings_tabPage");
             this.Settings_tabPage.Name = "Settings_tabPage";
             this.Settings_tabPage.UseVisualStyleBackColor = true;
             this.Settings_tabPage.Leave += new System.EventHandler(this.Settings_tabPage_Leave);
@@ -765,8 +765,8 @@ namespace Collei_Launcher
             // 
             // Main_statusStrip
             // 
-            resources.ApplyResources(this.Main_statusStrip, "Main_statusStrip");
             this.Main_statusStrip.BackColor = System.Drawing.SystemColors.ControlLight;
+            resources.ApplyResources(this.Main_statusStrip, "Main_statusStrip");
             this.Main_statusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.Main_statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Proxy_status_toolStripStatusLabel});
@@ -774,9 +774,9 @@ namespace Collei_Launcher
             // 
             // Proxy_status_toolStripStatusLabel
             // 
-            resources.ApplyResources(this.Proxy_status_toolStripStatusLabel, "Proxy_status_toolStripStatusLabel");
             this.Proxy_status_toolStripStatusLabel.IsLink = true;
             this.Proxy_status_toolStripStatusLabel.Name = "Proxy_status_toolStripStatusLabel";
+            resources.ApplyResources(this.Proxy_status_toolStripStatusLabel, "Proxy_status_toolStripStatusLabel");
             this.Proxy_status_toolStripStatusLabel.Click += new System.EventHandler(this.Proxy_status_toolStripStatusLabel_Click);
             // 
             // Servers_contextMenuStrip
@@ -795,47 +795,47 @@ namespace Collei_Launcher
             // 
             // 添加ToolStripMenuItem
             // 
-            resources.ApplyResources(this.添加ToolStripMenuItem, "添加ToolStripMenuItem");
             this.添加ToolStripMenuItem.Image = global::Collei_Launcher.Properties.Resources.添加;
             this.添加ToolStripMenuItem.Name = "添加ToolStripMenuItem";
+            resources.ApplyResources(this.添加ToolStripMenuItem, "添加ToolStripMenuItem");
             this.添加ToolStripMenuItem.Click += new System.EventHandler(this.添加ToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
-            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             this.toolStripSeparator1.Name = "toolStripSeparator1";
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             // 
             // 连接ToolStripMenuItem
             // 
-            resources.ApplyResources(this.连接ToolStripMenuItem, "连接ToolStripMenuItem");
             this.连接ToolStripMenuItem.Image = global::Collei_Launcher.Properties.Resources.启动;
             this.连接ToolStripMenuItem.Name = "连接ToolStripMenuItem";
+            resources.ApplyResources(this.连接ToolStripMenuItem, "连接ToolStripMenuItem");
             this.连接ToolStripMenuItem.Click += new System.EventHandler(this.连接ToolStripMenuItem_Click);
             // 
             // 检查连接ToolStripMenuItem
             // 
-            resources.ApplyResources(this.检查连接ToolStripMenuItem, "检查连接ToolStripMenuItem");
             this.检查连接ToolStripMenuItem.Image = global::Collei_Launcher.Properties.Resources.搜索;
             this.检查连接ToolStripMenuItem.Name = "检查连接ToolStripMenuItem";
+            resources.ApplyResources(this.检查连接ToolStripMenuItem, "检查连接ToolStripMenuItem");
             this.检查连接ToolStripMenuItem.Click += new System.EventHandler(this.检查连接ToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
-            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
             this.toolStripSeparator2.Name = "toolStripSeparator2";
+            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
             // 
             // 编辑ToolStripMenuItem
             // 
-            resources.ApplyResources(this.编辑ToolStripMenuItem, "编辑ToolStripMenuItem");
             this.编辑ToolStripMenuItem.Image = global::Collei_Launcher.Properties.Resources.编辑;
             this.编辑ToolStripMenuItem.Name = "编辑ToolStripMenuItem";
+            resources.ApplyResources(this.编辑ToolStripMenuItem, "编辑ToolStripMenuItem");
             this.编辑ToolStripMenuItem.Click += new System.EventHandler(this.编辑ToolStripMenuItem_Click);
             // 
             // 删除ToolStripMenuItem
             // 
-            resources.ApplyResources(this.删除ToolStripMenuItem, "删除ToolStripMenuItem");
             this.删除ToolStripMenuItem.Image = global::Collei_Launcher.Properties.Resources.删除;
             this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
+            resources.ApplyResources(this.删除ToolStripMenuItem, "删除ToolStripMenuItem");
             this.删除ToolStripMenuItem.Click += new System.EventHandler(this.删除ToolStripMenuItem_Click);
             // 
             // Status_timer
@@ -851,12 +851,11 @@ namespace Collei_Launcher
             this.Author_label.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Author_label.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.Author_label.Name = "Author_label";
-            this.Author_label.Click += new System.EventHandler(this.Author_label_Click);
             // 
             // Main_Form
             // 
-            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            resources.ApplyResources(this, "$this");
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.Author_label);
             this.Controls.Add(this.Main_statusStrip);

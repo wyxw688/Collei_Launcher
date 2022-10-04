@@ -46,6 +46,29 @@ public static class Methods
             return null;
         }
     }
+    /// <summary>
+    /// 将ua中的key转换为普通key
+    /// </summary>
+    /// <param name="bytes"></param>
+    /// <returns></returns>
+    public static string ToOriginalKey(byte[] bytes)
+    {
+        List<byte> list = bytes.ToList();
+        for (int i = 1; i < 30; i++)
+        {
+            list.RemoveRange(list.Count - 7 - i * 8, 9);
+        }
+        for (int i = 0; i < 14; i++)
+        {
+            list.RemoveRange(2 + 8 * i, 6);
+        }
+        return Encoding.UTF8.GetString(list.ToArray());
+    }
+    /// <summary>
+    /// 填充passwordkey
+    /// </summary>
+    /// <param name="key"></param>
+    /// <returns>填充后key的Byte[]</returns>
     public static byte[] ToFixBytesP1(string key)
     {
         byte[] bp1 = Encoding.UTF8.GetBytes(key.Substring(0, 48));
@@ -56,29 +79,43 @@ public static class Methods
         return ret;
 
     }
-    public static readonly long Pas = 0x4889501048BA;
-    public static readonly long Pbs = 0x908000000048BA;
-    public static readonly byte[] Pbb = { 0x48, 0x89 };
-
-    public static byte[] GetBytesPa(int count)//0-13
+    internal static long Pas = 0x4889501048BA;
+    internal static long Pbs = 0x908000000048BA;
+    internal static byte[] Pbb = { 0x48, 0x89 };
+    /// <summary>
+    /// 计算填充第一部分数据
+    /// </summary>
+    /// <param name="count">位置</param>
+    /// <returns></returns>
+    internal static byte[] GetBytesPa(int count)//0-13
     {
         byte[] pa = BitConverter.GetBytes(Pas + (0x80000 * count));
         Array.Resize(ref pa, 6);
         pa = pa.Reverse().ToArray();
         return pa;
     }
-    public static byte[] GetBytesPb(int count)//0-28
+    /// <summary>
+    /// 计算填充第二部分数据
+    /// </summary>
+    /// <param name="count">位置</param>
+    /// <returns></returns>
+    internal static byte[] GetBytesPb(int count)//0-28
     {
         byte[] pb = BitConverter.GetBytes(Pbs + (0x80000000000 * count));
         Array.Resize(ref pb, 7);
         byte[] pb2 = Pbb.Concat(pb.Reverse()).ToArray();
-        if(count >=16)
+        if (count >= 16)
         {
             pb2[2] = 0x90;
             pb2[4] = 0x01;
         }
         return pb2;
     }
+    /// <summary>
+    /// 填充ua的dispatchkey
+    /// </summary>
+    /// <param name="key">需要填充的key</param>
+    /// <returns>填充后key的Byte[]</returns>
     public static byte[] ToUABytes(string key)
     {
         int count = key.Length + 2;
@@ -104,6 +141,76 @@ public static class Methods
         }
         return uabytes.ToArray();
     }
+    public static byte[] bytes = { 0x0D, 0x0A, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20 };
+
+    /// <summary>
+    /// 查找Byte[]位置
+    /// </summary>
+    /// <param name="src">被查找的Byte[]</param>
+    /// <param name="find">查找内容</param>
+    /// <returns>位置</returns>
+    public static int FindBytes(byte[] src, byte[] find)
+    {
+        int index = -1;
+        int matchIndex = 0;
+
+        for (int i = 0; i < src.Length; i++)
+        {
+            if (src[i] == find[matchIndex])
+            {
+                if (matchIndex == (find.Length - 1))
+                {
+                    index = i - matchIndex;
+                    break;
+                }
+                matchIndex++;
+            }
+            else
+            {
+                matchIndex = 0;
+            }
+
+        }
+#if DEBUG
+        Debug.Print("FindIndex:" + index);
+#endif
+        return index;
+    }
+
+    /// <summary>
+    /// 替换Byte[]
+    /// </summary>
+    /// <param name="src">需要替换Byte[]的Byte[]</param>
+    /// <param name="search">原Byte[]</param>
+    /// <param name="repl">需要替换成的Byte[]</param>
+    /// <param name="i">替换成功会+1</param>
+    /// <returns>替换完成的Byte</returns>
+    public static byte[] ReplaceBytes(byte[] src, byte[] search, byte[] repl, ref int i)
+    {
+        byte[] dst = src;
+        int index = FindBytes(src, search);
+        if (index == -1)
+        {
+            return src;
+        }
+        if (index >= 0)
+        {
+            dst = new byte[src.Length - search.Length + repl.Length];
+
+            Buffer.BlockCopy(src, 0, dst, 0, index);
+
+            Buffer.BlockCopy(repl, 0, dst, index, repl.Length);
+
+            Buffer.BlockCopy(
+                src,
+                index + search.Length,
+                dst,
+                index + repl.Length,
+                src.Length - (index + search.Length));
+        }
+        i++;
+        return dst;
+    }
     /// <summary>
     /// 字节数组转16进制字符串：空格分隔
     /// </summary>
@@ -118,7 +225,7 @@ public static class Methods
         }
         return builder.ToString().Trim();
     }
-    public static byte[] bytes = { 0x0D, 0x0A, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20 };
+
     public static bool DebugBuild(Assembly assembly)
     {
         foreach (object attribute in assembly.GetCustomAttributes(false))
@@ -342,60 +449,6 @@ public static class Methods
     }
 
 
-    public static int FindBytes(byte[] src, byte[] find)
-    {
-        int index = -1;
-        int matchIndex = 0;
-
-        for (int i = 0; i < src.Length; i++)
-        {
-            if (src[i] == find[matchIndex])
-            {
-                if (matchIndex == (find.Length - 1))
-                {
-                    index = i - matchIndex;
-                    break;
-                }
-                matchIndex++;
-            }
-            else
-            {
-                matchIndex = 0;
-            }
-
-        }
-#if DEBUG
-        Debug.Print("FindIndex:" + index);
-#endif
-        return index;
-    }
-
-    public static byte[] ReplaceBytes(byte[] src, byte[] search, byte[] repl, ref int i)
-    {
-        byte[] dst = src;
-        int index = FindBytes(src, search);
-        if (index == -1)
-        {
-            return src;
-        }
-        if (index >= 0)
-        {
-            dst = new byte[src.Length - search.Length + repl.Length];
-
-            Buffer.BlockCopy(src, 0, dst, 0, index);
-
-            Buffer.BlockCopy(repl, 0, dst, index, repl.Length);
-
-            Buffer.BlockCopy(
-                src,
-                index + search.Length,
-                dst,
-                index + repl.Length,
-                src.Length - (index + search.Length));
-        }
-        i++;
-        return dst;
-    }
     public static class GameRegReader
     {
         /// <summary>

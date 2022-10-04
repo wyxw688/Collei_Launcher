@@ -995,5 +995,7 @@ namespace Collei_Launcher
             lc.habits.Content_columnHeader_Width = Content_columnHeader.Width;
         }
 
+
+
     }
 }
