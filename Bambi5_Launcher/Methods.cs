@@ -19,6 +19,59 @@ using System.Windows.Forms;
 
 public static class Methods
 {
+    public static string Choice_Save_Path(string Filter = null, string Title = null, string InitialDirectory = null, string FileName = null)
+    {
+        if (InitialDirectory == null)
+        {
+            InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+        }
+        SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+        if (Filter != null)
+            saveFileDialog1.Filter = Filter;
+        if (FileName != null)
+        {
+            saveFileDialog1.FileName = FileName;
+        }
+        saveFileDialog1.InitialDirectory = InitialDirectory;
+        if (Title != null)
+            saveFileDialog1.Title = Title;
+        DialogResult dr = saveFileDialog1.ShowDialog();
+        if (dr == DialogResult.OK)
+        {
+            if (saveFileDialog1.FileName == "")
+            {
+                MessageBox.Show("请选择保存位置！", "错误信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            return saveFileDialog1.FileName;
+        }
+        return null;
+    }
+    public static string Choice_Path(string Filter = null, string Title = null, string InitialDirectory = null)
+    {
+        if (InitialDirectory == null)
+        {
+            InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+        }
+        OpenFileDialog openFileDialog1 = new OpenFileDialog();
+        if (Filter != null)
+            openFileDialog1.Filter = Filter;
+        openFileDialog1.FileName = "";
+        openFileDialog1.InitialDirectory = InitialDirectory;
+        if (Title != null)
+            openFileDialog1.Title = Title;
+        DialogResult dr = openFileDialog1.ShowDialog();
+        if (dr == DialogResult.OK)
+        {
+            if (openFileDialog1.FileName == "")
+            {
+                MessageBox.Show("请选择一个文件！", "错误信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            return openFileDialog1.FileName;
+        }
+        return null;
+    }
     public static bool HasChinese(string str)
     {
         return Regex.IsMatch(str, @"[\u4e00-\u9fa5]");

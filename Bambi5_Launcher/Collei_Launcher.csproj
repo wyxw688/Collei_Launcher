@@ -200,6 +200,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Patch_Data.resx</DependentUpon>
     </Compile>
+    <Compile Include="ThirdPartyMgr.cs" />
+    <Compile Include="ThirdParty_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThirdParty_Form.Designer.cs">
+      <DependentUpon>ThirdParty_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Titanium_Proxy_Mgr.cs" />
     <Compile Include="UA_Patch_Mgr.cs" />
     <EmbeddedResource Include="Check_Form.resx">
@@ -239,6 +246,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Patch_Data.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="ThirdParty_Form.resx">
+      <DependentUpon>ThirdParty_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -257,6 +267,8 @@
   <ItemGroup>
     <Content Include="BasicFormatsForCore.dll" />
     <Content Include="launch.ico" />
+    <None Include="Resources\导入.png" />
+    <None Include="Resources\导出.png" />
     <None Include="Resources\loading.gif" />
     <None Include="Resources\搜索.png" />
     <None Include="Resources\启动.png" />

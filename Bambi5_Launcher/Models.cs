@@ -9,6 +9,18 @@ using System.Windows.Forms;
 
 namespace Collei_Launcher
 {
+    [Serializable]
+    public class TPSet
+    {
+        public string CCV2Url = "http://launcher.bambi5.top/Main?action=Get_Config&data=&lang=<lang>&ver=<ver>";
+        public string CPCUrl = null;
+        public bool AllowAddServer = true;
+        public bool MustShownCloudServers = false;
+        public bool AllowPatchMeta = true;
+        public bool AllowPatchUA = true;
+        public bool AllowModify = true;
+    }
+
     public class Details_Get
     {
         public string Result { get; set; }
@@ -86,6 +98,8 @@ namespace Collei_Launcher
             public bool Auto_Close_Proxy = true;
 
             public bool Show_Cloud_Server = true;
+
+            public bool StartupCheckProxy=true;
 
             public int lastvercode = 0;
 

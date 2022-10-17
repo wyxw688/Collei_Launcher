@@ -33,9 +33,9 @@ namespace Collei_Launcher
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Form));
             this.Main_tabControl = new System.Windows.Forms.TabControl();
             this.Home_tabPage = new System.Windows.Forms.TabPage();
+            this.Notice_label = new System.Windows.Forms.Label();
             this.Notice_webView = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.Notice_webBrowser = new System.Windows.Forms.WebBrowser();
-            this.Notice_label = new System.Windows.Forms.Label();
             this.Notice_pictureBox = new System.Windows.Forms.PictureBox();
             this.Servers_List_tabPage = new System.Windows.Forms.TabPage();
             this.NoServerTip_label = new System.Windows.Forms.Label();
@@ -78,6 +78,8 @@ namespace Collei_Launcher
             this.UAFile_Input_textBox = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.Patch_Settings_tabPage = new System.Windows.Forms.TabPage();
+            this.Export_PC_button = new System.Windows.Forms.Button();
+            this.Import_PC_button = new System.Windows.Forms.Button();
             this.Patch_Settings_Tip_label = new System.Windows.Forms.Label();
             this.SetChannel_Panel = new System.Windows.Forms.Panel();
             this.CN_Channel_radioButton = new System.Windows.Forms.RadioButton();
@@ -104,6 +106,7 @@ namespace Collei_Launcher
             this.Features_os_tabPage = new System.Windows.Forms.TabPage();
             this.Features_os_textBox = new System.Windows.Forms.TextBox();
             this.Settings_tabPage = new System.Windows.Forms.TabPage();
+            this.Startup_Check_Proxy_checkBox = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
             this.Proxy_Mode_comboBox = new System.Windows.Forms.ComboBox();
             this.Use_Habits_checkBox = new System.Windows.Forms.CheckBox();
@@ -173,14 +176,20 @@ namespace Collei_Launcher
             // 
             // Home_tabPage
             // 
+            this.Home_tabPage.Controls.Add(this.Notice_label);
             this.Home_tabPage.Controls.Add(this.Notice_webView);
             this.Home_tabPage.Controls.Add(this.Notice_webBrowser);
-            this.Home_tabPage.Controls.Add(this.Notice_label);
             this.Home_tabPage.Controls.Add(this.Notice_pictureBox);
             resources.ApplyResources(this.Home_tabPage, "Home_tabPage");
             this.Home_tabPage.Name = "Home_tabPage";
             this.Home_tabPage.UseVisualStyleBackColor = true;
             this.Home_tabPage.Enter += new System.EventHandler(this.Home_tabPage_Enter);
+            // 
+            // Notice_label
+            // 
+            resources.ApplyResources(this.Notice_label, "Notice_label");
+            this.Notice_label.Name = "Notice_label";
+            this.Notice_label.Click += new System.EventHandler(this.Notice_Click);
             // 
             // Notice_webView
             // 
@@ -197,12 +206,7 @@ namespace Collei_Launcher
             this.Notice_webBrowser.Name = "Notice_webBrowser";
             this.Notice_webBrowser.ScriptErrorsSuppressed = true;
             this.Notice_webBrowser.Url = new System.Uri("", System.UriKind.Relative);
-            // 
-            // Notice_label
-            // 
-            resources.ApplyResources(this.Notice_label, "Notice_label");
-            this.Notice_label.Name = "Notice_label";
-            this.Notice_label.Click += new System.EventHandler(this.Notice_Click);
+            this.Notice_webBrowser.NewWindow += new System.ComponentModel.CancelEventHandler(this.Notice_webBrowser_NewWindow);
             // 
             // Notice_pictureBox
             // 
@@ -499,6 +503,8 @@ namespace Collei_Launcher
             // 
             // Patch_Settings_tabPage
             // 
+            this.Patch_Settings_tabPage.Controls.Add(this.Export_PC_button);
+            this.Patch_Settings_tabPage.Controls.Add(this.Import_PC_button);
             this.Patch_Settings_tabPage.Controls.Add(this.Patch_Settings_Tip_label);
             this.Patch_Settings_tabPage.Controls.Add(this.SetChannel_Panel);
             this.Patch_Settings_tabPage.Controls.Add(this.CheckChannel_checkBox);
@@ -509,6 +515,22 @@ namespace Collei_Launcher
             this.Patch_Settings_tabPage.Name = "Patch_Settings_tabPage";
             this.Patch_Settings_tabPage.UseVisualStyleBackColor = true;
             this.Patch_Settings_tabPage.Leave += new System.EventHandler(this.Patch_Settings_tabPage_Leave);
+            // 
+            // Export_PC_button
+            // 
+            resources.ApplyResources(this.Export_PC_button, "Export_PC_button");
+            this.Export_PC_button.BackgroundImage = global::Collei_Launcher.Properties.Resources.导出;
+            this.Export_PC_button.Name = "Export_PC_button";
+            this.Export_PC_button.UseVisualStyleBackColor = true;
+            this.Export_PC_button.Click += new System.EventHandler(this.Export_PC_button_Click);
+            // 
+            // Import_PC_button
+            // 
+            resources.ApplyResources(this.Import_PC_button, "Import_PC_button");
+            this.Import_PC_button.BackgroundImage = global::Collei_Launcher.Properties.Resources.导入;
+            this.Import_PC_button.Name = "Import_PC_button";
+            this.Import_PC_button.UseVisualStyleBackColor = true;
+            this.Import_PC_button.Click += new System.EventHandler(this.Import_PC_button_Click);
             // 
             // Patch_Settings_Tip_label
             // 
@@ -679,6 +701,7 @@ namespace Collei_Launcher
             // 
             // Settings_tabPage
             // 
+            this.Settings_tabPage.Controls.Add(this.Startup_Check_Proxy_checkBox);
             this.Settings_tabPage.Controls.Add(this.label8);
             this.Settings_tabPage.Controls.Add(this.Proxy_Mode_comboBox);
             this.Settings_tabPage.Controls.Add(this.Use_Habits_checkBox);
@@ -698,6 +721,15 @@ namespace Collei_Launcher
             this.Settings_tabPage.Name = "Settings_tabPage";
             this.Settings_tabPage.UseVisualStyleBackColor = true;
             this.Settings_tabPage.Leave += new System.EventHandler(this.Settings_tabPage_Leave);
+            // 
+            // Startup_Check_Proxy_checkBox
+            // 
+            resources.ApplyResources(this.Startup_Check_Proxy_checkBox, "Startup_Check_Proxy_checkBox");
+            this.Startup_Check_Proxy_checkBox.Checked = true;
+            this.Startup_Check_Proxy_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.Startup_Check_Proxy_checkBox.Name = "Startup_Check_Proxy_checkBox";
+            this.Startup_Check_Proxy_checkBox.UseVisualStyleBackColor = true;
+            this.Startup_Check_Proxy_checkBox.CheckedChanged += new System.EventHandler(this.Startup_Check_Proxy_checkBox_CheckedChanged);
             // 
             // label8
             // 
@@ -792,7 +824,7 @@ namespace Collei_Launcher
             this.Show_Cloud_Server_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.Show_Cloud_Server_checkBox.Name = "Show_Cloud_Server_checkBox";
             this.Show_Cloud_Server_checkBox.UseVisualStyleBackColor = true;
-            this.Show_Cloud_Server_checkBox.CheckedChanged += new System.EventHandler(this.Show_Public_Server_checkBox_CheckedChanged);
+            this.Show_Cloud_Server_checkBox.CheckedChanged += new System.EventHandler(this.Show_Cloud_Server_checkBox_CheckedChanged);
             // 
             // label1
             // 
@@ -905,7 +937,7 @@ namespace Collei_Launcher
             // 
             resources.ApplyResources(this.Author_label, "Author_label");
             this.Author_label.BackColor = System.Drawing.Color.Transparent;
-            this.Author_label.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Author_label.Cursor = System.Windows.Forms.Cursors.Default;
             this.Author_label.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.Author_label.Name = "Author_label";
             this.Author_label.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Author_label_MouseClick);
@@ -1068,6 +1100,9 @@ namespace Collei_Launcher
         private System.Windows.Forms.PictureBox Notice_pictureBox;
         private System.Windows.Forms.WebBrowser Notice_webBrowser;
         private Microsoft.Web.WebView2.WinForms.WebView2 Notice_webView;
+        private System.Windows.Forms.Button Import_PC_button;
+        private System.Windows.Forms.Button Export_PC_button;
+        public System.Windows.Forms.CheckBox Startup_Check_Proxy_checkBox;
     }
 }
 

@@ -1,4 +1,5 @@
 ﻿using Collei_Launcher.Properties;
+using Microsoft.Web.WebView2.Core;
 using Microsoft.Win32;
 using Newtonsoft.Json;
 using System;
@@ -28,7 +29,6 @@ namespace Collei_Launcher
         public static Cloud_Config cc;
         public static Local_Config lc;
         public bool is_first_check = true;
-        public string Launcher_Server = "http://launcher.bambi5.top/Main?action=Get_Config&data=&lang=<lang>&ver=<ver>";
         public string config_path = Application.StartupPath + @"\config.json";
         public List<ServersItem_List> servers = new List<ServersItem_List>();
         public int ci;
@@ -36,6 +36,7 @@ namespace Collei_Launcher
         public PictureBoxSizeMode LastSizeMode;
         public bool IsFirstLoadIE = true;
         public bool IsFirstLoadEdge = true;
+        public static TPSet tps = new TPSet();
 
         public Main_Form()
         {
@@ -43,9 +44,34 @@ namespace Collei_Launcher
             form = this;
             InitializeComponent();
             Show_Ver();
-            Check_Proxy();
             Load_Local_Config();
+            ThirdPartyMgr.LoadSettings();
+            Check_Proxy();
             Methods.SetCertificatePolicy();
+        }
+        public void TpsApply()
+        {
+            Meta_tabPage.Parent = null;
+            UA_tabPage.Parent = null;
+            Patch_Settings_tabPage.Parent = null;
+            Settings_tabPage.Parent = null;
+
+            Meta_tabPage.Parent = tps.AllowPatchMeta ? Main_tabControl : null;
+            UA_tabPage.Parent = tps.AllowPatchUA ? Main_tabControl : null;
+            Patch_Settings_tabPage.Parent = String.IsNullOrEmpty(tps.CPCUrl) ? Main_tabControl : null;
+            Settings_tabPage.Parent = Main_tabControl;
+
+            if (tps.MustShownCloudServers)
+            {
+                Show_Cloud_Server_checkBox.Checked = true;
+                Show_Cloud_Server_checkBox.Enabled = false;
+                lc.config.Show_Cloud_Server = true;
+            }
+            else
+            {
+                Show_Cloud_Server_checkBox.Enabled = true;
+            }
+            NoServerTip_label.Text = tps.AllowAddServer ? "右键添加服务器" : "管理员还没有配置服务器哦\n一会再来看看吧";
         }
         private void Show_Ver()
         {
@@ -58,13 +84,13 @@ namespace Collei_Launcher
             this.Text += isdebug ? " - Debug" : " - Release";
         }
 
-        public string GetConfigUrl()
+        public string GetConfigV2Url()
         {
-            return Launcher_Server.Replace("<lang>", Thread.CurrentThread.CurrentUICulture.Name).Replace("<ver>", VerCode.ToString());
+            return tps.CCV2Url.Replace("<lang>", Thread.CurrentThread.CurrentUICulture.Name).Replace("<ver>", VerCode.ToString());
         }
         public void Check_Proxy()
         {
-            if (Methods.using_proxy().ProxyEnable)
+            if (lc.config.StartupCheckProxy && Methods.using_proxy().ProxyEnable)
             {
                 string show = "检测到您当前开启了系统代理，这可能是启动器上次未正确关闭导致的,代理配置不正确会导致无法连接网络,当前的代理配置如下\n";
                 show += Methods.Get_Proxy_Text();
@@ -154,23 +180,24 @@ namespace Collei_Launcher
 
                         if (LastloadPic != notice.Content || LastSizeMode != notice.sizemode)
                         {
-                            try
+                            Task.Run(() =>
                             {
-                                Notice_pictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
-                                Notice_pictureBox.Image = Resources.loading;
-                                Task.Run(() =>
+                                try
                                 {
+                                    Notice_pictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
+                                    Notice_pictureBox.Image = Resources.loading;
+
                                     Notice_pictureBox.Image = Image.FromStream(WebRequest.Create(notice.Content).GetResponse().GetResponseStream());
                                     Notice_pictureBox.SizeMode = notice.sizemode;
                                     LastloadPic = notice.Content;
                                     LastSizeMode = notice.sizemode;
-                                });
-                            }
-                            catch (Exception e)
-                            {
-                                Debug.Print("Pic Load error" + e.Message);
-                                Refresh_Notice(null, NoticeErrorType.imgerr);
-                            }
+                                }
+                                catch (Exception e)
+                                {
+                                    Debug.Print("Pic Load error" + e.Message);
+                                    Refresh_Notice(null, NoticeErrorType.imgerr);
+                                }
+                            });
                         }
                         if (notice.ClickAble)
                         {
@@ -184,56 +211,72 @@ namespace Collei_Launcher
                     }
                 case NoticeType.IEWebpage:
                     {
-                        Notice_label.Visible = false;
-                        Notice_pictureBox.Visible = false;
-                        Notice_webBrowser.Visible = true;
-                        Notice_webView.Visible = false;
-
                         if (IsFirstLoadIE)
                         {
                             Notice_webBrowser.Navigate(notice.Content);
                             IsFirstLoadIE = false;
                         }
 
+                        Notice_label.Visible = false;
+                        Notice_pictureBox.Visible = false;
+                        Notice_webBrowser.Visible = true;
+                        Notice_webView.Visible = false;
+
                         break;
                     }
                 case NoticeType.EdgeWebpage:
                     {
-                        Notice_label.Visible = false;
-                        Notice_pictureBox.Visible = false;
-                        Notice_webBrowser.Visible = false;
-                        Notice_webView.Visible = true;
 
                         if (IsFirstLoadEdge)
                         {
-                            Notice_webView.Source = new Uri(notice.Content);
+                            Notice_webView.EnsureCoreWebView2Async().ContinueWith(t =>
+                            {
+                                Notice_webView.CoreWebView2.NewWindowRequested += CoreWebView2_NewWindowRequested;
+                                Notice_webView.CoreWebView2.Navigate(notice.Content);
+
+                                Notice_label.Visible = false;
+                                Notice_pictureBox.Visible = false;
+                                Notice_webBrowser.Visible = false;
+                                Notice_webView.Visible = true;
+                            });
                             IsFirstLoadEdge = false;
                         }
-
+                        if (Notice_webView.CoreWebView2 != null)
+                        {
+                            Notice_label.Visible = false;
+                            Notice_pictureBox.Visible = false;
+                            Notice_webBrowser.Visible = false;
+                            Notice_webView.Visible = true;
+                        }
                         break;
                     }
             }
             //   });
         }
+        private void CoreWebView2_NewWindowRequested(object sender, CoreWebView2NewWindowRequestedEventArgs e)
+        {
+            Notice_webView.CoreWebView2.Navigate(e.Uri.ToString());
+            e.Handled = true;
+        }
         public Task GetCloudConfigV2()
         {
-           return Task.Run(() =>
-            {
-                try
-                {
-                    string ccs = Methods.Get(GetConfigUrl());
-                    if (ccs == null)
-                    {
-                        Refresh_Notice(null, NoticeErrorType.clouderr);
-                        return;
-                    }
-                    cc = JsonConvert.DeserializeObject<Cloud_Config>(ccs);
-                }
-                catch (Exception e)
-                {
-                    Refresh_Notice(null, NoticeErrorType.clouderr);
-                }
-            });
+            return Task.Run(() =>
+             {
+                 try
+                 {
+                     string ccs = Methods.Get(GetConfigV2Url());
+                     if (ccs == null)
+                     {
+                         Refresh_Notice(null, NoticeErrorType.clouderr);
+                         return;
+                     }
+                     cc = JsonConvert.DeserializeObject<Cloud_Config>(ccs);
+                 }
+                 catch (Exception e)
+                 {
+                     Refresh_Notice(null, NoticeErrorType.clouderr);
+                 }
+             });
         }
         public void UpdateAndNotice()
         {
@@ -412,6 +455,7 @@ namespace Collei_Launcher
                 Game_Path_textBox.Text = lc.config.Game_Path;
             }
             Proxy_Mode_comboBox.SelectedIndex = (int)lc.config.proxyMode;
+            Startup_Check_Proxy_checkBox.Checked = lc.config.StartupCheckProxy;
             CheckChannel_checkBox.Checked = lc.patch.CheckChannel;
             PatchP1_checkBox.Checked = lc.patch.PatchP1;
             Nopatch1_textBox.Text = lc.patch.Nopatch1;
@@ -437,7 +481,7 @@ namespace Collei_Launcher
             }
 
         }
-        private void Show_Public_Server_checkBox_CheckedChanged(object sender, EventArgs e)
+        private void Show_Cloud_Server_checkBox_CheckedChanged(object sender, EventArgs e)
         {
             lc.config.Show_Cloud_Server = Show_Cloud_Server_checkBox.Checked;
         }
@@ -517,7 +561,7 @@ namespace Collei_Launcher
         }
         public void Choice_Game_Path_button_Click(object sender, EventArgs e)
         {
-            string path = Choice_Path("国服游戏文件|YuanShen.exe|国际服游戏文件|GenshinImpact.exe", "选择游戏文件", null);
+            string path = Methods.Choice_Path("国服游戏文件|YuanShen.exe|国际服游戏文件|GenshinImpact.exe", "选择游戏文件", null);
             if (path == null)
             {
                 return;
@@ -527,31 +571,6 @@ namespace Collei_Launcher
             LoadSettingsToForm();
         }
 
-        public string Choice_Path(string Filter = null, string Title = null, string InitialDirectory = null)
-        {
-            if (InitialDirectory == null)
-            {
-                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-            }
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            if (Filter != null)
-                openFileDialog1.Filter = Filter;
-            openFileDialog1.FileName = "";
-            openFileDialog1.InitialDirectory = InitialDirectory;
-            if (Title != null)
-                openFileDialog1.Title = Title;
-            DialogResult dr = openFileDialog1.ShowDialog();
-            if (dr == DialogResult.OK)
-            {
-                if (openFileDialog1.FileName == "")
-                {
-                    MessageBox.Show("请选择一个文件！", "错误信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return null;
-                }
-                return openFileDialog1.FileName;
-            }
-            return null;
-        }
         private void Game_Path_textBox_TextChanged(object sender, EventArgs e)
         {
             lc.config.Game_Path = Game_Path_textBox.Text;
@@ -598,7 +617,6 @@ namespace Collei_Launcher
                         toolStripSeparator1.Visible = true;
                         toolStripSeparator2.Visible = true;
                     }
-                    Servers_contextMenuStrip.Show(Servers_listView, e.Location);
                 }
                 else
                 {
@@ -609,8 +627,13 @@ namespace Collei_Launcher
                     删除ToolStripMenuItem.Visible = false;
                     toolStripSeparator1.Visible = false;
                     toolStripSeparator2.Visible = false;
-                    Servers_contextMenuStrip.Show(Servers_listView, e.Location);
                 }
+                if (!tps.AllowAddServer)
+                {
+                    添加ToolStripMenuItem.Visible = false;
+                    toolStripSeparator1.Visible = false;
+                }
+                Servers_contextMenuStrip.Show(Servers_listView, e.Location);
             }
         }
 
@@ -801,7 +824,7 @@ namespace Collei_Launcher
 
         private void Set_MetaInputpath_button_Click(object sender, EventArgs e)
         {
-            string path = Choice_Path("global-metadata文件|global-metadata.dat|所有文件|*.*", "选择文件", Path.GetDirectoryName(lc.config.Game_Path));
+            string path = Methods.Choice_Path("global-metadata文件|global-metadata.dat|所有文件|*.*", "选择文件", Path.GetDirectoryName(lc.config.Game_Path));
             if (path == null)
             {
                 return;
@@ -816,40 +839,12 @@ namespace Collei_Launcher
 
         private void Set_MetaOutputpath_button_Click(object sender, EventArgs e)
         {
-            string path = Choice_Save_Path("dat文件|*.dat|所有文件|*.*", "选择保存位置", Path.GetDirectoryName(lc.config.Game_Path), "global-metadata.dat");
+            string path = Methods.Choice_Save_Path("dat文件|*.dat|所有文件|*.*", "选择保存位置", Path.GetDirectoryName(lc.config.Game_Path), "global-metadata.dat");
             if (path == null)
             {
                 return;
             }
             MetaFile_Output_textBox.Text = path;
-        }
-        public string Choice_Save_Path(string Filter = null, string Title = null, string InitialDirectory = null, string FileName = null)
-        {
-            if (InitialDirectory == null)
-            {
-                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-            }
-            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-            if (Filter != null)
-                saveFileDialog1.Filter = Filter;
-            if (FileName != null)
-            {
-                saveFileDialog1.FileName = FileName;
-            }
-            saveFileDialog1.InitialDirectory = InitialDirectory;
-            if (Title != null)
-                saveFileDialog1.Title = Title;
-            DialogResult dr = saveFileDialog1.ShowDialog();
-            if (dr == DialogResult.OK)
-            {
-                if (saveFileDialog1.FileName == "")
-                {
-                    MessageBox.Show("请选择保存位置！", "错误信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return null;
-                }
-                return saveFileDialog1.FileName;
-            }
-            return null;
         }
 
         public void Meta_Actions(Meta_Action action)
@@ -873,9 +868,21 @@ namespace Collei_Launcher
             }
             Task.Run(() =>
              {
-
+                 var pc = lc.patch;
                  string show = "OK";
-
+                 if (!String.IsNullOrEmpty(tps.CPCUrl))
+                 {
+                     try
+                     {
+                         pc = JsonConvert.DeserializeObject<Patch_Config>(Methods.Get(tps.CPCUrl));
+                     }
+                     catch (Exception e)
+                     {
+                         Debug.Print($"CPC GET Fail:{e.Message}");
+                         MessageBox.Show("获取修补方案失败", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                         return;
+                     }
+                 }
                  try
                  {
 
@@ -883,12 +890,12 @@ namespace Collei_Launcher
                      {
                          case Meta_Action.Patch:
                              {
-                                 show = Meta_Patch_Mgr.Patch_File(input, output, lc.patch);
+                                 show = Meta_Patch_Mgr.Patch_File(input, output, pc);
                                  break;
                              }
                          case Meta_Action.UnPatch:
                              {
-                                 show = Meta_Patch_Mgr.UnPatch_File(input, output, lc.patch);
+                                 show = Meta_Patch_Mgr.UnPatch_File(input, output, pc);
                                  break;
                              }
                          case Meta_Action.Encrypt:
@@ -985,7 +992,7 @@ namespace Collei_Launcher
         }
         private void Set_UAInputpath_button_Click(object sender, EventArgs e)
         {
-            string path = Choice_Path("UserAssembly文件|UserAssembly.dll|所有文件|*.*", "选择文件", Path.GetDirectoryName(lc.config.Game_Path));
+            string path = Methods.Choice_Path("UserAssembly文件|UserAssembly.dll|所有文件|*.*", "选择文件", Path.GetDirectoryName(lc.config.Game_Path));
             if (path == null)
             {
                 return;
@@ -995,7 +1002,7 @@ namespace Collei_Launcher
 
         private void Set_UAOutputpath_button_Click(object sender, EventArgs e)
         {
-            string path = Choice_Save_Path("dll文件|*.dll|所有文件|*.*", "选择保存位置", Path.GetDirectoryName(lc.config.Game_Path), "UserAssembly.dll");
+            string path = Methods.Choice_Save_Path("dll文件|*.dll|所有文件|*.*", "选择保存位置", Path.GetDirectoryName(lc.config.Game_Path), "UserAssembly.dll");
             if (path == null)
             {
                 return;
@@ -1024,18 +1031,31 @@ namespace Collei_Launcher
 
             Task.Run(() =>
             {
-
+                var pc = lc.patch;
+                if (!String.IsNullOrEmpty(tps.CPCUrl))
+                {
+                    try
+                    {
+                        pc = JsonConvert.DeserializeObject<Patch_Config>(Methods.Get(tps.CPCUrl));
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.Print($"CPC GET Fail:{e.Message}");
+                        MessageBox.Show("获取修补方案失败", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
                 string show = "";
                 try
                 {
                     if (ispatch)
                     {
-                        show = UA_Patch_Mgr.Patch_File(input, output, lc.patch);
+                        show = UA_Patch_Mgr.Patch_File(input, output, pc);
                     }
                     else
                     {
 
-                        show = UA_Patch_Mgr.UnPatch_File(input, output, lc.patch);
+                        show = UA_Patch_Mgr.UnPatch_File(input, output, pc);
                     }
                     GC.Collect();
                     MessageBox.Show(show, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -1145,7 +1165,8 @@ namespace Collei_Launcher
             }
             else if (e.Button == MouseButtons.Right)
             {
-
+                ThirdParty_Form.Open(tps);
+                ThirdPartyMgr.LoadSettings();
             }
         }
 
@@ -1155,6 +1176,41 @@ namespace Collei_Launcher
             {
                 Methods.Start(cc.notice.Target);
             }
+        }
+
+        private void Notice_webBrowser_NewWindow(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            Notice_webBrowser.Navigate(Notice_webBrowser.StatusText);
+        }
+
+        private void Import_PC_button_Click(object sender, EventArgs e)
+        {
+            string path = Methods.Choice_Path("json文件|*.json|所有文件|*.*");
+            if (!String.IsNullOrEmpty(path))
+            {
+                Patch_Config pc = JsonConvert.DeserializeObject<Patch_Config>(File.ReadAllText(path));
+                lc.patch = pc;
+                LoadSettingsToForm();
+                MessageBox.Show("已导入", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void Export_PC_button_Click(object sender, EventArgs e)
+        {
+            Apply_Patch_Config();
+            Save_Local_Config();
+            string path = Methods.Choice_Save_Path("json文件|*.json|所有文件|*.*");
+            if (!String.IsNullOrEmpty(path))
+            {
+                File.WriteAllText(path, JsonConvert.SerializeObject(lc.patch));
+                MessageBox.Show("已导出", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void Startup_Check_Proxy_checkBox_CheckedChanged(object sender, EventArgs e)
+        {
+            lc.config.StartupCheckProxy = Startup_Check_Proxy_checkBox.Checked;
         }
     }
 }
