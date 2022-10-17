@@ -207,8 +207,8 @@ namespace Collei_Launcher
         {
             fixed (byte* d1 = bytes)
             {
-                Patch_Meta patch_Meta = new Patch_Meta();
-                patch_Meta.decrypt_global_metadata(d1, Convert.ToUInt64(bytes.Length));
+                Crypto_Meta Meta = new Crypto_Meta();
+                Meta.decrypt_global_metadata(d1, Convert.ToUInt64(bytes.Length));
                 return bytes;
             }
         }
@@ -216,8 +216,8 @@ namespace Collei_Launcher
         {
             fixed (byte* d1 = bytes)
             {
-                Patch_Meta patch_Meta = new Patch_Meta();
-                patch_Meta.encrypt_global_metadata(d1, Convert.ToUInt64(bytes.Length));
+                Crypto_Meta Meta = new Crypto_Meta();
+                Meta.encrypt_global_metadata(d1, Convert.ToUInt64(bytes.Length));
                 return bytes;
             }
         }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Collei_Launcher
 {
@@ -31,23 +32,38 @@ namespace Collei_Launcher
     }
     public class Cloud_Config
     {
-        public class Config
+        public class Update
         {
-            public string lastverstr { get; set; }
-            public int lastvercode { get; set; }
-            public List<string> blacklist { get; set; }
-            public string Notice { get; set; }
+            public string Content { get; set; }
+            public int LastVerCode { get; set; }
+            public string Target { get; set; }
         }
-        public List<ServersItem> servers { get; set; }
-        public Config config { get; set; }
-        public string UpdateUrl { get; set; }
-}
+        public class Notice
+        {
+            public string Content { get; set; }
+            public string Target { get; set; }
+            public NoticeType type = NoticeType.text;
+            public PictureBoxSizeMode sizemode = PictureBoxSizeMode.Zoom;
+            public bool ClickAble = false;
+            public Color textcolor = Color.Black;
+        }
+        public class AuthorLabel
+        {
+            public string Content = "By Bambi5";
+            public bool LeftClickAble = true;
+            public string Target = "http://launcher.bambi5.top";
+            public Color textcolor = System.Drawing.SystemColors.ControlLight;
+        }
+        public AuthorLabel author = new AuthorLabel();
+        public List<ServersItem> servers = new List<ServersItem>();
+        public Update update = new Update();
+        public Notice notice =new Notice();
+    }
     public class ServersItem
     {
         public string title { get; set; }
         public string host { get; set; }
         public int dispatch { get; set; }
-        public int game { get; set; }
         public string content { get; set; }
     }
     public class ServersItem_List
@@ -55,7 +71,6 @@ namespace Collei_Launcher
         public string title { get; set; }
         public string host { get; set; }
         public int dispatch { get; set; }
-        public int game { get; set; }
         public string content { get; set; }
         public bool is_cloud { get; set; }
 
@@ -70,14 +85,18 @@ namespace Collei_Launcher
 
             public bool Auto_Close_Proxy = true;
 
-            public bool Show_Public_Server = true;
+            public bool Show_Cloud_Server = true;
 
             public int lastvercode = 0;
+
+            public bool UseHabit = true;
+
+            public ProxyMode proxyMode = ProxyMode.Titanium;
         }
-        public List<ServersItem> servers;
-        public Config config;
-        public Patch_Config patch;
-        public Habits habits;
+        public List<ServersItem> servers = new List<ServersItem>();
+        public Config config = new Config();
+        public Patch_Config patch = new Patch_Config();
+        public Habits habits = new Habits();
         public static void FixLC(ref Local_Config elc)
         {
             if (elc == null)
@@ -128,6 +147,8 @@ namespace Collei_Launcher
     public class Habits
     {
         public Size MainFormSize = Main_Form.form.Size;
+        public FormWindowState MainFormState = Main_Form.form.WindowState;
+        public Point MainFormLocation = Main_Form.form.Location;
 
         public string MetaFile_Input = Main_Form.form.MetaFile_Input_textBox.Text;
         public bool INOUT_Meta = Main_Form.form.INOUT_Meta_checkBox.Checked;
@@ -140,11 +161,11 @@ namespace Collei_Launcher
         public int Title_columnHeader_Width = Main_Form.form.Title_columnHeader.Width;
         public int Host_columnHeader_Width = Main_Form.form.Host_columnHeader.Width;
         public int Dispatch_columnHeader_Width = Main_Form.form.Dispatch_columnHeader.Width;
-        public int Game_columnHeader_Width = Main_Form.form.Game_columnHeader.Width;
         public int Count_columnHeader_Width = Main_Form.form.Count_columnHeader.Width;
         public int Ver_columnHeader_Width = Main_Form.form.Ver_columnHeader.Width;
         public int Ping_columnHeader_Width = Main_Form.form.Ping_columnHeader.Width;
         public int Content_columnHeader_Width = Main_Form.form.Content_columnHeader.Width;
+
     }
 }
 
@@ -155,4 +176,17 @@ public enum Channel
 public enum Meta_Action
 {
     Patch,UnPatch,Encrypt,Decrypt
+}
+
+public enum ProxyMode
+{
+     Titanium, Fiddler
+}
+public enum NoticeType
+{
+    text,img,IEWebpage,MiniBlinkWebpage
+}
+public enum NoticeErrorType
+{
+    noticeerr, clouderr, imgerr
 }

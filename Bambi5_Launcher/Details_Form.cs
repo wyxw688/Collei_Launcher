@@ -6,6 +6,7 @@ using System.Net.NetworkInformation;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Titanium.Web.Proxy.EventArguments;
 
 namespace Collei_Launcher
 {
@@ -14,8 +15,6 @@ namespace Collei_Launcher
         public Details_Form()
         {
             Main_Form.form.Status_timer.Enabled = false;
-            indexf = this;
-            pm = new Proxy_Mgr(this);
             InitializeComponent();
             if (no_gamepath())
             {
@@ -23,31 +22,40 @@ namespace Collei_Launcher
                 Turn_button.Text = "未设置游戏路径";
             }
         }
-        public static Details_Form indexf;
         public ServersItem_List server;
-        public Proxy_Mgr pm;
         public bool cg = true;
 
+        public Task BeforeRequest(object sender, SessionEventArgs se)
+        {
+            return Task.Run(() =>
+            {
+                string ohost = se.HttpClient.Request.Host;
+                if (ohost.EndsWith(".yuanshen.com") || ohost.EndsWith(".hoyoverse.com") || ohost.EndsWith(".mihoyo.com"))
+                {
+                    Debug.Print(se.HttpClient.Request.Url);
+                    se.HttpClient.Request.Url = se.HttpClient.Request.Url.Replace(ohost, server.host + (server.dispatch == 443 ? "":":"+server.dispatch.ToString())) ;
+                    
+                    Debug.Print(se.HttpClient.Request.Url);
+                    ohost += ":" + se.HttpClient.Request.RequestUri.Port;
+                    Uri uri = new Uri(ohost);
+                    this.Print_log(ohost + " -> " + se.HttpClient.Request.Host);
+                }
+            });
+        }
         public void On_BeforeRequest(Session oS)
         {
-            if (oS.host.EndsWith(".yuanshen.com") || oS.host.EndsWith(".hoyoverse.com") || oS.host.EndsWith(".mihoyo.com"))
+            string ohost = oS.host;
+            if (ohost.EndsWith(".yuanshen.com") || ohost.EndsWith(".hoyoverse.com") || ohost.EndsWith(".mihoyo.com"))
             {
-                string ohost = oS.host + ":" + oS.port;
-                oS.host = Details_Form.indexf.server.host;
-                if (oS.port == 443 || oS.port == 80)
-                {
-                    oS.port = Details_Form.indexf.server.dispatch;
-                }
-                Details_Form.indexf.Print_log(ohost + " -> " + oS.host);
-            }
-            if (oS.port == 22102)
-            {
-                oS.port = Details_Form.indexf.server.game;
+                ohost += ":" + oS.port;
+                oS.host = this.server.host;
+                oS.port = this.server.dispatch;
+                this.Print_log(ohost + " -> " + oS.host);
             }
         }
         public bool no_gamepath()
         {
-            return Main_Form.form.lc.config.Game_Path == null || Main_Form.form.lc.config.Game_Path == "";
+            return Main_Form.lc.config.Game_Path == null || Main_Form.lc.config.Game_Path == "";
         }
         private void Private_Open_Index(ServersItem_List ser)
         {
@@ -56,7 +64,6 @@ namespace Collei_Launcher
             Title_textBox.Text = ser.title;
             Host_textBox.Text = ser.host;
             Dispatch_port_numericUpDown.Value = ser.dispatch;
-            Game_port_numericUpDown.Value = ser.game;
             Content_textBox.Text = ser.content;
             Update_Status();
             this.ShowDialog();
@@ -80,10 +87,45 @@ namespace Collei_Launcher
         }
         public void Print_log(string log)
         {
+            log = log.Insert(0, $"[{DateTime.Now.ToLongTimeString()}]");
             Log_richTextBox.AppendText(log + "\n");
             Log_richTextBox.Focus();
             Log_richTextBox.Select(Log_richTextBox.TextLength, 0);
             Log_richTextBox.ScrollToCaret();
+        }
+        public Task Start_Proxy()
+        {
+            switch (Main_Form.lc.config.proxyMode)
+            {
+                case ProxyMode.Titanium:
+                    {
+                        return Titanium_Proxy_Mgr.Run_Titanium(this);
+                    }
+                case ProxyMode.Fiddler:
+                    {
+                        return Fiddler_Proxy_Mgr.Run_Fiddler(this);
+                    }
+                default:
+                    {
+                        return null;
+                    }
+            }
+        }
+        public void Stop_Proxy()
+        {
+            switch (Main_Form.lc.config.proxyMode)
+            {
+                case ProxyMode.Titanium:
+                    {
+                        Titanium_Proxy_Mgr.Stop();
+                        break;
+                    }
+                case ProxyMode.Fiddler:
+                    {
+                        Fiddler_Proxy_Mgr.Stop();
+                        break;
+                    }
+            }
         }
         public Task Set_Proxy(bool Change_game)
         {
@@ -115,18 +157,11 @@ namespace Collei_Launcher
                   }
                   Turn_Proxy_button.Enabled = false;
                   Turn_Proxy_button.Text = "正在启动";
-                  Print_log("正在配置代理···");
-                  Main_Form.form.Clear_Proxy();
-                  Debug.Print(server.host);
-                  pm.Run_Fiddler().Wait();
-                  Main_Form.form.Set_Proxy("127.0.0.1:" + Main_Form.form.lc.config.ProxyPort);
-                  Connected = true;
-                  Print_log("正在检查服务器是否正常···");
-                  Thread.Sleep(1000);
+
+                  Print_log("正在检查服务器···");
                   if (!Check_Server())
                   {
-                      Print_log("请求失败！");
-                      DialogResult dialog = MessageBox.Show("此服务器的Dispatch似乎无法正常连接,建议尝试检查服务器，或联系服务器管理员检查服务器状态\n当前系统代理配置:" + Main_Form.form.Get_Proxy_Text() + "" + "\n点击“终止”：取消此连接\n点击“重试”：再次检查连接状态\n点击“忽略”：继续连接到此服务器", "服务器连接异常", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Warning);
+                      DialogResult dialog = MessageBox.Show("此服务器的Dispatch似乎无法正常连接,建议尝试检查服务器，或联系服务器管理员检查服务器状态\n当前系统代理配置:" + Methods.Get_Proxy_Text() + "" + "\n点击“终止”：取消此连接\n点击“重试”：再次检查连接状态\n点击“忽略”：继续连接到此服务器", "服务器连接异常", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Warning);
                       if (dialog == DialogResult.Abort)
                       {
                           Stop_Proxy(Change_game).Wait();
@@ -143,10 +178,17 @@ namespace Collei_Launcher
                   {
                       Print_log("OK！");
                   }
+                  Print_log("当前代理模式:" + Main_Form.lc.config.proxyMode.ToString());
+                  Print_log("正在配置代理···");
+                  Methods.Clear_Proxy();
+                  Debug.Print(server.host);
+                  Start_Proxy().Wait();
+                  Methods.Set_Proxy("127.0.0.1:" + Main_Form.lc.config.ProxyPort);
+                  Connected = true;
                   if (Change_game)
                   {
                       Print_log("正在启动游戏···");
-                      Game_Process = Process.Start(Main_Form.form.lc.config.Game_Path);
+                      Game_Process = Process.Start(Main_Form.lc.config.Game_Path);
                       Thread.Sleep(3000);
                   }
                   Print_log("已完成启动");
@@ -179,8 +221,8 @@ namespace Collei_Launcher
                      Game_Process.Kill();
                  }
                  Print_log("正在关闭代理···");
-                 pm.Stop().Wait();
-                 Main_Form.form.Clear_Proxy();
+                 Stop_Proxy();
+                 Methods.Clear_Proxy();
                  Turn_button.Enabled = true;
                  Turn_button.Text = "开启代理并打开游戏";
                  if (no_gamepath())
@@ -257,7 +299,8 @@ namespace Collei_Launcher
                     display += ",Ping失败:" + ex.Message;
                     error = true;
                 }
-                this.Server_status_toolStripStatusLabel.Text = display;
+                if (!closing)
+                    this.Server_status_toolStripStatusLabel.Text = display;
                 if (error)
                 {
                     Server_status_toolStripStatusLabel.ForeColor = System.Drawing.Color.Red;
@@ -298,10 +341,11 @@ namespace Collei_Launcher
             }
             catch
             {
+                Print_log("请求失败");
                 return false;
             }
         }
-
+        public bool closing = false;
         private void Index_Form_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (Connected)
@@ -329,6 +373,7 @@ namespace Collei_Launcher
                     return;
                 }
             }
+            closing = true;
         }
 
         private void Turn_Proxy_button_Click(object sender, EventArgs e)
@@ -351,7 +396,7 @@ namespace Collei_Launcher
         private void Index_Form_FormClosed(object sender, FormClosedEventArgs e)
         {
             Server_Status_timer.Stop();
-            Main_Form.form.Clear_Proxy();
+            Methods.Clear_Proxy();
             Main_Form.form.Status_timer.Enabled = true;
             Main_Form.form.Load_Server_Status();
         }

@@ -33,9 +33,7 @@
             this.Turn_button = new System.Windows.Forms.Button();
             this.Content_textBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.Game_port_numericUpDown = new System.Windows.Forms.NumericUpDown();
             this.Dispatch_port_numericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.Host_textBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -48,7 +46,6 @@
             this.Turn_Proxy_button = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.Log_richTextBox = new System.Windows.Forms.RichTextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.Game_port_numericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Dispatch_port_numericUpDown)).BeginInit();
             this.Status_statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -72,27 +69,6 @@
             resources.ApplyResources(this.label7, "label7");
             this.label7.Name = "label7";
             // 
-            // Game_port_numericUpDown
-            // 
-            resources.ApplyResources(this.Game_port_numericUpDown, "Game_port_numericUpDown");
-            this.Game_port_numericUpDown.Maximum = new decimal(new int[] {
-            65535,
-            0,
-            0,
-            0});
-            this.Game_port_numericUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.Game_port_numericUpDown.Name = "Game_port_numericUpDown";
-            this.Game_port_numericUpDown.ReadOnly = true;
-            this.Game_port_numericUpDown.Value = new decimal(new int[] {
-            22102,
-            0,
-            0,
-            0});
-            // 
             // Dispatch_port_numericUpDown
             // 
             resources.ApplyResources(this.Dispatch_port_numericUpDown, "Dispatch_port_numericUpDown");
@@ -113,11 +89,6 @@
             0,
             0,
             0});
-            // 
-            // label6
-            // 
-            resources.ApplyResources(this.label6, "label6");
-            this.label6.Name = "label6";
             // 
             // label5
             // 
@@ -148,8 +119,8 @@
             // 
             // Status_statusStrip
             // 
-            resources.ApplyResources(this.Status_statusStrip, "Status_statusStrip");
             this.Status_statusStrip.BackColor = System.Drawing.SystemColors.ControlLight;
+            resources.ApplyResources(this.Status_statusStrip, "Status_statusStrip");
             this.Status_statusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.Status_statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Server_status_toolStripStatusLabel});
@@ -157,8 +128,8 @@
             // 
             // Server_status_toolStripStatusLabel
             // 
-            resources.ApplyResources(this.Server_status_toolStripStatusLabel, "Server_status_toolStripStatusLabel");
             this.Server_status_toolStripStatusLabel.Name = "Server_status_toolStripStatusLabel";
+            resources.ApplyResources(this.Server_status_toolStripStatusLabel, "Server_status_toolStripStatusLabel");
             // 
             // Server_Status_timer
             // 
@@ -193,9 +164,9 @@
             // 
             // Details_Form
             // 
-            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            resources.ApplyResources(this, "$this");
             this.Controls.Add(this.Log_richTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Turn_Proxy_button);
@@ -204,9 +175,7 @@
             this.Controls.Add(this.Turn_button);
             this.Controls.Add(this.Content_textBox);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.Game_port_numericUpDown);
             this.Controls.Add(this.Dispatch_port_numericUpDown);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.Host_textBox);
             this.Controls.Add(this.label4);
@@ -216,7 +185,6 @@
             this.Name = "Details_Form";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Index_Form_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Index_Form_FormClosed);
-            ((System.ComponentModel.ISupportInitialize)(this.Game_port_numericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Dispatch_port_numericUpDown)).EndInit();
             this.Status_statusStrip.ResumeLayout(false);
             this.Status_statusStrip.PerformLayout();
@@ -230,9 +198,7 @@
         private System.Windows.Forms.Button Turn_button;
         private System.Windows.Forms.TextBox Content_textBox;
         private System.Windows.Forms.Label label7;
-        public System.Windows.Forms.NumericUpDown Game_port_numericUpDown;
         public System.Windows.Forms.NumericUpDown Dispatch_port_numericUpDown;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox Host_textBox;
         private System.Windows.Forms.Label label4;

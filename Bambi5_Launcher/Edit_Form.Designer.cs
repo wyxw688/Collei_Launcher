@@ -34,15 +34,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.Host_textBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.Dispatch_port_numericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.Game_port_numericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.Content_textBox = new System.Windows.Forms.TextBox();
             this.Cancel_button = new System.Windows.Forms.Button();
             this.Update_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Dispatch_port_numericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Game_port_numericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -70,11 +67,6 @@
             resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
             // 
-            // label6
-            // 
-            resources.ApplyResources(this.label6, "label6");
-            this.label6.Name = "label6";
-            // 
             // Dispatch_port_numericUpDown
             // 
             resources.ApplyResources(this.Dispatch_port_numericUpDown, "Dispatch_port_numericUpDown");
@@ -91,26 +83,6 @@
             this.Dispatch_port_numericUpDown.Name = "Dispatch_port_numericUpDown";
             this.Dispatch_port_numericUpDown.Value = new decimal(new int[] {
             443,
-            0,
-            0,
-            0});
-            // 
-            // Game_port_numericUpDown
-            // 
-            resources.ApplyResources(this.Game_port_numericUpDown, "Game_port_numericUpDown");
-            this.Game_port_numericUpDown.Maximum = new decimal(new int[] {
-            65535,
-            0,
-            0,
-            0});
-            this.Game_port_numericUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.Game_port_numericUpDown.Name = "Game_port_numericUpDown";
-            this.Game_port_numericUpDown.Value = new decimal(new int[] {
-            22102,
             0,
             0,
             0});
@@ -142,16 +114,14 @@
             // 
             // Edit_Form
             // 
-            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            resources.ApplyResources(this, "$this");
             this.Controls.Add(this.Update_button);
             this.Controls.Add(this.Cancel_button);
             this.Controls.Add(this.Content_textBox);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.Game_port_numericUpDown);
             this.Controls.Add(this.Dispatch_port_numericUpDown);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.Host_textBox);
             this.Controls.Add(this.label4);
@@ -160,7 +130,6 @@
             this.Name = "Edit_Form";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Edit_Form_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.Dispatch_port_numericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Game_port_numericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -173,9 +142,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox Host_textBox;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
         public System.Windows.Forms.NumericUpDown Dispatch_port_numericUpDown;
-        public System.Windows.Forms.NumericUpDown Game_port_numericUpDown;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox Content_textBox;
         private System.Windows.Forms.Button Cancel_button;

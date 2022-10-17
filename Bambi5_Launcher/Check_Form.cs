@@ -36,7 +36,6 @@ namespace Collei_Launcher
             }
             Host_textBox.Text = ser.host;
             Dispatch_port_numericUpDown.Value = ser.dispatch;
-            Game_port_numericUpDown.Value = ser.game;
             this.ShowDialog();
         }
         public static void Open_Form(ServersItem_List ser = null)
@@ -84,7 +83,7 @@ namespace Collei_Launcher
                 Log_richTextBox.Text = "";
                 Check_button.Enabled = false;
                 Check_button.Text = "正在检查";
-                Log_Print("本机代理配置:" + Main_Form.form.Get_Proxy_Text());
+                Log_Print("本机代理配置:" + Methods.Get_Proxy_Text());
                 Log_Print("正在尝试获取服务器信息···");
                 Details_Get ig = Methods.Get_for_Index(Get_url("/status/server"));
                 if (ig.Use_time >= 0)
@@ -132,7 +131,7 @@ namespace Collei_Launcher
                     {
                         AddressList = Dns.GetHostAddresses(gamehost);
                     }
-                    catch(Exception ex)
+                    catch
                     {
                         if (!print)
                             return;
@@ -210,7 +209,7 @@ namespace Collei_Launcher
                 }).ContinueWith(t=>End_Test());
             });
         }
-        public async Task End_Test()
+        public void End_Test()
         {
             Log_Print("检查完成");
             Check_button.Enabled = true;

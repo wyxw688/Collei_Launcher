@@ -1,38 +1,34 @@
 ﻿using Fiddler;
 using System;
+using System.Diagnostics;
+using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using System.Security.Principal;
 using System.Threading.Tasks;
-using System.Diagnostics;
 
 namespace Collei_Launcher
 {
-    public class Proxy_Mgr
+    internal static class Fiddler_Proxy_Mgr
     {
-        public Proxy_Mgr(Details_Form index)
-        {
-            Index = index;
-            handler = new SessionStateHandler(Index.On_BeforeRequest);
-        }
-        public Details_Form Index { get; set; }
         //初始化Fiddler
-        public X509Certificate2 oRootCert;
-        public SessionStateHandler handler;
-        public Task Run_Fiddler()
+        public static X509Certificate2 oRootCert;
+        public static SessionStateHandler handler;
+        public static Task Run_Fiddler(Details_Form details)
         {
             var tk = Task.Run(() =>
             {
-                ushort proxy_port = Main_Form.form.lc.config.ProxyPort;
+                handler = new SessionStateHandler(details.On_BeforeRequest);
+                ushort proxy_port = Main_Form.lc.config.ProxyPort;
                 try
                 {
-                    Stop().Wait();
+                    Stop();
                     //绑定事件处理————当发起请求之前
 
                     FiddlerApplication.BeforeRequest += handler;
                     //-----------处理证书-----------
                     //伪造的证书
                     //如果没有伪造过证书并把伪造的证书加入本机证书库中
-                    if (CertMaker.GetRootCertificate()==null)
+                    if (CertMaker.GetRootCertificate() == null)
                     {
                         Debug.Print("未找到证书");
                         //创建伪造证书
@@ -42,12 +38,12 @@ namespace Collei_Launcher
                     }
                     else
                     {
-                    
+
                         Debug.Print("已找到证书");
                         //以前伪造过证书，并且本地证书库中保存过伪造的证书
                         oRootCert = CertMaker.GetRootCertificate();
                     }
-                    Add_Cert(oRootCert);
+                    Methods.Add_Cert(oRootCert);
                     //-----------------------------
 
                     //指定伪造证书
@@ -72,55 +68,19 @@ namespace Collei_Launcher
                 }
                 catch (Exception e)
                 {
-                    Program.Application_Exception(e);
+                    Program.Application_Catched_Exception(e);
                 }
             });
             return tk;
         }
-        public string host;
 
 
-        public Task Stop()
+        public static void Stop()
         {
-            return Task.Run(() =>
-             {
-                 FiddlerApplication.BeforeRequest -= handler;
-                 FiddlerApplication.Shutdown();
-                 Remove_Cert(oRootCert);
-             });
-        }
-        public void Add_Cert(X509Certificate2 cert)
-        {
-            if (cert == null)
-                return;
-            X509Store certStore = new X509Store(StoreName.Root, StoreLocation.LocalMachine);
-            certStore.Open(OpenFlags.ReadWrite);
-            try
-            {
-                //将伪造的证书加入到本地的证书库
-                certStore.Add(cert);
-            }
-            finally
-            {
-                certStore.Close();
-            }
-        }
-        public void Remove_Cert(X509Certificate2 cert)
-        {
-            if(cert ==null)
-                return;
-            X509Store certStore = new X509Store(StoreName.Root, StoreLocation.LocalMachine);
-            certStore.Open(OpenFlags.ReadWrite);
-            try
-            {
-                //将伪造的证书刪除
-                if(certStore.Certificates.Contains(cert))
-                certStore.Remove(cert);
-            }
-            finally
-            {
-                certStore.Close();
-            }
+            if (handler != null)
+                FiddlerApplication.BeforeRequest -= handler;
+            FiddlerApplication.Shutdown();
+            Methods.Remove_Cert(oRootCert);
         }
 
     }

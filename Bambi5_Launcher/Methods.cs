@@ -7,16 +7,142 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Net.Security;
 using System.Reflection;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 public static class Methods
 {
+    public static bool HasChinese(string str)
+    {
+        return Regex.IsMatch(str, @"[\u4e00-\u9fa5]");
+    }
+
+    public static void Set_Proxy(string proxy)
+    {
+        using (RegistryKey regkey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Internet Settings", true))
+        {
+            regkey.SetValue("ProxyEnable", 1);
+            regkey.SetValue("ProxyHttp1.1", 1);
+            regkey.SetValue("ProxyServer", proxy);
+        }
+    }
+    public static bool Start(string target)
+    {
+        string show = "您将以管理员权限运行或打开以下内容:\n\n";
+        show += target;
+        show += "\n\n若您想运行或打开此内容,请点击“确定”，若不想打开，请点击“取消”";
+        if (MessageBox.Show(show, "要运行或打开此内容吗?", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+        {
+            System.Diagnostics.Process.Start(target);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public static void Clear_Proxy()
+    {
+        using (RegistryKey regkey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Internet Settings", true))
+        {
+            try
+            {
+                regkey.SetValue("ProxyEnable", 0);
+                regkey.DeleteValue("ProxyServer");
+            }
+            catch (Exception e)
+            {
+                Debug.Print(e.Message);
+            }
+        }
+    }
+
+    public static Proxy_Config using_proxy()
+    {
+        Proxy_Config proxy = new Proxy_Config();
+        try
+        {
+            using (RegistryKey regkey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Internet Settings"))
+            {
+                if (regkey.GetValue("ProxyEnable").ToString() == "1")
+                {
+                    proxy.ProxyEnable = true;
+                }
+                object ps = regkey.GetValue("ProxyServer");
+                if (ps != null)
+                {
+                    proxy.ProxyServer = ps.ToString();
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex.Message);
+        }
+        return proxy;
+    }
+
+
+    public static string Get_Proxy_Text()
+    {
+        string st = "代理";
+        Proxy_Config pc = using_proxy();
+        if (pc.ProxyEnable == true)
+        {
+            st += "已开启,代理服务器地址:";
+            string[] servers = pc.ProxyServer.Split(';');
+            for (int i = 0; i < servers.Length; i++)
+            {
+                st += "\n" + servers[i];
+            }
+        }
+        else
+        {
+            st += "未开启";
+        }
+        Debug.Print(st);
+        return st;
+    }
+    public static void Add_Cert(X509Certificate2 cert)
+    {
+        if (cert == null)
+            return;
+        X509Store certStore = new X509Store(StoreName.Root, StoreLocation.LocalMachine);
+        certStore.Open(OpenFlags.ReadWrite);
+        try
+        {
+            //将伪造的证书加入到本地的证书库
+            certStore.Add(cert);
+        }
+        finally
+        {
+            certStore.Close();
+        }
+    }
+    public static void Remove_Cert(X509Certificate2 cert)
+    {
+        if (cert == null)
+            return;
+        X509Store certStore = new X509Store(StoreName.Root, StoreLocation.LocalMachine);
+        certStore.Open(OpenFlags.ReadWrite);
+        try
+        {
+            //将伪造的证书刪除
+            if (certStore.Certificates.Contains(cert))
+                certStore.Remove(cert);
+        }
+        finally
+        {
+            certStore.Close();
+        }
+    }
     /// <summary>
     /// 16进制原码字符串转字节数组
     /// </summary>
@@ -47,9 +173,9 @@ public static class Methods
         }
     }
     /// <summary>
-    /// 将ua中的key转换为普通key
+    /// 将ua中的key转换为正常的dispatchkey
     /// </summary>
-    /// <param name="bytes"></param>
+    /// <param name="bytes">ua中的key</param>
     /// <returns></returns>
     public static string ToOriginalKey(byte[] bytes)
     {
@@ -397,29 +523,31 @@ public static class Methods
     }
     public static Details_Get Get_for_Index(string url)
     {
-        var tk = Task.Run(() =>
+        var tk = Task.Factory.StartNew(() =>
         {
             //ServicePointManager.Expect100Continue = true;
             //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
             //ServicePointManager.ServerCertificateValidationCallback = (sender, certificate, chain, errors) => true;
-            DateTime st = DateTime.Now;
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            request.Timeout = 3000;
+            request.Timeout = 10000;
             request.ContentType = "application/json";
             Details_Get res = new Details_Get();
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
             try
             {
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                 var text = new StreamReader(response.GetResponseStream()).ReadToEnd();
+                sw.Stop();
                 res.Result = text;
-                res.Use_time = Methods.ConvertDateTimeToInt(response.LastModified) - Methods.ConvertDateTimeToInt(st);
+                res.Use_time = sw.ElapsedMilliseconds;
                 res.StatusCode = response.StatusCode;
                 response.Close();
                 return res;
             }
             catch (WebException ex)
             {
-
+                sw.Stop();
                 if (ex.Response == null)
                 {
                     res.Result = ex.Message;
@@ -428,7 +556,7 @@ public static class Methods
                     return res;
                 }
                 HttpWebResponse response = (HttpWebResponse)ex.Response;
-                res.Use_time = Methods.ConvertDateTimeToInt(response.LastModified) - Methods.ConvertDateTimeToInt(st);
+                res.Use_time = sw.ElapsedMilliseconds;
                 res.StatusCode = response.StatusCode;
                 res.Result = response.StatusDescription;
                 Console.WriteLine("错误码:" + (int)response.StatusCode);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,7 +30,6 @@ namespace Collei_Launcher
             Title_textBox.Text = ser.title;
             Host_textBox.Text = ser.host;
             Dispatch_port_numericUpDown.Value = ser.dispatch;
-            Game_port_numericUpDown.Value = ser.game;
             Content_textBox.Text=ser.content;
             this.ShowDialog();
             return rser;
@@ -47,11 +47,17 @@ namespace Collei_Launcher
                 MessageBox.Show("服务器名称或地址没有填写！", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (Methods.HasChinese(Host_textBox.Text))
+            {
+                if (DialogResult.Cancel == MessageBox.Show("当前服务器域名中含有中文，可能会导致无法正常连接！\n\n点击“确定”:保存此服务器\n点击“取消”:返回修改", "温馨提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Information))
+                {
+                    return;
+                }
+            }
             rser = new ServersItem();
             rser.title = Title_textBox.Text;
             rser.host = Host_textBox.Text;
             rser.dispatch = (ushort)Dispatch_port_numericUpDown.Value;
-            rser.game = (ushort)Game_port_numericUpDown.Value;
             rser.content = Content_textBox.Text;
             User_Close = true;
             this.Close();
@@ -83,7 +89,6 @@ namespace Collei_Launcher
                         rser.title = Title_textBox.Text;
                         rser.host = Host_textBox.Text;
                         rser.dispatch = (ushort)Dispatch_port_numericUpDown.Value;
-                        rser.game = (ushort)Game_port_numericUpDown.Value;
                         rser.content = Content_textBox.Text;
                     }
                     else if (dialog == DialogResult.No)

@@ -491,6 +491,12 @@ The feature is used when the reverse repair judges the key to be backfilled</val
   <data name="Save_Config_button.Text" xml:space="preserve">
     <value>Manually save settings</value>
   </data>
+  <data name="Reset_PC_button.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 50</value>
+  </data>
+  <data name="Reset_PC_button.Text" xml:space="preserve">
+    <value>Reset patch settings</value>
+  </data>
   <data name="Find_GameExe_button.Size" type="System.Drawing.Size, System.Drawing">
     <value>326, 50</value>
   </data>
@@ -545,11 +551,11 @@ The feature is used when the reverse repair judges the key to be backfilled</val
   <data name="Auto_close_proxy_checkBox.Text" xml:space="preserve">
     <value>Automatically disable the system agent when close the software</value>
   </data>
-  <data name="Show_Public_Server_checkBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>194, 27</value>
+  <data name="Show_Cloud_Server_checkBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 27</value>
   </data>
-  <data name="Show_Public_Server_checkBox.Text" xml:space="preserve">
-    <value>Show public servers</value>
+  <data name="Show_Cloud_Server_checkBox.Text" xml:space="preserve">
+    <value>Show cloud servers</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>98, 23</value>
@@ -4919,10 +4925,6 @@ The feature is used when the reverse repair judges the key to be backfilled</val
         ///////////////////////////////////////A////////////////////////////////////////
         /8A=
 </value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>700, 550</value>
