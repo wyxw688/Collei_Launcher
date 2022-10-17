@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Net;
+using System.Net.Http;
 using System.Net.NetworkInformation;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -34,6 +35,7 @@ namespace Collei_Launcher
         public string LastloadPic = null;
         public PictureBoxSizeMode LastSizeMode;
         public bool IsFirstLoadIE = true;
+        public bool IsFirstLoadEdge = true;
 
         public Main_Form()
         {
@@ -129,6 +131,7 @@ namespace Collei_Launcher
                         Notice_label.Visible = true;
                         Notice_pictureBox.Visible = false;
                         Notice_webBrowser.Visible = false;
+                        Notice_webView.Visible = false;
 
                         Notice_label.Text = notice.Content;
                         Notice_label.ForeColor = notice.textcolor;
@@ -147,6 +150,7 @@ namespace Collei_Launcher
                         Notice_label.Visible = false;
                         Notice_pictureBox.Visible = true;
                         Notice_webBrowser.Visible = false;
+                        Notice_webView.Visible = false;
 
                         if (LastloadPic != notice.Content || LastSizeMode != notice.sizemode)
                         {
@@ -154,10 +158,13 @@ namespace Collei_Launcher
                             {
                                 Notice_pictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
                                 Notice_pictureBox.Image = Resources.loading;
-                                Notice_pictureBox.Image = Image.FromStream(WebRequest.Create(notice.Content).GetResponse().GetResponseStream());
-                                Notice_pictureBox.SizeMode = notice.sizemode;
-                                LastloadPic = notice.Content;
-                                LastSizeMode = notice.sizemode;
+                                Task.Run(() =>
+                                {
+                                    Notice_pictureBox.Image = Image.FromStream(WebRequest.Create(notice.Content).GetResponse().GetResponseStream());
+                                    Notice_pictureBox.SizeMode = notice.sizemode;
+                                    LastloadPic = notice.Content;
+                                    LastSizeMode = notice.sizemode;
+                                });
                             }
                             catch (Exception e)
                             {
@@ -180,6 +187,7 @@ namespace Collei_Launcher
                         Notice_label.Visible = false;
                         Notice_pictureBox.Visible = false;
                         Notice_webBrowser.Visible = true;
+                        Notice_webView.Visible = false;
 
                         if (IsFirstLoadIE)
                         {
@@ -189,20 +197,30 @@ namespace Collei_Launcher
 
                         break;
                     }
+                case NoticeType.EdgeWebpage:
+                    {
+                        Notice_label.Visible = false;
+                        Notice_pictureBox.Visible = false;
+                        Notice_webBrowser.Visible = false;
+                        Notice_webView.Visible = true;
+
+                        if (IsFirstLoadEdge)
+                        {
+                            Notice_webView.Source = new Uri(notice.Content);
+                            IsFirstLoadEdge = false;
+                        }
+
+                        break;
+                    }
             }
             //   });
         }
-        public void UpdateAndNotice()
+        public Task GetCloudConfigV2()
         {
-            Task.Run(() =>
+           return Task.Run(() =>
             {
                 try
                 {
-                    while (lc == null)
-                    {
-                        Debug.Print("等待本地配置加载");
-                        Thread.Sleep(100);
-                    }
                     string ccs = Methods.Get(GetConfigUrl());
                     if (ccs == null)
                     {
@@ -210,39 +228,59 @@ namespace Collei_Launcher
                         return;
                     }
                     cc = JsonConvert.DeserializeObject<Cloud_Config>(ccs);
-                    if (cc == null) { return; }
-                    if (cc.notice != null) { Refresh_Notice(cc.notice); } else { Refresh_Notice(null, NoticeErrorType.noticeerr); }
-                    if (cc.author != null) { Load_Author(cc.author); }
-                    if (cc.update != null && is_first_check && VerCode < cc.update.LastVerCode && lc.config.lastvercode != cc.update.LastVerCode)
-                    {
-                        StringBuilder stringBuilder = new StringBuilder();
-                        stringBuilder.AppendLine("发现有新版本，是否更新?");
-                        stringBuilder.AppendLine("[当前版本]:" + VerCode); ;
-                        stringBuilder.AppendLine("[最新版本]:" + cc.update.LastVerCode);
-                        stringBuilder.AppendLine("[更新内容]:");
-                        cc.update.Content = cc.update.Content != null ? cc.update.Content : "无";
-                        stringBuilder.AppendLine(cc.update.Content);
-                        stringBuilder.AppendLine();
-                        stringBuilder.AppendLine("点击“是”，跳转到更新连接");
-                        stringBuilder.AppendLine("点击“否”，跳过此版本");
-                        stringBuilder.AppendLine("点击“取消”，本次关闭此消息框");
-                        DialogResult dgr = MessageBox.Show(stringBuilder.ToString(), "版本更新提醒", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
-                        if (dgr == DialogResult.Yes)
-                        {
-                            Methods.Start(cc.update.Target);
-                        }
-                        else if (dgr == DialogResult.No)
-                        {
-                            lc.config.lastvercode = cc.update.LastVerCode;
-                        }
-                    }
-                    is_first_check = false;
                 }
-                catch (Exception ex)
+                catch (Exception e)
                 {
-                    Program.Application_Catched_Exception(ex);
+                    Refresh_Notice(null, NoticeErrorType.clouderr);
                 }
             });
+        }
+        public void UpdateAndNotice()
+        {
+            try
+            {
+                while (lc == null)
+                {
+                    Debug.Print("等待本地配置加载");
+                    Thread.Sleep(100);
+                }
+                GetCloudConfigV2().ContinueWith(t => CloudConfigAction(), TaskScheduler.FromCurrentSynchronizationContext());
+
+            }
+            catch (Exception ex)
+            {
+                Program.Application_Catched_Exception(ex);
+            }
+        }
+        public void CloudConfigAction()
+        {
+            if (cc == null) { return; }
+            if (cc.notice != null) { Refresh_Notice(cc.notice); } else { Refresh_Notice(null, NoticeErrorType.noticeerr); }
+            if (cc.author != null) { Load_Author(cc.author); }
+            if (cc.update != null && is_first_check && VerCode < cc.update.LastVerCode && lc.config.lastvercode != cc.update.LastVerCode)
+            {
+                StringBuilder stringBuilder = new StringBuilder();
+                stringBuilder.AppendLine("发现有新版本，是否更新?");
+                stringBuilder.AppendLine("[当前版本]:" + VerCode); ;
+                stringBuilder.AppendLine("[最新版本]:" + cc.update.LastVerCode);
+                stringBuilder.AppendLine("[更新内容]:");
+                cc.update.Content = cc.update.Content != null ? cc.update.Content : "无";
+                stringBuilder.AppendLine(cc.update.Content);
+                stringBuilder.AppendLine();
+                stringBuilder.AppendLine("点击“是”，跳转到更新连接");
+                stringBuilder.AppendLine("点击“否”，跳过此版本");
+                stringBuilder.AppendLine("点击“取消”，本次关闭此消息框");
+                DialogResult dgr = MessageBox.Show(stringBuilder.ToString(), "版本更新提醒", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+                if (dgr == DialogResult.Yes)
+                {
+                    Methods.Start(cc.update.Target);
+                }
+                else if (dgr == DialogResult.No)
+                {
+                    lc.config.lastvercode = cc.update.LastVerCode;
+                }
+            }
+            is_first_check = false;
         }
         private void Auto_close_proxy_checkBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -308,7 +346,7 @@ namespace Collei_Launcher
             }
             else
             {
-                StartPosition=FormStartPosition.CenterScreen;
+                StartPosition = FormStartPosition.CenterScreen;
             }
 
             if (!File.Exists(lc.habits.MetaFile_Input))

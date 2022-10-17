@@ -184,7 +184,7 @@ public enum ProxyMode
 }
 public enum NoticeType
 {
-    text,img,IEWebpage,MiniBlinkWebpage
+    text,img,IEWebpage,EdgeWebpage
 }
 public enum NoticeErrorType
 {

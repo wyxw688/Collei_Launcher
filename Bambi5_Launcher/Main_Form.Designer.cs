@@ -33,6 +33,7 @@ namespace Collei_Launcher
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Form));
             this.Main_tabControl = new System.Windows.Forms.TabControl();
             this.Home_tabPage = new System.Windows.Forms.TabPage();
+            this.Notice_webView = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.Notice_webBrowser = new System.Windows.Forms.WebBrowser();
             this.Notice_label = new System.Windows.Forms.Label();
             this.Notice_pictureBox = new System.Windows.Forms.PictureBox();
@@ -132,6 +133,7 @@ namespace Collei_Launcher
             this.Author_label = new System.Windows.Forms.Label();
             this.Main_tabControl.SuspendLayout();
             this.Home_tabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Notice_webView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Notice_pictureBox)).BeginInit();
             this.Servers_List_tabPage.SuspendLayout();
             this.Meta_tabPage.SuspendLayout();
@@ -171,6 +173,7 @@ namespace Collei_Launcher
             // 
             // Home_tabPage
             // 
+            this.Home_tabPage.Controls.Add(this.Notice_webView);
             this.Home_tabPage.Controls.Add(this.Notice_webBrowser);
             this.Home_tabPage.Controls.Add(this.Notice_label);
             this.Home_tabPage.Controls.Add(this.Notice_pictureBox);
@@ -178,6 +181,15 @@ namespace Collei_Launcher
             this.Home_tabPage.Name = "Home_tabPage";
             this.Home_tabPage.UseVisualStyleBackColor = true;
             this.Home_tabPage.Enter += new System.EventHandler(this.Home_tabPage_Enter);
+            // 
+            // Notice_webView
+            // 
+            this.Notice_webView.AllowExternalDrop = true;
+            this.Notice_webView.CreationProperties = null;
+            this.Notice_webView.DefaultBackgroundColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.Notice_webView, "Notice_webView");
+            this.Notice_webView.Name = "Notice_webView";
+            this.Notice_webView.ZoomFactor = 1D;
             // 
             // Notice_webBrowser
             // 
@@ -910,6 +922,7 @@ namespace Collei_Launcher
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_Form_FormClosing);
             this.Main_tabControl.ResumeLayout(false);
             this.Home_tabPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Notice_webView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Notice_pictureBox)).EndInit();
             this.Servers_List_tabPage.ResumeLayout(false);
             this.Meta_tabPage.ResumeLayout(false);
@@ -1054,6 +1067,7 @@ namespace Collei_Launcher
         public System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox Notice_pictureBox;
         private System.Windows.Forms.WebBrowser Notice_webBrowser;
+        private Microsoft.Web.WebView2.WinForms.WebView2 Notice_webView;
     }
 }
 

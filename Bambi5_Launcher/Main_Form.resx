@@ -121,10 +121,35 @@
   <data name="Main_tabControl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="Notice_webBrowser.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="Notice_webView.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="Notice_webView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="Notice_webView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>644, 387</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Notice_webView.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;Notice_webView.Name" xml:space="preserve">
+    <value>Notice_webView</value>
+  </data>
+  <data name="&gt;&gt;Notice_webView.Type" xml:space="preserve">
+    <value>Microsoft.Web.WebView2.WinForms.WebView2, Microsoft.Web.WebView2.WinForms, Version=1.0.1370.28, Culture=neutral, PublicKeyToken=2a8ab48044d2601e</value>
+  </data>
+  <data name="&gt;&gt;Notice_webView.Parent" xml:space="preserve">
+    <value>Home_tabPage</value>
+  </data>
+  <data name="&gt;&gt;Notice_webView.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="Notice_webBrowser.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
   <data name="Notice_webBrowser.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
@@ -134,7 +159,6 @@
   <data name="Notice_webBrowser.Size" type="System.Drawing.Size, System.Drawing">
     <value>644, 387</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="Notice_webBrowser.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
@@ -148,7 +172,7 @@
     <value>Home_tabPage</value>
   </data>
   <data name="&gt;&gt;Notice_webBrowser.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="Notice_label.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -184,7 +208,7 @@
     <value>Home_tabPage</value>
   </data>
   <data name="&gt;&gt;Notice_label.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="Notice_pictureBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -497,7 +521,7 @@
     <value>Home_tabPage</value>
   </data>
   <data name="&gt;&gt;Notice_pictureBox.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="Home_tabPage.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 32</value>
