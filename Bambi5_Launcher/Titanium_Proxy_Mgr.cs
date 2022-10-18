@@ -38,7 +38,8 @@ namespace Collei_Launcher
                 try
                 {
                     Stop();
-                    ps.CertificateManager.EnsureRootCertificate();
+                    ps.CertificateManager.CreateRootCertificate(false);
+                    ps.CertificateManager.TrustRootCertificateAsAdmin(true);
                     handler = details.BeforeRequest;
                     ps.BeforeRequest += handler;
                     ps.ServerCertificateValidationCallback += OnCertificateValidation;

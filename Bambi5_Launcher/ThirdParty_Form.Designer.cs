@@ -49,7 +49,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(340, 92);
             this.label1.TabIndex = 0;
-            this.label1.Text = "从此链接获取云端配置(更新,服务器,公告等):\r\n动态参数(非必须):\r\n<ver>启动器版本\r\n<lang>客户端语言";
+            this.label1.Text = "从此链接获取云端配置(更新,服务器,公告等):\r\n动态参数(非必须):\r\n<ver>启动器版本号\r\n<lang>客户端语言";
             // 
             // CCV2Url_textBox
             // 

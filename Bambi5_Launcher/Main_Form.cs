@@ -1167,6 +1167,7 @@ namespace Collei_Launcher
             {
                 ThirdParty_Form.Open(tps);
                 ThirdPartyMgr.LoadSettings();
+                UpdateAndNotice();
             }
         }
 
