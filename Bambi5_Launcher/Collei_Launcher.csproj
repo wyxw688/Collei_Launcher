@@ -44,7 +44,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -85,7 +85,7 @@
     </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject />
+    <StartupObject>Collei_Launcher.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BCMakeCert, Version=2.0.9.0, Culture=neutral, PublicKeyToken=67cb91587178ac5a, processorArchitecture=MSIL">
