@@ -1,10 +1,13 @@
-﻿using Fiddler;
+﻿using BCCertMaker;
+using Fiddler;
 using System;
 using System.Diagnostics;
+using System.IO;
 using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using System.Security.Principal;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Collei_Launcher
 {
@@ -12,6 +15,7 @@ namespace Collei_Launcher
     {
         //初始化Fiddler
         public static X509Certificate2 oRootCert;
+        public static BCCertMaker.BCCertMaker cm = new BCCertMaker.BCCertMaker();
         public static SessionStateHandler handler;
         public static Task Run_Fiddler(Details_Form details)
         {
@@ -27,21 +31,28 @@ namespace Collei_Launcher
                     FiddlerApplication.BeforeRequest += handler;
                     //-----------处理证书-----------
                     //伪造的证书
-                    //如果没有伪造过证书并把伪造的证书加入本机证书库中
-                    if (CertMaker.GetRootCertificate() == null)
+                    //如果没有伪造过证书并把伪造的证书加入本机证书库中\
+
+                    if (File.Exists(Path.Combine(Application.StartupPath, "FiddlerCert.pfx")))
+                    {
+                        cm.ReadRootCertificateAndPrivateKeyFromPkcs12File("FiddlerCert.pfx", "");
+                    }
+                    if (cm.GetRootCertificate() == null)
                     {
                         Debug.Print("未找到证书");
                         //创建伪造证书
-                        CertMaker.createRootCert();
+                        cm.CreateRootCertificate();
                         //重新获取
-                        oRootCert = CertMaker.GetRootCertificate();
+                        oRootCert = cm.GetRootCertificate();
+
+                        cm.WriteRootCertificateAndPrivateKeyToPkcs12File("FiddlerCert.pfx", "");
                     }
                     else
                     {
 
                         Debug.Print("已找到证书");
                         //以前伪造过证书，并且本地证书库中保存过伪造的证书
-                        oRootCert = CertMaker.GetRootCertificate();
+                        oRootCert = cm.GetRootCertificate();
                     }
                     Methods.Add_Cert(oRootCert);
                     //-----------------------------

@@ -196,7 +196,7 @@
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(520, 425);
             this.Name = "Check_Form";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "检查连接";
             ((System.ComponentModel.ISupportInitialize)(this.Game_port_numericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Dispatch_port_numericUpDown)).EndInit();
