@@ -1982,7 +1982,7 @@
     <value>True</value>
   </data>
   <data name="Nopatch2_cn_textBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>636, 187</value>
+    <value>636, 173</value>
   </data>
   <data name="Nopatch2_cn_textBox.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -2000,10 +2000,10 @@
     <value>0</value>
   </data>
   <data name="Nopatch2_cn_tabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 46</value>
+    <value>4, 60</value>
   </data>
   <data name="Nopatch2_cn_tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>636, 187</value>
+    <value>636, 173</value>
   </data>
   <data name="Nopatch2_cn_tabPage.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -2033,7 +2033,7 @@
     <value>True</value>
   </data>
   <data name="Nopatch2_os_textBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>636, 187</value>
+    <value>636, 173</value>
   </data>
   <data name="Nopatch2_os_textBox.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -2051,10 +2051,10 @@
     <value>0</value>
   </data>
   <data name="Nopatch2_os_tabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 46</value>
+    <value>4, 60</value>
   </data>
   <data name="Nopatch2_os_tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>636, 187</value>
+    <value>636, 173</value>
   </data>
   <data name="Nopatch2_os_tabPage.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -2084,7 +2084,7 @@
     <value>True</value>
   </data>
   <data name="Patched2_Meta_textBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>636, 187</value>
+    <value>636, 173</value>
   </data>
   <data name="Patched2_Meta_textBox.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -2102,10 +2102,10 @@
     <value>0</value>
   </data>
   <data name="Patched2_Meta_tabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 46</value>
+    <value>4, 60</value>
   </data>
   <data name="Patched2_Meta_tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>636, 187</value>
+    <value>636, 173</value>
   </data>
   <data name="Patched2_Meta_tabPage.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -2186,7 +2186,7 @@
     <value>True</value>
   </data>
   <data name="Features_cn_textBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>636, 187</value>
+    <value>636, 173</value>
   </data>
   <data name="Features_cn_textBox.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -2204,10 +2204,10 @@
     <value>0</value>
   </data>
   <data name="Features_cn_tabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 46</value>
+    <value>4, 60</value>
   </data>
   <data name="Features_cn_tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>636, 187</value>
+    <value>636, 173</value>
   </data>
   <data name="Features_cn_tabPage.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -2237,7 +2237,7 @@
     <value>True</value>
   </data>
   <data name="Features_os_textBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>636, 187</value>
+    <value>636, 173</value>
   </data>
   <data name="Features_os_textBox.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -2255,10 +2255,10 @@
     <value>0</value>
   </data>
   <data name="Features_os_tabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 46</value>
+    <value>4, 60</value>
   </data>
   <data name="Features_os_tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>636, 187</value>
+    <value>636, 173</value>
   </data>
   <data name="Features_os_tabPage.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -2953,9 +2953,6 @@
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>62</value>
   </metadata>
-  <data name="$this.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
-    <value>GrowAndShrink</value>
-  </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>682, 478</value>
   </data>

@@ -945,8 +945,8 @@ namespace Collei_Launcher
             // Main_Form
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            resources.ApplyResources(this, "$this");
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            resources.ApplyResources(this, "$this");
             this.Controls.Add(this.Author_label);
             this.Controls.Add(this.Main_statusStrip);
             this.Controls.Add(this.Main_tabControl);
