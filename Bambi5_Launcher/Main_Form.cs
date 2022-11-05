@@ -59,7 +59,7 @@ namespace Collei_Launcher
             Meta_tabPage.Parent = tps.AllowPatchMeta ? Main_tabControl : null;
             UA_tabPage.Parent = tps.AllowPatchUA ? Main_tabControl : null;
             Patch_Settings_tabPage.Parent = String.IsNullOrEmpty(tps.CPCUrl) ? Main_tabControl : null;
-            Reset_PC_button.Visible = String.IsNullOrEmpty(tps.CPCUrl)?true:false;
+            Reset_PC_button.Visible = String.IsNullOrEmpty(tps.CPCUrl) ? true : false;
             Settings_tabPage.Parent = Main_tabControl;
 
             if (tps.MustShownCloudServers)
@@ -273,7 +273,7 @@ namespace Collei_Launcher
                      }
                      cc = JsonConvert.DeserializeObject<Cloud_Config>(ccs);
                  }
-                 catch (Exception e)
+                 catch
                  {
                      Refresh_Notice(null, NoticeErrorType.clouderr);
                  }
@@ -916,9 +916,9 @@ namespace Collei_Launcher
                  }
                  catch (System.Runtime.InteropServices.SEHException)
                  {
-                     MessageBox.Show("在解包或打包Meta时出现了错误，这可能是由以下原因导致的\n\n①尝试修补(或反修补)已经被解包过的Meta文件\n②Meta文件已被损坏\n\n若您已经解包过Meta，请尝试打包后重试\n若您已经打包过Meta，请尝试解包后重试", "解包/打包时出现错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                     MessageBox.Show("在解包或打包Meta时出现了错误，这可能是由以下原因导致的\n\n①尝试修补(或反修补)已经被解包过的Meta文件\n\n②Meta文件已被损坏\n\n③尝试修补3.0.5X及以上版本的Meta\n(3.0.5X及以上版本仅需修补ua，不需要修补Meta)", "解包/打包时出现错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                  }
-                catch (Exception e)
+                 catch (Exception e)
                  {
                      Program.Application_Catched_Exception(e);
                  }

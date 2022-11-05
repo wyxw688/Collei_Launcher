@@ -71,6 +71,7 @@ namespace Collei_Launcher
                     }
                     ps.CertificateManager.RemoveTrustedRootCertificateAsAdmin(true);
                     ps.ServerCertificateValidationCallback -= OnCertificateValidation;
+                    ps.DisableSystemProxy(ProxyProtocolType.AllHttp);
                     if(ep!=null)
                     {
                         ep.BeforeTunnelConnectRequest -= OnBeforeTunnelConnectRequest;

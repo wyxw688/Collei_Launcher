@@ -87,7 +87,7 @@ namespace Collei_Launcher
         }
         public void Print_log(string log)
         {
-            log = log.Insert(0, $"[{DateTime.Now.ToLongTimeString()}]");
+            log = log.Insert(0, $"[{DateTime.Now.ToString("HH:mm:ss")}]");
             Log_richTextBox.AppendText(log + "\n");
             Log_richTextBox.Focus();
             Log_richTextBox.Select(Log_richTextBox.TextLength, 0);
