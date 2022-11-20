@@ -68,7 +68,7 @@ namespace Collei_Launcher
         }
         public string Get_url(string path)
         {
-            string url = "https://" + Host_textBox.Text + ":" + Dispatch_port_numericUpDown.Value + path;
+            string url = (UseSSL_checkBox.Checked? "https://":"http://") + Host_textBox.Text + ":" + Dispatch_port_numericUpDown.Value + path;
             Debug.WriteLine(url);
             return url;
         }

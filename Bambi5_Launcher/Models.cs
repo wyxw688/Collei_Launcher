@@ -77,6 +77,7 @@ namespace Collei_Launcher
         public string host { get; set; }
         public int dispatch { get; set; }
         public string content { get; set; }
+        public bool UseSSL = true;
     }
     public class ServersItem_List
     {
@@ -85,6 +86,7 @@ namespace Collei_Launcher
         public int dispatch { get; set; }
         public string content { get; set; }
         public bool is_cloud { get; set; }
+        public bool UseSSL =true;
 
     }
     public class Local_Config
@@ -179,6 +181,7 @@ namespace Collei_Launcher
         public int Ver_columnHeader_Width = Main_Form.form.Ver_columnHeader.Width;
         public int Ping_columnHeader_Width = Main_Form.form.Ping_columnHeader.Width;
         public int Content_columnHeader_Width = Main_Form.form.Content_columnHeader.Width;
+        public int SSL_columnHeader_Width = Main_Form.form.SSL_columnHeader.Width;
 
     }
 }

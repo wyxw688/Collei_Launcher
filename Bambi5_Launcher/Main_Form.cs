@@ -372,6 +372,11 @@ namespace Collei_Launcher
             {
                 Apply_Habits_ToForm();
             }
+            else
+            {
+
+                StartPosition = FormStartPosition.CenterScreen;
+            }
         }
         public void Apply_Habits_ToForm()
         {
@@ -439,6 +444,7 @@ namespace Collei_Launcher
             Ver_columnHeader.Width = lc.habits.Ver_columnHeader_Width;
             Ping_columnHeader.Width = lc.habits.Ping_columnHeader_Width;
             Content_columnHeader.Width = lc.habits.Content_columnHeader_Width;
+            SSL_columnHeader.Width = lc.habits.SSL_columnHeader_Width;
 
         }
         public void LoadSettingsToForm(bool Save = true)
@@ -498,6 +504,7 @@ namespace Collei_Launcher
                     ser.host = cc.servers[i].host;
                     ser.dispatch = cc.servers[i].dispatch;
                     ser.content = cc.servers[i].content;
+                    ser.UseSSL = cc.servers[i].UseSSL;
                     ser.is_cloud = true;
                     servers.Add(ser);
                 }
@@ -509,6 +516,7 @@ namespace Collei_Launcher
                 ser.host = lc.servers[i].host;
                 ser.dispatch = lc.servers[i].dispatch;
                 ser.content = lc.servers[i].content;
+                ser.UseSSL = lc.servers[i].UseSSL;
                 ser.is_cloud = false;
                 servers.Add(ser);
             }
@@ -524,11 +532,12 @@ namespace Collei_Launcher
                 ListViewItem lvi = new ListViewItem();
                 lvi.Text = servers[i].title;
                 lvi.SubItems.Add(servers[i].host);
-                lvi.SubItems.Add(servers[i].dispatch + "");
+                lvi.SubItems.Add(servers[i].dispatch.ToString());
+                lvi.SubItems.Add(servers[i].UseSSL? "✓" : "✗");
                 lvi.SubItems.Add("N/A");
                 lvi.SubItems.Add("N/A");
                 lvi.SubItems.Add("N/A");
-                lvi.SubItems.Add(servers[i].content + "");
+                lvi.SubItems.Add(servers[i].content);
                 if (servers[i].is_cloud)
                 {
                     lvi.Tag = -1;
@@ -562,7 +571,7 @@ namespace Collei_Launcher
         }
         public void Choice_Game_Path_button_Click(object sender, EventArgs e)
         {
-            string path = Methods.Choice_Path("国服游戏文件|YuanShen.exe|国际服游戏文件|GenshinImpact.exe", "选择游戏文件", null);
+            string path = Methods.Choice_Path("游戏文件|YuanShen.exe;GenshinImpact.exe", "选择游戏文件", null);
             if (path == null)
             {
                 return;
@@ -718,26 +727,26 @@ namespace Collei_Launcher
                               stc++;
                               try
                               {
-                                  string str = "https://" + servers[s].host + ":" + servers[s].dispatch + "/status/server";
+                                  string str = (servers[s].UseSSL? "https://":"http://") + servers[s].host + ":" + servers[s].dispatch + "/status/server";
                                   Debug.Print(str);
                                   Details_Get ig = Methods.Get_for_Index(str);
                                   if (ig.Use_time >= 0 && ig.StatusCode == System.Net.HttpStatusCode.OK)
                                   {
                                       Def_status.Root df = JsonConvert.DeserializeObject<Def_status.Root>(ig.Result);
-                                      Servers_listView.Items[s].SubItems[3].Text = df.status.playerCount.ToString();
-                                      Servers_listView.Items[s].SubItems[4].Text = df.status.version;
+                                      Servers_listView.Items[s].SubItems[4].Text = df.status.playerCount.ToString();
+                                      Servers_listView.Items[s].SubItems[5].Text = df.status.version;
                                   }
                                   else
                                   {
-                                      Servers_listView.Items[s].SubItems[3].Text = "N/A";
                                       Servers_listView.Items[s].SubItems[4].Text = "N/A";
+                                      Servers_listView.Items[s].SubItems[5].Text = "N/A";
                                   }
                                   try
                                   {
                                       PingReply reply = new Ping().Send(servers[s].host, 1000);
 
                                       if (reply.Status == IPStatus.Success)
-                                          Servers_listView.Items[s].SubItems[5].Text = reply.RoundtripTime + "ms";
+                                          Servers_listView.Items[s].SubItems[6].Text = reply.RoundtripTime + "ms";
                                       /*
                                      var sbuilder = new StringBuilder();
                                       sbuilder.AppendLine(string.Format("Address: {0} ", reply.Address.ToString()));
@@ -750,7 +759,7 @@ namespace Collei_Launcher
                                   }
                                   catch
                                   {
-                                      Servers_listView.Items[s].SubItems[5].Text = "N/A";
+                                      Servers_listView.Items[s].SubItems[6].Text = "N/A";
                                   }
                               }
                               catch (NullReferenceException e)
@@ -1138,6 +1147,7 @@ namespace Collei_Launcher
             lc.habits.Ver_columnHeader_Width = Ver_columnHeader.Width;
             lc.habits.Ping_columnHeader_Width = Ping_columnHeader.Width;
             lc.habits.Content_columnHeader_Width = Content_columnHeader.Width;
+            lc.habits.SSL_columnHeader_Width = SSL_columnHeader.Width;
         }
 
         private void Set_UAInputpath_button_DragEnter(object sender, DragEventArgs e)

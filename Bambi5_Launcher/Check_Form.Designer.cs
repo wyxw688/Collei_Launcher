@@ -39,13 +39,14 @@
             this.Game_Host_textBox = new System.Windows.Forms.TextBox();
             this.Log_richTextBox = new System.Windows.Forms.RichTextBox();
             this.Check_button = new System.Windows.Forms.Button();
+            this.UseSSL_checkBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.Game_port_numericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Dispatch_port_numericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // Game_port_numericUpDown
             // 
-            this.Game_port_numericUpDown.Location = new System.Drawing.Point(365, 51);
+            this.Game_port_numericUpDown.Location = new System.Drawing.Point(311, 51);
             this.Game_port_numericUpDown.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -57,7 +58,7 @@
             0,
             0});
             this.Game_port_numericUpDown.Name = "Game_port_numericUpDown";
-            this.Game_port_numericUpDown.Size = new System.Drawing.Size(125, 29);
+            this.Game_port_numericUpDown.Size = new System.Drawing.Size(79, 29);
             this.Game_port_numericUpDown.TabIndex = 57;
             this.Game_port_numericUpDown.Value = new decimal(new int[] {
             22102,
@@ -79,7 +80,7 @@
             0,
             0});
             this.Dispatch_port_numericUpDown.Name = "Dispatch_port_numericUpDown";
-            this.Dispatch_port_numericUpDown.Size = new System.Drawing.Size(124, 29);
+            this.Dispatch_port_numericUpDown.Size = new System.Drawing.Size(66, 29);
             this.Dispatch_port_numericUpDown.TabIndex = 56;
             this.Dispatch_port_numericUpDown.Value = new decimal(new int[] {
             443,
@@ -90,7 +91,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(263, 53);
+            this.label6.Location = new System.Drawing.Point(209, 53);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(96, 23);
             this.label6.TabIndex = 55;
@@ -174,12 +175,26 @@
             this.Check_button.UseVisualStyleBackColor = true;
             this.Check_button.Click += new System.EventHandler(this.Check_button_Click);
             // 
+            // UseSSL_checkBox
+            // 
+            this.UseSSL_checkBox.AutoSize = true;
+            this.UseSSL_checkBox.Checked = true;
+            this.UseSSL_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.UseSSL_checkBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.UseSSL_checkBox.Location = new System.Drawing.Point(395, 52);
+            this.UseSSL_checkBox.Name = "UseSSL_checkBox";
+            this.UseSSL_checkBox.Size = new System.Drawing.Size(95, 27);
+            this.UseSSL_checkBox.TabIndex = 62;
+            this.UseSSL_checkBox.Text = "使用SSL";
+            this.UseSSL_checkBox.UseVisualStyleBackColor = true;
+            // 
             // Check_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(502, 453);
+            this.Controls.Add(this.UseSSL_checkBox);
             this.Controls.Add(this.Check_button);
             this.Controls.Add(this.Log_richTextBox);
             this.Controls.Add(this.Game_Host_textBox);
@@ -217,5 +232,6 @@
         private System.Windows.Forms.TextBox Game_Host_textBox;
         private System.Windows.Forms.RichTextBox Log_richTextBox;
         private System.Windows.Forms.Button Check_button;
+        private System.Windows.Forms.CheckBox UseSSL_checkBox;
     }
 }

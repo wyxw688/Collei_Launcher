@@ -127,7 +127,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 15</value>
+    <value>12, 50</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>99, 23</value>
@@ -148,19 +148,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="Title_textBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="Title_textBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>227, 12</value>
+    <value>230, 47</value>
   </data>
   <data name="Title_textBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>259, 29</value>
   </data>
   <data name="Title_textBox.TabIndex" type="System.Int32, mscorlib">
-    <value>33</value>
+    <value>35</value>
   </data>
   <data name="&gt;&gt;Title_textBox.Name" xml:space="preserve">
     <value>Title_textBox</value>
@@ -172,7 +172,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Title_textBox.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="label4.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -181,7 +181,7 @@
     <value>True</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 50</value>
+    <value>12, 15</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>212, 23</value>
@@ -202,19 +202,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="Host_textBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="Host_textBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>227, 47</value>
+    <value>230, 12</value>
   </data>
   <data name="Host_textBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>259, 29</value>
   </data>
   <data name="Host_textBox.TabIndex" type="System.Int32, mscorlib">
-    <value>35</value>
+    <value>33</value>
   </data>
   <data name="&gt;&gt;Host_textBox.Name" xml:space="preserve">
     <value>Host_textBox</value>
@@ -226,7 +226,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Host_textBox.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="label5.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -235,7 +235,7 @@
     <value>True</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 84</value>
+    <value>12, 84</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>119, 23</value>
@@ -256,10 +256,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="Dispatch_port_numericUpDown.Location" type="System.Drawing.Point, System.Drawing">
-    <value>227, 84</value>
+    <value>227, 82</value>
   </data>
   <data name="Dispatch_port_numericUpDown.Size" type="System.Drawing.Size, System.Drawing">
     <value>124, 29</value>
@@ -277,7 +277,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Dispatch_port_numericUpDown.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="label7.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -307,7 +307,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="Content_textBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -334,7 +334,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Content_textBox.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="Cancel_button.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -361,7 +361,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Cancel_button.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="Update_button.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -388,6 +388,33 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Update_button.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="UseSSL_checkBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="UseSSL_checkBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>362, 84</value>
+  </data>
+  <data name="UseSSL_checkBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 27</value>
+  </data>
+  <data name="UseSSL_checkBox.TabIndex" type="System.Int32, mscorlib">
+    <value>44</value>
+  </data>
+  <data name="UseSSL_checkBox.Text" xml:space="preserve">
+    <value>使用SSL</value>
+  </data>
+  <data name="&gt;&gt;UseSSL_checkBox.Name" xml:space="preserve">
+    <value>UseSSL_checkBox</value>
+  </data>
+  <data name="&gt;&gt;UseSSL_checkBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;UseSSL_checkBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;UseSSL_checkBox.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

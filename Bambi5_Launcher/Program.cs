@@ -59,6 +59,10 @@ namespace Collei_Launcher
             {
                 return "请完整解压Collei_Launcher，确保依赖项(.dll)已解压到程序启动目录";
             }
+            if(ex.GetType() == typeof(UnauthorizedAccessException))
+            {
+                return "访问文件失败，请尝试以管理员权限运行启动器后再试";
+            }
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("****************************异常文本****************************");
             sb.AppendLine();

@@ -31,6 +31,7 @@ namespace Collei_Launcher
             Host_textBox.Text = ser.host;
             Dispatch_port_numericUpDown.Value = ser.dispatch;
             Content_textBox.Text=ser.content;
+            UseSSL_checkBox.Checked = ser.UseSSL;
             this.ShowDialog();
             return rser;
         }
@@ -59,6 +60,7 @@ namespace Collei_Launcher
             rser.host = Host_textBox.Text;
             rser.dispatch = (ushort)Dispatch_port_numericUpDown.Value;
             rser.content = Content_textBox.Text;
+            rser.UseSSL = UseSSL_checkBox.Checked;
             User_Close = true;
             this.Close();
         }
@@ -102,6 +104,25 @@ namespace Collei_Launcher
                     }
                 }
             }
+        }
+        public bool Edited = false;
+        public bool titleEnter = false;
+        private void Host_textBox_TextChanged(object sender, EventArgs e)
+        {
+            if(!(Edited&& titleEnter))
+            {
+                Title_textBox.Text = Host_textBox.Text;
+            }
+        }
+
+        private void Title_textBox_Enter(object sender, EventArgs e)
+        {
+            titleEnter = true;
+        }
+
+        private void Title_textBox_TextChanged(object sender, EventArgs e)
+        {
+            Edited = true;
         }
     }
 }

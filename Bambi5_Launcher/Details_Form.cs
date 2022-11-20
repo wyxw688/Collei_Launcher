@@ -25,22 +25,21 @@ namespace Collei_Launcher
         public ServersItem_List server;
         public bool cg = true;
 
-        public Task BeforeRequest(object sender, SessionEventArgs se)
+        public async Task BeforeRequest(object sender, SessionEventArgs se)
         {
-            return Task.Run(() =>
+            string ohost = se.HttpClient.Request.Host;
+            if (ohost.EndsWith(".yuanshen.com") || ohost.EndsWith(".hoyoverse.com") || ohost.EndsWith(".mihoyo.com"))
             {
-                string ohost = se.HttpClient.Request.Host;
-                if (ohost.EndsWith(".yuanshen.com") || ohost.EndsWith(".hoyoverse.com") || ohost.EndsWith(".mihoyo.com"))
-                {
-                    Debug.Print(se.HttpClient.Request.Url);
-                    se.HttpClient.Request.Url = se.HttpClient.Request.Url.Replace(ohost, server.host + (server.dispatch == 443 ? "":":"+server.dispatch.ToString())) ;
-                    
-                    Debug.Print(se.HttpClient.Request.Url);
-                    ohost += ":" + se.HttpClient.Request.RequestUri.Port;
-                    Uri uri = new Uri(ohost);
-                    this.Print_log(ohost + " -> " + se.HttpClient.Request.Host);
-                }
-            });
+                Debug.Print(se.HttpClient.Request.Url);
+                se.HttpClient.Request.Url = se.HttpClient.Request.Url.Replace(ohost, server.host + ((server.dispatch == 443 && server.UseSSL) || (server.dispatch == 80 && !server.UseSSL) ? "" : ":" + server.dispatch.ToString()));
+
+                se.HttpClient.Request.Url = server.UseSSL ? "https" + se.HttpClient.Request.Url.Substring(se.HttpClient.Request.Url.IndexOf("://")) : "http" + se.HttpClient.Request.Url.Substring(se.HttpClient.Request.Url.IndexOf("://"));
+
+                Debug.Print("After:"+se.HttpClient.Request.Url);
+                ohost += ":" + se.HttpClient.Request.RequestUri.Port;
+                Uri uri = new Uri(ohost);
+                this.Print_log(ohost + " -> " + se.HttpClient.Request.Host);
+            }
         }
         public void On_BeforeRequest(Session oS)
         {
@@ -50,6 +49,7 @@ namespace Collei_Launcher
                 ohost += ":" + oS.port;
                 oS.host = this.server.host;
                 oS.port = this.server.dispatch;
+                oS.fullUrl = server.UseSSL ? "https" + oS.fullUrl.Substring(oS.fullUrl.IndexOf("://")) : "http" + oS.fullUrl.Substring(oS.fullUrl.IndexOf("://"));
                 this.Print_log(ohost + " -> " + oS.host);
             }
         }
@@ -65,6 +65,7 @@ namespace Collei_Launcher
             Host_textBox.Text = ser.host;
             Dispatch_port_numericUpDown.Value = ser.dispatch;
             Content_textBox.Text = ser.content;
+            UseSSL_checkBox.Checked = ser.UseSSL;
             Update_Status();
             this.ShowDialog();
         }
@@ -87,13 +88,20 @@ namespace Collei_Launcher
         }
         public void Print_log(string log)
         {
-            log = log.Insert(0, $"[{DateTime.Now.ToString("HH:mm:ss")}]");
-            Log_richTextBox.AppendText(log + "\n");
-            Log_richTextBox.Focus();
-            Log_richTextBox.Select(Log_richTextBox.TextLength, 0);
-            Log_richTextBox.ScrollToCaret();
+            try
+            {
+                log = log.Insert(0, $"[{DateTime.Now.ToString("HH:mm:ss")}]");
+                Log_richTextBox.AppendText(log + "\n");
+                Log_richTextBox.Focus();
+                Log_richTextBox.Select(Log_richTextBox.TextLength, 0);
+                Log_richTextBox.ScrollToCaret();
+            }
+            catch (Exception ex)
+            {
+                Program.GetExceptionMsg(ex);
+            }
         }
-        public Task Start_Proxy()
+        public Task<bool> Start_Proxy()
         {
             switch (Main_Form.lc.config.proxyMode)
             {
@@ -182,16 +190,33 @@ namespace Collei_Launcher
                   Print_log("正在配置代理···");
                   Methods.Clear_Proxy();
                   Debug.Print(server.host);
-                  Start_Proxy().Wait();
+                  if (!Start_Proxy().Result)
+                  {
+                      Stop_Proxy(Change_game);
+                      return;
+                  }
+
                   Methods.Set_Proxy("127.0.0.1:" + Main_Form.lc.config.ProxyPort);
                   Connected = true;
                   if (Change_game)
                   {
                       Print_log("正在启动游戏···");
-                      Game_Process = Process.Start(Main_Form.lc.config.Game_Path);
-                      Thread.Sleep(3000);
+                      try
+                      {
+                          Game_Process = Process.Start(Main_Form.lc.config.Game_Path);
+                          Print_log("已完成启动");
+                      }
+                      catch (System.ComponentModel.Win32Exception ex)
+                      {
+                          Print_log(ex.Message);
+                          Stop_Proxy(Change_game).Wait();
+                          return;
+                      }
                   }
-                  Print_log("已完成启动");
+                  else
+                  {
+                      Print_log("已完成启动");
+                  }
                   if (Change_game)
                   {
                       Turn_button.Enabled = true;
@@ -201,6 +226,7 @@ namespace Collei_Launcher
                   Turn_Proxy_button.Text = "仅关闭代理";
               });
         }
+
 
         public Task Stop_Proxy(bool Change_game)
         {
@@ -245,7 +271,7 @@ namespace Collei_Launcher
         }
         public string Get_url(string path)
         {
-            string url = "https://" + server.host + ":" + server.dispatch + path;
+            string url = (server.UseSSL ? "https://" : "http://") + server.host + ":" + server.dispatch + path;
             Debug.WriteLine(url);
             return url;
         }
@@ -400,6 +426,5 @@ namespace Collei_Launcher
             Main_Form.form.Status_timer.Enabled = true;
             Main_Form.form.Load_Server_Status();
         }
-
     }
 }

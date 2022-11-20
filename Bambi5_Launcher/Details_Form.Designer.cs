@@ -46,6 +46,7 @@
             this.Turn_Proxy_button = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.Log_richTextBox = new System.Windows.Forms.RichTextBox();
+            this.UseSSL_checkBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.Dispatch_port_numericUpDown)).BeginInit();
             this.Status_statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -162,11 +163,20 @@
             this.Log_richTextBox.Name = "Log_richTextBox";
             this.Log_richTextBox.ReadOnly = true;
             // 
+            // UseSSL_checkBox
+            // 
+            resources.ApplyResources(this.UseSSL_checkBox, "UseSSL_checkBox");
+            this.UseSSL_checkBox.Checked = true;
+            this.UseSSL_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.UseSSL_checkBox.Name = "UseSSL_checkBox";
+            this.UseSSL_checkBox.UseVisualStyleBackColor = true;
+            // 
             // Details_Form
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             resources.ApplyResources(this, "$this");
+            this.Controls.Add(this.UseSSL_checkBox);
             this.Controls.Add(this.Log_richTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Turn_Proxy_button);
@@ -211,5 +221,6 @@
         private System.Windows.Forms.Button Turn_Proxy_button;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RichTextBox Log_richTextBox;
+        private System.Windows.Forms.CheckBox UseSSL_checkBox;
     }
 }

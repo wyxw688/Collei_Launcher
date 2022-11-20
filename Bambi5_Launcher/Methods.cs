@@ -16,6 +16,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.AxHost;
 
 public static class Methods
 {
@@ -163,33 +164,43 @@ public static class Methods
         Debug.Print(st);
         return st;
     }
-    public static void Add_Cert(X509Certificate2 cert)
+    public static bool Add_Cert(X509Certificate2 cert, StoreLocation store)
     {
         if (cert == null)
-            return;
-        X509Store certStore = new X509Store(StoreName.Root, StoreLocation.LocalMachine);
+            return false;
+        X509Store certStore = new X509Store(StoreName.Root, store);
         certStore.Open(OpenFlags.ReadWrite);
         try
         {
             //将伪造的证书加入到本地的证书库
             certStore.Add(cert);
+            return true;
+        }
+        catch
+        {
+            return false;
         }
         finally
         {
             certStore.Close();
         }
     }
-    public static void Remove_Cert(X509Certificate2 cert)
+    public static bool Remove_Cert(X509Certificate2 cert, StoreLocation store)
     {
         if (cert == null)
-            return;
-        X509Store certStore = new X509Store(StoreName.Root, StoreLocation.LocalMachine);
+            return false;
+        X509Store certStore = new X509Store(StoreName.Root, store);
         certStore.Open(OpenFlags.ReadWrite);
         try
         {
             //将伪造的证书刪除
             if (certStore.Certificates.Contains(cert))
                 certStore.Remove(cert);
+            return true;
+        }
+        catch
+        {
+            return false;
         }
         finally
         {
@@ -582,7 +593,7 @@ public static class Methods
             //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
             //ServicePointManager.ServerCertificateValidationCallback = (sender, certificate, chain, errors) => true;
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            request.Timeout = 10000;
+            request.Timeout = 5000;
             request.ContentType = "application/json";
             Details_Get res = new Details_Get();
             Stopwatch sw = new Stopwatch();

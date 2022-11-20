@@ -135,7 +135,7 @@
     <value>3, 3</value>
   </data>
   <data name="Notice_label.Size" type="System.Drawing.Size, System.Drawing">
-    <value>644, 387</value>
+    <value>744, 462</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="Notice_label.TabIndex" type="System.Int32, mscorlib">
@@ -166,7 +166,7 @@
     <value>3, 3</value>
   </data>
   <data name="Notice_webView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>644, 387</value>
+    <value>744, 462</value>
   </data>
   <data name="Notice_webView.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -175,7 +175,7 @@
     <value>Notice_webView</value>
   </data>
   <data name="&gt;&gt;Notice_webView.Type" xml:space="preserve">
-    <value>Microsoft.Web.WebView2.WinForms.WebView2, Microsoft.Web.WebView2.WinForms, Version=1.0.1370.28, Culture=neutral, PublicKeyToken=2a8ab48044d2601e</value>
+    <value>Microsoft.Web.WebView2.WinForms.WebView2, Microsoft.Web.WebView2.WinForms, Version=1.0.1418.22, Culture=neutral, PublicKeyToken=2a8ab48044d2601e</value>
   </data>
   <data name="&gt;&gt;Notice_webView.Parent" xml:space="preserve">
     <value>Home_tabPage</value>
@@ -193,7 +193,7 @@
     <value>20, 20</value>
   </data>
   <data name="Notice_webBrowser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>644, 387</value>
+    <value>744, 462</value>
   </data>
   <data name="Notice_webBrowser.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -503,7 +503,7 @@
     <value>3, 3</value>
   </data>
   <data name="Notice_pictureBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>644, 387</value>
+    <value>744, 462</value>
   </data>
   <data name="Notice_pictureBox.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>CenterImage</value>
@@ -530,7 +530,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="Home_tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>650, 393</value>
+    <value>750, 468</value>
   </data>
   <data name="Home_tabPage.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -563,7 +563,7 @@
     <value>3, 3</value>
   </data>
   <data name="NoServerTip_label.Size" type="System.Drawing.Size, System.Drawing">
-    <value>644, 387</value>
+    <value>744, 462</value>
   </data>
   <data name="NoServerTip_label.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -607,6 +607,9 @@
   <data name="Dispatch_columnHeader.Width" type="System.Int32, mscorlib">
     <value>85</value>
   </data>
+  <data name="SSL_columnHeader.Text" xml:space="preserve">
+    <value>SSL</value>
+  </data>
   <data name="Count_columnHeader.Text" xml:space="preserve">
     <value>在线数</value>
   </data>
@@ -617,16 +620,19 @@
     <value>版本</value>
   </data>
   <data name="Ver_columnHeader.Width" type="System.Int32, mscorlib">
-    <value>100</value>
+    <value>75</value>
   </data>
   <data name="Ping_columnHeader.Text" xml:space="preserve">
     <value>Ping</value>
+  </data>
+  <data name="Ping_columnHeader.Width" type="System.Int32, mscorlib">
+    <value>75</value>
   </data>
   <data name="Content_columnHeader.Text" xml:space="preserve">
     <value>介绍</value>
   </data>
   <data name="Content_columnHeader.Width" type="System.Int32, mscorlib">
-    <value>200</value>
+    <value>1000</value>
   </data>
   <data name="Servers_listView.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -639,29 +645,30 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkMAwAAAFFTeXN0
         ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2Vu
-        PWIwM2Y1ZjdmMTFkNTBhM2EFAQAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0OAAAA
+        PWIwM2Y1ZjdmMTFkNTBhM2EFAQAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0PAAAA
         BFRleHQKSW1hZ2VJbmRleAxTdWJJdGVtQ291bnQIU3ViSXRlbTEIU3ViSXRlbTIIU3ViSXRlbTMIU3Vi
-        SXRlbTQIU3ViSXRlbTUIU3ViSXRlbTYJQmFja0NvbG9yB0NoZWNrZWQERm9udAlGb3JlQ29sb3IXVXNl
-        SXRlbVN0eWxlRm9yU3ViSXRlbXMBAAAEBAQEBAQEAAQEAAgIMVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxp
-        c3RWaWV3SXRlbStMaXN0Vmlld1N1Ykl0ZW0CAAAAMVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3
-        SXRlbStMaXN0Vmlld1N1Ykl0ZW0CAAAAMVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbStM
-        aXN0Vmlld1N1Ykl0ZW0CAAAAMVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbStMaXN0Vmll
-        d1N1Ykl0ZW0CAAAAMVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbStMaXN0Vmlld1N1Ykl0
-        ZW0CAAAAMVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbStMaXN0Vmlld1N1Ykl0ZW0CAAAA
-        FFN5c3RlbS5EcmF3aW5nLkNvbG9yAwAAAAETU3lzdGVtLkRyYXdpbmcuRm9udAMAAAAUU3lzdGVtLkRy
-        YXdpbmcuQ29sb3IDAAAAAQIAAAAGBAAAAA1Mb2FkaW5nwrfCt8K3/////wcAAAAJBQAAAAkGAAAACQcA
-        AAAJCAAAAAkJAAAACQoAAAAF9f///xRTeXN0ZW0uRHJhd2luZy5Db2xvcgQAAAAEbmFtZQV2YWx1ZQpr
-        bm93bkNvbG9yBXN0YXRlAQAAAAkHBwMAAAAKAAAAAAAAAAAYAAEAAAkMAAAAAfP////1////CgAAAAAA
-        AAAAGgABAAEFBQAAADFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0rTGlzdFZpZXdTdWJJ
-        dGVtBAAAAAR0ZXh0BG5hbWUFc3R5bGUIdXNlckRhdGEBAQQCPlN5c3RlbS5XaW5kb3dzLkZvcm1zLkxp
-        c3RWaWV3SXRlbStMaXN0Vmlld1N1Ykl0ZW0rU3ViSXRlbVN0eWxlAgAAAAIAAAAGDgAAAA1sb2FkaW5n
-        wrfCt8K3CgoKAQYAAAAFAAAABg8AAAAHbG9hZGluZwoKCgEHAAAABQAAAAYQAAAAA04vQQoKCgEIAAAA
-        BQAAAAYRAAAAA04vQQoKCgEJAAAABQAAAAYSAAAAA04vQQoKCgEKAAAABQAAAAYTAAAADUxvYWRpbmfC
-        t8K3wrcKCgoFDAAAABNTeXN0ZW0uRHJhd2luZy5Gb250BAAAAAROYW1lBFNpemUFU3R5bGUEVW5pdAEA
-        BAQLGFN5c3RlbS5EcmF3aW5nLkZvbnRTdHlsZQMAAAAbU3lzdGVtLkRyYXdpbmcuR3JhcGhpY3NVbml0
-        AwAAAAMAAAAGFAAAAAzlvq7ova/pm4Xpu5EAACBBBev///8YU3lzdGVtLkRyYXdpbmcuRm9udFN0eWxl
-        AQAAAAd2YWx1ZV9fAAgDAAAAAAAAAAXq////G1N5c3RlbS5EcmF3aW5nLkdyYXBoaWNzVW5pdAEAAAAH
-        dmFsdWVfXwAIAwAAAAMAAAAL
+        SXRlbTQIU3ViSXRlbTUIU3ViSXRlbTYIU3ViSXRlbTcJQmFja0NvbG9yB0NoZWNrZWQERm9udAlGb3Jl
+        Q29sb3IXVXNlSXRlbVN0eWxlRm9yU3ViSXRlbXMBAAAEBAQEBAQEBAAEBAAICDFTeXN0ZW0uV2luZG93
+        cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0rTGlzdFZpZXdTdWJJdGVtAgAAADFTeXN0ZW0uV2luZG93cy5Gb3Jt
+        cy5MaXN0Vmlld0l0ZW0rTGlzdFZpZXdTdWJJdGVtAgAAADFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0
+        Vmlld0l0ZW0rTGlzdFZpZXdTdWJJdGVtAgAAADFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0
+        ZW0rTGlzdFZpZXdTdWJJdGVtAgAAADFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0rTGlz
+        dFZpZXdTdWJJdGVtAgAAADFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0rTGlzdFZpZXdT
+        dWJJdGVtAgAAADFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0rTGlzdFZpZXdTdWJJdGVt
+        AgAAABRTeXN0ZW0uRHJhd2luZy5Db2xvcgMAAAABE1N5c3RlbS5EcmF3aW5nLkZvbnQDAAAAFFN5c3Rl
+        bS5EcmF3aW5nLkNvbG9yAwAAAAECAAAABgQAAAANTG9hZGluZ8K3wrfCt/////8IAAAACQUAAAAJBgAA
+        AAkHAAAACQgAAAAJCQAAAAkKAAAACQsAAAAF9P///xRTeXN0ZW0uRHJhd2luZy5Db2xvcgQAAAAEbmFt
+        ZQV2YWx1ZQprbm93bkNvbG9yBXN0YXRlAQAAAAkHBwMAAAAKAAAAAAAAAAAYAAEAAAkNAAAAAfL////0
+        ////CgAAAAAAAAAAGgABAAEFBQAAADFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0rTGlz
+        dFZpZXdTdWJJdGVtBAAAAAR0ZXh0BG5hbWUFc3R5bGUIdXNlckRhdGEBAQQCPlN5c3RlbS5XaW5kb3dz
+        LkZvcm1zLkxpc3RWaWV3SXRlbStMaXN0Vmlld1N1Ykl0ZW0rU3ViSXRlbVN0eWxlAgAAAAIAAAAGDwAA
+        AA1sb2FkaW5nwrfCt8K3CgoKAQYAAAAFAAAABhAAAAAHbG9hZGluZwoKCgEHAAAABQAAAAYRAAAAAT8K
+        CgoBCAAAAAUAAAAGEgAAAANOL0EKCgoBCQAAAAUAAAAGEwAAAANOL0EKCgoBCgAAAAUAAAAGFAAAAANO
+        L0EKCgoBCwAAAAUAAAAGFQAAAA1Mb2FkaW5nwrfCt8K3CgoKBQ0AAAATU3lzdGVtLkRyYXdpbmcuRm9u
+        dAQAAAAETmFtZQRTaXplBVN0eWxlBFVuaXQBAAQECxhTeXN0ZW0uRHJhd2luZy5Gb250U3R5bGUDAAAA
+        G1N5c3RlbS5EcmF3aW5nLkdyYXBoaWNzVW5pdAMAAAADAAAABhYAAAAM5b6u6L2v6ZuF6buRAAAgQQXp
+        ////GFN5c3RlbS5EcmF3aW5nLkZvbnRTdHlsZQEAAAAHdmFsdWVfXwAIAwAAAAAAAAAF6P///xtTeXN0
+        ZW0uRHJhd2luZy5HcmFwaGljc1VuaXQBAAAAB3ZhbHVlX18ACAMAAAADAAAACw==
 </value>
   </data>
   <data name="Servers_listView.Location" type="System.Drawing.Point, System.Drawing">
@@ -671,7 +678,7 @@
     <value>4, 3, 4, 3</value>
   </data>
   <data name="Servers_listView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>644, 387</value>
+    <value>744, 462</value>
   </data>
   <data name="Servers_listView.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -695,7 +702,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="Servers_List_tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>650, 393</value>
+    <value>750, 468</value>
   </data>
   <data name="Servers_List_tabPage.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -761,7 +768,7 @@
     <value>3, 25</value>
   </data>
   <data name="Meta_DoingTip_label.Size" type="System.Drawing.Size, System.Drawing">
-    <value>638, 105</value>
+    <value>738, 105</value>
   </data>
   <data name="Meta_DoingTip_label.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>
@@ -848,7 +855,7 @@
     <value>NoControl</value>
   </data>
   <data name="Encrypt_File_button.Location" type="System.Drawing.Point, System.Drawing">
-    <value>472, 77</value>
+    <value>572, 77</value>
   </data>
   <data name="Encrypt_File_button.Size" type="System.Drawing.Size, System.Drawing">
     <value>146, 50</value>
@@ -878,7 +885,7 @@
     <value>NoControl</value>
   </data>
   <data name="Decrypt_File_button.Location" type="System.Drawing.Point, System.Drawing">
-    <value>472, 21</value>
+    <value>572, 21</value>
   </data>
   <data name="Decrypt_File_button.Size" type="System.Drawing.Size, System.Drawing">
     <value>146, 50</value>
@@ -902,10 +909,10 @@
     <value>4</value>
   </data>
   <data name="Meta_Actions_groupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 253</value>
+    <value>3, 328</value>
   </data>
   <data name="Meta_Actions_groupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>644, 133</value>
+    <value>744, 133</value>
   </data>
   <data name="Meta_Actions_groupBox.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -962,7 +969,7 @@
     <value>19, 31</value>
   </data>
   <data name="MetaFile_Output_textBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>603, 29</value>
+    <value>703, 29</value>
   </data>
   <data name="MetaFile_Output_textBox.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -1016,7 +1023,7 @@
     <value>3, 131</value>
   </data>
   <data name="Output_panel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>632, 120</value>
+    <value>732, 120</value>
   </data>
   <data name="Output_panel.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -1097,7 +1104,7 @@
     <value>22, 40</value>
   </data>
   <data name="MetaFile_Input_textBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>603, 29</value>
+    <value>703, 29</value>
   </data>
   <data name="MetaFile_Input_textBox.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -1148,7 +1155,7 @@
     <value>4, 32</value>
   </data>
   <data name="Meta_tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>650, 393</value>
+    <value>750, 468</value>
   </data>
   <data name="Meta_tabPage.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -1175,7 +1182,7 @@
     <value>NoControl</value>
   </data>
   <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>303, 89</value>
+    <value>305, 89</value>
   </data>
   <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
     <value>344, 23</value>
@@ -1214,7 +1221,7 @@
     <value>3, 25</value>
   </data>
   <data name="UA_DoingTip_label.Size" type="System.Drawing.Size, System.Drawing">
-    <value>638, 105</value>
+    <value>738, 105</value>
   </data>
   <data name="UA_DoingTip_label.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
@@ -1247,7 +1254,7 @@
     <value>NoControl</value>
   </data>
   <data name="UnPatch_UA_button.Location" type="System.Drawing.Point, System.Drawing">
-    <value>364, 49</value>
+    <value>464, 49</value>
   </data>
   <data name="UnPatch_UA_button.Size" type="System.Drawing.Size, System.Drawing">
     <value>225, 50</value>
@@ -1301,10 +1308,10 @@
     <value>2</value>
   </data>
   <data name="UA_Actions_groupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 253</value>
+    <value>3, 328</value>
   </data>
   <data name="UA_Actions_groupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>644, 133</value>
+    <value>744, 133</value>
   </data>
   <data name="UA_Actions_groupBox.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -1361,7 +1368,7 @@
     <value>19, 31</value>
   </data>
   <data name="UAFile_Output_textBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>603, 29</value>
+    <value>703, 29</value>
   </data>
   <data name="UAFile_Output_textBox.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -1415,7 +1422,7 @@
     <value>3, 131</value>
   </data>
   <data name="UA_Output_panel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>632, 120</value>
+    <value>732, 120</value>
   </data>
   <data name="UA_Output_panel.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -1496,7 +1503,7 @@
     <value>22, 40</value>
   </data>
   <data name="UAFile_Input_textBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>603, 29</value>
+    <value>703, 29</value>
   </data>
   <data name="UAFile_Input_textBox.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -1547,7 +1554,7 @@
     <value>4, 32</value>
   </data>
   <data name="UA_tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>650, 393</value>
+    <value>750, 468</value>
   </data>
   <data name="UA_tabPage.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -1577,7 +1584,7 @@
     <value>NoControl</value>
   </data>
   <data name="Export_PC_button.Location" type="System.Drawing.Point, System.Drawing">
-    <value>593, 9</value>
+    <value>693, 9</value>
   </data>
   <data name="Export_PC_button.Size" type="System.Drawing.Size, System.Drawing">
     <value>50, 50</value>
@@ -1607,7 +1614,7 @@
     <value>NoControl</value>
   </data>
   <data name="Import_PC_button.Location" type="System.Drawing.Point, System.Drawing">
-    <value>537, 9</value>
+    <value>637, 9</value>
   </data>
   <data name="Import_PC_button.Size" type="System.Drawing.Size, System.Drawing">
     <value>50, 50</value>
@@ -1634,10 +1641,10 @@
     <value>NoControl</value>
   </data>
   <data name="Patch_Settings_Tip_label.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 305</value>
+    <value>3, 380</value>
   </data>
   <data name="Patch_Settings_Tip_label.Size" type="System.Drawing.Size, System.Drawing">
-    <value>438, 74</value>
+    <value>538, 74</value>
   </data>
   <data name="Patch_Settings_Tip_label.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -1844,7 +1851,7 @@
     <value>NoControl</value>
   </data>
   <data name="Save_PC_button.Location" type="System.Drawing.Point, System.Drawing">
-    <value>447, 317</value>
+    <value>547, 392</value>
   </data>
   <data name="Save_PC_button.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 50</value>
@@ -1880,7 +1887,7 @@
     <value>True</value>
   </data>
   <data name="Nopatch1_textBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>636, 173</value>
+    <value>736, 248</value>
   </data>
   <data name="Nopatch1_textBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1901,7 +1908,7 @@
     <value>4, 60</value>
   </data>
   <data name="Nopatch1_tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>636, 173</value>
+    <value>736, 248</value>
   </data>
   <data name="Nopatch1_tabPage.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1931,7 +1938,7 @@
     <value>True</value>
   </data>
   <data name="Patched1_textBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>636, 187</value>
+    <value>736, 262</value>
   </data>
   <data name="Patched1_textBox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1952,7 +1959,7 @@
     <value>4, 46</value>
   </data>
   <data name="Patched1_tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>636, 187</value>
+    <value>736, 262</value>
   </data>
   <data name="Patched1_tabPage.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1982,7 +1989,7 @@
     <value>True</value>
   </data>
   <data name="Nopatch2_cn_textBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>636, 173</value>
+    <value>736, 262</value>
   </data>
   <data name="Nopatch2_cn_textBox.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -2000,10 +2007,10 @@
     <value>0</value>
   </data>
   <data name="Nopatch2_cn_tabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 60</value>
+    <value>4, 46</value>
   </data>
   <data name="Nopatch2_cn_tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>636, 173</value>
+    <value>736, 262</value>
   </data>
   <data name="Nopatch2_cn_tabPage.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -2033,7 +2040,7 @@
     <value>True</value>
   </data>
   <data name="Nopatch2_os_textBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>636, 173</value>
+    <value>736, 262</value>
   </data>
   <data name="Nopatch2_os_textBox.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -2051,10 +2058,10 @@
     <value>0</value>
   </data>
   <data name="Nopatch2_os_tabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 60</value>
+    <value>4, 46</value>
   </data>
   <data name="Nopatch2_os_tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>636, 173</value>
+    <value>736, 262</value>
   </data>
   <data name="Nopatch2_os_tabPage.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -2084,7 +2091,7 @@
     <value>True</value>
   </data>
   <data name="Patched2_Meta_textBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>636, 173</value>
+    <value>736, 262</value>
   </data>
   <data name="Patched2_Meta_textBox.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -2102,10 +2109,10 @@
     <value>0</value>
   </data>
   <data name="Patched2_Meta_tabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 60</value>
+    <value>4, 46</value>
   </data>
   <data name="Patched2_Meta_tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>636, 173</value>
+    <value>736, 262</value>
   </data>
   <data name="Patched2_Meta_tabPage.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -2135,7 +2142,7 @@
     <value>True</value>
   </data>
   <data name="Patched2_UA_textBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>636, 187</value>
+    <value>736, 262</value>
   </data>
   <data name="Patched2_UA_textBox.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -2156,7 +2163,7 @@
     <value>4, 46</value>
   </data>
   <data name="Patched2_UA_tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>636, 187</value>
+    <value>736, 262</value>
   </data>
   <data name="Patched2_UA_tabPage.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -2186,7 +2193,7 @@
     <value>True</value>
   </data>
   <data name="Features_cn_textBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>636, 173</value>
+    <value>736, 262</value>
   </data>
   <data name="Features_cn_textBox.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -2204,10 +2211,10 @@
     <value>0</value>
   </data>
   <data name="Features_cn_tabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 60</value>
+    <value>4, 46</value>
   </data>
   <data name="Features_cn_tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>636, 173</value>
+    <value>736, 262</value>
   </data>
   <data name="Features_cn_tabPage.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -2237,7 +2244,7 @@
     <value>True</value>
   </data>
   <data name="Features_os_textBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>636, 173</value>
+    <value>736, 262</value>
   </data>
   <data name="Features_os_textBox.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -2255,10 +2262,10 @@
     <value>0</value>
   </data>
   <data name="Features_os_tabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 60</value>
+    <value>4, 46</value>
   </data>
   <data name="Features_os_tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>636, 173</value>
+    <value>736, 262</value>
   </data>
   <data name="Features_os_tabPage.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -2282,7 +2289,7 @@
     <value>3, 65</value>
   </data>
   <data name="Patch_Bytes_tabControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>644, 237</value>
+    <value>744, 312</value>
   </data>
   <data name="Patch_Bytes_tabControl.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2303,7 +2310,7 @@
     <value>4, 32</value>
   </data>
   <data name="Patch_Settings_tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>650, 393</value>
+    <value>750, 468</value>
   </data>
   <data name="Patch_Settings_tabPage.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -2447,7 +2454,7 @@
     <value>NoControl</value>
   </data>
   <data name="Save_Config_button.Location" type="System.Drawing.Point, System.Drawing">
-    <value>494, 337</value>
+    <value>594, 412</value>
   </data>
   <data name="Save_Config_button.Size" type="System.Drawing.Size, System.Drawing">
     <value>150, 50</value>
@@ -2531,7 +2538,7 @@
     <value>NoControl</value>
   </data>
   <data name="Open_Check_button.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 337</value>
+    <value>6, 412</value>
   </data>
   <data name="Open_Check_button.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 50</value>
@@ -2618,7 +2625,7 @@
     <value>97, 119</value>
   </data>
   <data name="Game_Path_textBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>547, 29</value>
+    <value>647, 29</value>
   </data>
   <data name="Game_Path_textBox.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -2783,7 +2790,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="Settings_tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>650, 393</value>
+    <value>750, 468</value>
   </data>
   <data name="Settings_tabPage.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2807,7 +2814,7 @@
     <value>12, 12</value>
   </data>
   <data name="Main_tabControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>658, 429</value>
+    <value>758, 504</value>
   </data>
   <data name="Main_tabControl.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -2837,10 +2844,10 @@
     <value>查看当前代理配置</value>
   </data>
   <data name="Main_statusStrip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 449</value>
+    <value>0, 524</value>
   </data>
   <data name="Main_statusStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>682, 29</value>
+    <value>782, 29</value>
   </data>
   <data name="Main_statusStrip.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -2924,7 +2931,7 @@
     <value>479, 9</value>
   </data>
   <data name="Author_label.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 23</value>
+    <value>284, 23</value>
   </data>
   <data name="Author_label.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -2954,7 +2961,7 @@
     <value>62</value>
   </metadata>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>682, 478</value>
+    <value>782, 553</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>微软雅黑, 10pt</value>
@@ -7269,7 +7276,7 @@
     <value>3, 4, 3, 4</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>700, 525</value>
+    <value>800, 550</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>Manual</value>
@@ -7293,6 +7300,12 @@
     <value>Dispatch_columnHeader</value>
   </data>
   <data name="&gt;&gt;Dispatch_columnHeader.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SSL_columnHeader.Name" xml:space="preserve">
+    <value>SSL_columnHeader</value>
+  </data>
+  <data name="&gt;&gt;SSL_columnHeader.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Count_columnHeader.Name" xml:space="preserve">

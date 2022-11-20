@@ -43,6 +43,7 @@ namespace Collei_Launcher
             this.Title_columnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Host_columnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Dispatch_columnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.SSL_columnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Count_columnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Ver_columnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Ping_columnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -239,6 +240,7 @@ namespace Collei_Launcher
             this.Title_columnHeader,
             this.Host_columnHeader,
             this.Dispatch_columnHeader,
+            this.SSL_columnHeader,
             this.Count_columnHeader,
             this.Ver_columnHeader,
             this.Ping_columnHeader,
@@ -268,6 +270,10 @@ namespace Collei_Launcher
             // Dispatch_columnHeader
             // 
             resources.ApplyResources(this.Dispatch_columnHeader, "Dispatch_columnHeader");
+            // 
+            // SSL_columnHeader
+            // 
+            resources.ApplyResources(this.SSL_columnHeader, "SSL_columnHeader");
             // 
             // Count_columnHeader
             // 
@@ -1103,6 +1109,7 @@ namespace Collei_Launcher
         private System.Windows.Forms.Button Import_PC_button;
         private System.Windows.Forms.Button Export_PC_button;
         public System.Windows.Forms.CheckBox Startup_Check_Proxy_checkBox;
+        public System.Windows.Forms.ColumnHeader SSL_columnHeader;
     }
 }
 
