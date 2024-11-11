@@ -19,19 +19,19 @@ jobs:
     - name: Setup .NET Core SDK
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '5.0'  # 根据你的项目需求调整 .NET 版本
+        dotnet-version: '4.7.2'  # 根据你的项目需求调整 .NET 版本
 
     - name: Restore .NET dependencies
-      run: dotnet restore
+      run: dotnet restore Bambi5_Launcher/Collei_Launcher.csproj
 
     - name: Build .NET project
-      run: dotnet build --configuration Release
+      run: dotnet build Bambi5_Launcher/Collei_Launcher.csproj --configuration Release
 
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v1
 
     - name: Restore C++ dependencies
-      run: msbuild /t:restore /p:Configuration=Release
+      run: msbuild /t:restore /p:Configuration=Release MetadataConverter_Dll/MetadataConverter.vcxproj
 
     - name: Build C++ project
-      run: msbuild /p:Configuration=Release
+      run: msbuild MetadataConverter_Dll/MetadataConverter.vcxproj /p:Configuration=Release
